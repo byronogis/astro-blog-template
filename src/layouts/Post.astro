@@ -8,6 +8,8 @@ import PostHead from '~/components/PostHead.astro'
     <PostHead {...Astro.props} />
   </head>
   <body>
-    <slot />
+    <div class="markdown">
+      <slot />
+    </div>
   </body>
 </html>
