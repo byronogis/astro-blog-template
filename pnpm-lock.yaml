@@ -8,6 +8,9 @@ dependencies:
   astro:
     specifier: ^3.2.0
     version: 3.2.0
+  astro-seo:
+    specifier: ^0.8.0
+    version: 0.8.0
 
 devDependencies:
   '@antfu/eslint-config':
@@ -1333,6 +1336,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /astro-seo@0.8.0:
+    resolution: {integrity: sha512-7gq6lhibCM8FuzZIJlbLLWP5EJ9KL2/4XqeFrAg9O6ZK2xMFxJ5ubKf+a0VJwwTu8W8Xr421CmpiXu6Hq7n/7Q==}
+    dev: false
 
   /astro@3.2.0:
     resolution: {integrity: sha512-sDQnSFV46ZzNkVU6co5f8wilZFmGiWsqnIVoMhd5/XPU76iZdA40WqFyBOhGaji7hGuqbcjN8MGobMg53lsoUg==}

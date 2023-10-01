@@ -1,0 +1,19 @@
+---
+import { SEO } from 'astro-seo'
+import { site } from '~/setting'
+
+const {
+  title,
+  description,
+  openGraph,
+  extend,
+} = Astro.props
+---
+
+<SEO
+  title={title ? `${title} | ${site.title}` : site.title}
+  description={description || site.description}
+  charset="utf-8"
+  openGraph={openGraph || null}
+  extend={extend || null}
+/>
