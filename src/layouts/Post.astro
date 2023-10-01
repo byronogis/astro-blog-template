@@ -1,0 +1,13 @@
+---
+import PostHead from '~/components/PostHead.astro'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <PostHead {...Astro.props} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
