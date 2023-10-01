@@ -1,15 +1,12 @@
 ---
 import PostHead from '~/components/PostHead.astro'
+import BaseLayout from '~/layouts/Base.astro'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <PostHead {...Astro.props} />
-  </head>
-  <body>
-    <div class="markdown">
-      <slot />
-    </div>
-  </body>
-</html>
+<BaseLayout>
+  <PostHead slot="head" {...Astro.props} />
+
+  <div class="markdown">
+    <slot></slot>
+  </div>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import BaseHead from '~/components/BaseHead.astro'
+import SiteSide from '~/components/SiteSide.astro'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <slot name="head">
+      <BaseHead />
+    </slot>
+  </head>
+  <body>
+    <div class="layout-base min-h-100vh flex flex-row">
+      <SiteSide class="flex-none" />
+      <main class="flex-1 lg:(pl-20vw)">
+        <slot />
+      </main>
+    </div>
+</html>

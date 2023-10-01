@@ -2,8 +2,21 @@
 import { SEO } from 'astro-seo'
 import { site } from '~/setting'
 
+const pathGenealogy = Astro.url.pathname
+  .split('/')
+  .filter(Boolean)
+  .reduce((acc, val) => [...acc, `${acc.at(-1)}${val}/`], ['/'])
+
+const title = Astro.props.title || (function () {
+  let target
+  pathGenealogy.findLast((currentPath) => {
+    target = site.navigation.find(({ path }) => path === currentPath)
+    return target
+  })
+  return target?.title
+}())
+
 const {
-  title,
   description,
   openGraph,
   extend,

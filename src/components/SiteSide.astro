@@ -1,0 +1,20 @@
+---
+import { site } from '~/setting'
+
+const { class: className } = Astro.props
+---
+
+<side class:list={[
+  'fixed z-100 bottom-0 w-100vw max-h-60vh overflow-auto translate-y-100% transition-transform',
+  'lg:(w-20vw h-100vh max-h-100vh translate-y-0)',
+  className,
+]}>
+  <ul class:list={[
+    'h-full flex flex-col justify-evenly items-center',
+    'lg:(justify-center)',
+  ]}>
+    {site.navigation.map(({ title, path }) => (
+      <li class="py-4 text-4"><a href={path}>{title}</a></li>
+    ))}
+  </ul>
+</side>
