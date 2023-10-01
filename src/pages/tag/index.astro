@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content'
+import DefaultLayout from '~/layouts/Default.astro'
+
+const postEntries = await getCollection('blog')
+
+const tagsCount = postEntries.reduce((acc, entry) => {
+  entry.data.tags?.forEach((tag) => {
+    acc[tag] = acc[tag] ? acc[tag] + 1 : 1
+  })
+  return acc
+}, {})
+---
+
+<DefaultLayout>
+  <ul>
+    {Object.entries(tagsCount).map(([tag, count]) => (
+      <li>
+        <a href={`/tag/${tag}`}>{tag}</a>
+        <span>{count}</span>
+      </li>
+    ))}
+  </ul>
+</DefaultLayout>

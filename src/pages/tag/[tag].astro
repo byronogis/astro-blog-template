@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content'
+import DefaultLayout from '~/layouts/Default.astro'
+
+export async function getStaticPaths() {
+  const postEntries = await getCollection('blog')
+
+  const tagsCount = postEntries.reduce((acc, entry) => {
+    entry.data.tags?.forEach((tag) => {
+      acc[tag] = acc[tag] ? acc[tag] + 1 : 1
+    })
+    return acc
+  }, {})
+
+  const tags = Object.keys(tagsCount)
+
+  return tags.map(tag => ({
+    params: { tag },
+    props: {
+      entries: postEntries.filter(entry => entry.data.tags?.includes(tag)),
+    },
+  }))
+}
+
+const { entries } = Astro.props
+---
+
+<DefaultLayout>
+  <ul>
+    {entries.map(entry => (
+      <li><a href={`/post/${entry.slug}`}>{entry.data.title}</a></li>
+    ))}
+  </ul>
+</DefaultLayout>
