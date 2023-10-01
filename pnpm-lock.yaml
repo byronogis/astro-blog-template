@@ -19,6 +19,12 @@ devDependencies:
   '@unocss/reset':
     specifier: ^0.56.4
     version: 0.56.4
+  '@unocss/transformer-directives':
+    specifier: ^0.56.4
+    version: 0.56.4
+  '@unocss/transformer-variant-group':
+    specifier: ^0.56.4
+    version: 0.56.4
   eslint:
     specifier: ^8.50.0
     version: 8.50.0

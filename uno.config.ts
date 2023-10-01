@@ -4,6 +4,8 @@ import {
   presetTypography,
   presetUno,
 } from 'unocss'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
+import transformerDirectives from '@unocss/transformer-directives'
 
 export default defineConfig({
   presets: [
@@ -13,4 +15,16 @@ export default defineConfig({
       selectorName: 'markdown',
     }),
   ],
+  transformers: [
+    transformerVariantGroup(),
+    transformerDirectives(),
+  ],
+  shortcuts: {
+    'flex-center': 'flex items-center justify-center',
+  },
+  theme: {
+    breakpoints: {
+      lg: '1024px',
+    },
+  },
 })
