@@ -14,5 +14,7 @@ export const site = {
     post: 'i-ic:baseline-article',
     tag: 'i-ic:baseline-label',
     info: 'i-ic:baseline-info',
+    toc: 'i-ic:baseline-format-list-bulleted',
+    menu: 'i-ic:baseline-menu',
   },
 }

@@ -1,12 +1,45 @@
 ---
 import PostHead from '~/components/PostHead.astro'
 import BaseLayout from '~/layouts/Base.astro'
+
+const { data, render } = Astro.props
+const { Content, headings } = await render()
 ---
 
 <BaseLayout>
-  <PostHead slot="head" {...Astro.props} />
+  <PostHead slot="head" {...data} />
 
-  <div class="markdown">
-    <slot></slot>
+  <div
+    class:list={[
+      'relative',
+      'flex flex-row',
+    ]}
+  >
+    <article class:list={[
+      'markdown', // unocss typography
+      'm-auto',
+    ]}>
+      <Content />
+    </article>
+
+    <aside class:list={[
+      'fixed z-100 bottom-0 w-100vw max-h-60vh overflow-auto translate-y-100% transition-transform bg-strong text-text shadow-md',
+      'lg:(sticky top-0 w-20vw h-100vh max-h-100vh translate-y-0 bg-transparent text-text:70 shadow-none)',
+      'layout_post__toc',
+    ]}>
+      <ul class:list={[
+        'h-full flex flex-col items-start',
+        'lg:(justify-start)',
+      ]}>
+        {headings.map(heading => (
+          <li
+            style={{ paddingLeft: `${(heading.depth - 1) * 1}em` }}
+            class="w-full"
+          >
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))}
+      </ul>
+    </aside>
   </div>
 </BaseLayout>

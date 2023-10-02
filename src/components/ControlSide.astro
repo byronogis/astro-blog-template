@@ -1,0 +1,53 @@
+---
+import { site } from '~/setting'
+
+const { class: className } = Astro.props
+---
+
+<aside class:list={[
+  className,
+  'component_control-side',
+  'fixed bottom-8 right-8 grid grid-cols-1 gap-y-2 text-8 text-text:70',
+]}>
+  <button class:list={[ // post toc
+    site.iconMap.toc,
+    'component_control-side_post-toc__button',
+    'hover:text-text',
+    'lg:(hidden)',
+  ]}/>
+
+  <button class:list={[ // site side
+    site.iconMap.menu,
+    'component_control-side_site-side__button',
+    'hover:text-text',
+    'md:(hidden)',
+  ]}/>
+
+</aside>
+
+<script>
+  const controlSide = document.querySelector('.component_control-side')
+  controlSide?.addEventListener('click', ({target}) => {
+    let height
+    let isExpanded
+
+    if (target?.classList.contains('component_control-side_post-toc__button')) {
+      const toc = document.querySelector('.layout_post__toc')
+      if(!toc) return
+      height = toc.getBoundingClientRect().height
+      isExpanded = !toc.classList.toggle('translate-y-100%')
+    } else if (target?.classList.contains('component_control-side_site-side__button')) {
+      const side = document.querySelector('.component_site-side')
+      if(!side) return
+      height = side.getBoundingClientRect().height
+      isExpanded = !side.classList.toggle('translate-y-100%')
+    }
+
+    if (isExpanded) {
+      controlSide.style.bottom = `calc(2rem + ${height}px)`
+    } else {
+      controlSide.style.bottom = `2rem`
+    }
+  })
+
+</script>
