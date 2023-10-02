@@ -1,5 +1,6 @@
 ---
 import { site } from '~/setting'
+import { getPath } from '~/utils/path'
 
 const { class: className } = Astro.props
 ---
@@ -15,10 +16,10 @@ const { class: className } = Astro.props
     'h-full flex flex-col items-center',
     'md:(justify-center)',
   ]}>
-    {site.navigation.map(({ title, path, icon }) => (
+    {site.navigation.map(({ title, icon, id }) => (
       <li class="py-4 text-4">
-        <a href={path} title={title} class:list={['block', 'md:(hidden)', 'xl:(block)']}>{title}</a>
-        <a href={path} title={title} class:list={[site.iconMap[icon], 'hidden', 'md:(block text-6)', 'xl:(hidden)']}></a>
+        <a href={getPath(id)} title={title} class:list={['block', 'md:(hidden)', 'xl:(block)']}>{title}</a>
+        <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'md:(block text-6)', 'xl:(hidden)']}></a>
       </li>
     ))}
   </ul>
