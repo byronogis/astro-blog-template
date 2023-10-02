@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "1.0.0-beta.18",
+    "@iconify-json/ic": "^1.1.14",
     "@unocss/reset": "^0.56.4",
     "@unocss/transformer-directives": "^0.56.4",
     "@unocss/transformer-variant-group": "^0.56.4",
