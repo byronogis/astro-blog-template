@@ -9,6 +9,13 @@ const { class: className } = Astro.props
   'component_control-side',
   'fixed bottom-8 right-8 grid grid-cols-1 gap-y-2 text-8 text-text:70',
 ]}>
+  <button class:list={[ // home
+    site.iconMap.home,
+    'component_control-side_home__button',
+    'hover:text-text',
+    'md:(hidden)',
+  ]}/>
+
   <button class:list={[ // post toc
     site.iconMap.toc,
     'component_control-side_post-toc__button',
@@ -26,12 +33,17 @@ const { class: className } = Astro.props
 </aside>
 
 <script>
+  import { goPath } from '~/utils/path'
+
   const controlSide = document.querySelector('.component_control-side')
   controlSide?.addEventListener('click', ({target}) => {
     let height
     let isExpanded
 
-    if (target?.classList.contains('component_control-side_post-toc__button')) {
+    if (target?.classList.contains('component_control-side_home__button')) {
+      goPath('home')
+      return
+    } else if (target?.classList.contains('component_control-side_post-toc__button')) {
       const toc = document.querySelector('.layout_post__toc')
       if(!toc) return
       height = toc.getBoundingClientRect().height
