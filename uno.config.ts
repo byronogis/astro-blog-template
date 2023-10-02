@@ -7,6 +7,7 @@ import {
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 import transformerDirectives from '@unocss/transformer-directives'
 import presetTheme from 'unocss-preset-theme'
+import { site } from './src/setting'
 
 export default defineConfig({
   presets: [
@@ -48,4 +49,7 @@ export default defineConfig({
       text: '#060607',
     },
   },
+  safelist: [
+    ...Object.values(site.iconMap),
+  ],
 })
