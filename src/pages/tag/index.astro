@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import BaseLayout from '~/layouts/Base.astro'
+import { getPath } from '~/utils/path'
 
 const postEntries = await getCollection('blog')
 
@@ -16,7 +17,7 @@ const tagsCount = postEntries.reduce((acc, entry) => {
   <ul>
     {Object.entries(tagsCount).map(([tag, count]) => (
       <li>
-        <a href={`/tag/${tag}`}>{tag}</a>
+        <a href={getPath('tag', tag)}>{tag}</a>
         <span>{count}</span>
       </li>
     ))}

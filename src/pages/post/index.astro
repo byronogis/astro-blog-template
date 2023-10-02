@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import BaseLayout from '~/layouts/Base.astro'
+import { getPath } from '~/utils/path'
 
 const postEntries = await getCollection('blog')
 ---
@@ -8,7 +9,7 @@ const postEntries = await getCollection('blog')
 <BaseLayout>
   <ul>
     {postEntries.map(entry => (
-      <li><a href={`/post/${entry.slug}`}>{entry.data.title}</a></li>
+      <li><a href={getPath('post', entry.slug)}>{entry.data.title}</a></li>
     ))}
   </ul>
 </BaseLayout>
