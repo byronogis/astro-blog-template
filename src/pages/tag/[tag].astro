@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import BaseLayout from '~/layouts/Base.astro'
+import DefaultLayout from '~/layouts/Default.astro'
 import { getPath } from '~/utils/path'
 
 export async function getStaticPaths() {
@@ -19,10 +19,10 @@ export async function getStaticPaths() {
 const { entries } = Astro.props
 ---
 
-<BaseLayout>
+<DefaultLayout>
   <ul>
     {entries.map(entry => (
       <li><a href={getPath('post', entry.slug)}>{entry.data.title}</a></li>
     ))}
   </ul>
-</BaseLayout>
+</DefaultLayout>

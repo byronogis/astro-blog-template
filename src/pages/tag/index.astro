@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import BaseLayout from '~/layouts/Base.astro'
+import DefaultLayout from '~/layouts/Default.astro'
 import { getPath } from '~/utils/path'
 
 const postEntries = await getCollection('blog')
@@ -13,7 +13,7 @@ const tagsCount = postEntries.reduce((acc, entry) => {
 }, {})
 ---
 
-<BaseLayout>
+<DefaultLayout>
   <ul>
     {Object.entries(tagsCount).map(([tag, count]) => (
       <li>
@@ -22,4 +22,4 @@ const tagsCount = postEntries.reduce((acc, entry) => {
       </li>
     ))}
   </ul>
-</BaseLayout>
+</DefaultLayout>
