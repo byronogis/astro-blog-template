@@ -52,4 +52,8 @@ export default defineConfig({
   safelist: [
     ...Object.values(site.iconMap),
   ],
+  layers: {
+    theme: 0,
+    icons: 1,
+  },
 })
