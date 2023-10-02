@@ -1,7 +1,5 @@
 ---
 import BaseHead from '~/components/BaseHead.astro'
-import SiteSide from '~/components/SiteSide.astro'
-import ControlSide from '~/components/ControlSide.astro'
 ---
 
 <!DOCTYPE html>
@@ -12,11 +10,6 @@ import ControlSide from '~/components/ControlSide.astro'
     </slot>
   </head>
   <body class="bg-primary text-text">
-    <div class="layout-base min-h-100vh flex flex-row">
-      <SiteSide class="flex-none" />
-      <main class="flex-1 md:(pl-80px) xl:(pl-18vw)">
-        <slot />
-      </main>
-      <ControlSide class="flex-none" />
-    </div>
+    <slot />
+  </body>
 </html>

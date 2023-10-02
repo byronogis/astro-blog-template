@@ -1,8 +1,21 @@
 ---
 import BaseLayout from '~/layouts/Base.astro'
+import BaseHead from '~/components/BaseHead.astro'
+import SiteSide from '~/components/SiteSide.astro'
+import ControlSide from '~/components/ControlSide.astro'
 
 ---
 
 <BaseLayout>
-  <div class="p-4"><slot /></div>
+  <slot name="head" slot="head">
+    <BaseHead />
+  </slot>
+
+  <div class="min-h-100vh flex flex-row layout_default">
+    <SiteSide class="flex-none" />
+    <main class="flex-1 md:(pl-80px) xl:(pl-18vw)">
+      <slot />
+    </main>
+    <ControlSide class="flex-none" />
+  </div>
 </BaseLayout>

@@ -1,18 +1,19 @@
 ---
 import PostHead from '~/components/PostHead.astro'
-import BaseLayout from '~/layouts/Base.astro'
+import DefaultLayout from '~/layouts/Default.astro'
 
 const { data, render } = Astro.props
 const { Content, headings } = await render()
 ---
 
-<BaseLayout>
+<DefaultLayout>
   <PostHead slot="head" {...data} />
 
   <div
     class:list={[
       'relative',
       'flex flex-row',
+      'layout_post',
     ]}
   >
     <article class:list={[
@@ -42,4 +43,4 @@ const { Content, headings } = await render()
       </ul>
     </aside>
   </div>
-</BaseLayout>
+</DefaultLayout>
