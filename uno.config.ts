@@ -37,7 +37,9 @@ export default defineConfig({
   },
   theme: {
     breakpoints: {
+      md: '768px',
       lg: '1024px',
+      xl: '1280px',
     },
     colors: {
       primary: '#FFFFFF',
