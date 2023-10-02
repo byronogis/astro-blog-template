@@ -40,6 +40,9 @@ devDependencies:
   unocss:
     specifier: ^0.56.4
     version: 0.56.4(postcss@8.4.31)(vite@4.4.9)
+  unocss-preset-theme:
+    specifier: ^0.10.0
+    version: 0.10.0(@unocss/core@0.56.4)
 
 packages:
 
@@ -5351,6 +5354,15 @@ packages:
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
     dev: false
+
+  /unocss-preset-theme@0.10.0(@unocss/core@0.56.4):
+    resolution: {integrity: sha512-Y3amyym65wQLeane4RT9i/Qu/VNlgurjiyGor75agSErJbhIXpAsRD63oXl2JsHZVX403WE3tY67BvyoUjO6cw==}
+    peerDependencies:
+      '@unocss/core': '>= 0.52.0'
+    dependencies:
+      '@unocss/core': 0.56.4
+      '@unocss/rule-utils': 0.56.4
+    dev: true
 
   /unocss@0.56.4(postcss@8.4.31)(vite@4.4.9):
     resolution: {integrity: sha512-RcaZHLSlj7BAupx6Y9jJwOSRJ+Lu1pnLwRZuppMfD4GgWWNymDRJ7HF1uNqCCYhxJa1LgU1irOEfO8pzK8NYkw==}
