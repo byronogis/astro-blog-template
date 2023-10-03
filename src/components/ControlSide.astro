@@ -40,24 +40,27 @@ const { class: className } = Astro.props
 <script>
   import { goPath } from '~/utils/path'
 
+  const postToc = document.querySelector('.layout_post__toc')
+  const siteSide = document.querySelector('.component_site-side')
+
   const controlSide = document.querySelector('.component_control-side')
   controlSide?.addEventListener('click', ({target}) => {
     let height
     let isExpanded
 
-    if (target?.classList.contains('component_control-side_home__button')) {
+    if (target?.classList.contains('component_control-side_home__button')) { // home
       goPath('home')
       return
-    } else if (target?.classList.contains('component_control-side_post-toc__button')) {
-      const toc = document.querySelector('.layout_post__toc')
-      if(!toc) return
-      height = toc.getBoundingClientRect().height
-      isExpanded = !toc.classList.toggle('translate-y-100%')
-    } else if (target?.classList.contains('component_control-side_site-side__button')) {
-      const side = document.querySelector('.component_site-side')
-      if(!side) return
-      height = side.getBoundingClientRect().height
-      isExpanded = !side.classList.toggle('translate-y-100%')
+    } else if (target?.classList.contains('component_control-side_post-toc__button')) { // post toc
+      if(!postToc) return
+      siteSide?.classList.add('translate-y-100%')
+      height = postToc.getBoundingClientRect().height
+      isExpanded = !postToc.classList.toggle('translate-y-100%')
+    } else if (target?.classList.contains('component_control-side_site-side__button')) { // site side
+      if(!siteSide) return
+      postToc?.classList.add('translate-y-100%')
+      height = siteSide.getBoundingClientRect().height
+      isExpanded = !siteSide.classList.toggle('translate-y-100%')
     }
 
     if (isExpanded) {
@@ -68,6 +71,6 @@ const { class: className } = Astro.props
   })
 
   const tocButton = document.querySelector('.component_control-side_post-toc__button')
-  document.querySelector('.layout_post__toc') || tocButton && (tocButton.style.display = 'none')
+  postToc || tocButton && (tocButton.style.display = 'none')
 
 </script>
