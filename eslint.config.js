@@ -46,4 +46,9 @@ export default antfu(
       rules: {},
     },
   },
+  {
+    rules: {
+      curly: 'off',
+    },
+  },
 )
