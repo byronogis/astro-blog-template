@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  astro-color-scheme@1.1.2:
+    hash: lugor723lcz2olxa74cxsj5tqi
+    path: patches/astro-color-scheme@1.1.2.patch
+
 dependencies:
   astro:
     specifier: ^3.2.0
@@ -30,7 +35,7 @@ devDependencies:
     version: 0.56.4
   astro-color-scheme:
     specifier: ^1.1.2
-    version: 1.1.2
+    version: 1.1.2(patch_hash=lugor723lcz2olxa74cxsj5tqi)
   eslint:
     specifier: ^8.50.0
     version: 8.50.0
@@ -1594,9 +1599,10 @@ packages:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
     dev: true
 
-  /astro-color-scheme@1.1.2:
+  /astro-color-scheme@1.1.2(patch_hash=lugor723lcz2olxa74cxsj5tqi):
     resolution: {integrity: sha512-HCnBlb805QaT8xgPB59Qur9wqFKoLGA3gQjY33SQe07re1XTF8ksJ3UT8KF55V14aNwfhe/dr4WC0ZZ2DL7U7g==}
     dev: true
+    patched: true
 
   /astro-eslint-parser@0.15.0:
     resolution: {integrity: sha512-iC3VvAS/o6TX92Frwp5Yht/AO3a2tQhCnOe9CdbiICwy+ZYTH/ZOiBxeXI2I5qE1YlbtP2wvBLr+SCgwOAEZvg==}
