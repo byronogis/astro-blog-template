@@ -61,6 +61,8 @@ const { class: className } = Astro.props
       postToc?.classList.add('translate-y-100%')
       height = siteSide.getBoundingClientRect().height
       isExpanded = !siteSide.classList.toggle('translate-y-100%')
+    } else {
+      return
     }
 
     if (isExpanded) {
