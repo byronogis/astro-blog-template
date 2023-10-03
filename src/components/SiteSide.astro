@@ -1,4 +1,5 @@
 ---
+import ThemeSwitchButton from '~/components/ThemeSwitchButton.astro'
 import { site } from '~/setting'
 import { getPath } from '~/utils/path'
 
@@ -22,5 +23,14 @@ const { class: className } = Astro.props
         <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'md:(block text-6)', 'xl:(hidden)']}></a>
       </li>
     ))}
+
+    <li
+      class:list={[
+        'py-4',
+        'md:(text-6)',
+      ]}
+    >
+      <ThemeSwitchButton></ThemeSwitchButton>
+    </li>
   </ul>
 </aside>

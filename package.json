@@ -22,6 +22,7 @@
     "@unocss/reset": "^0.56.4",
     "@unocss/transformer-directives": "^0.56.4",
     "@unocss/transformer-variant-group": "^0.56.4",
+    "astro-color-scheme": "^1.1.2",
     "eslint": "^8.50.0",
     "eslint-plugin-astro": "^0.29.0",
     "lint-staged": "^14.0.1",

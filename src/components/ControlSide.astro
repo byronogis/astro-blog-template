@@ -1,4 +1,5 @@
 ---
+import ThemeSwitchButton from '~/components/ThemeSwitchButton.astro'
 import { site } from '~/setting'
 
 const { class: className } = Astro.props
@@ -15,6 +16,10 @@ const { class: className } = Astro.props
     'hover:text-text',
     'md:(hidden)',
   ]}/>
+
+  <div class="md:(hidden)">
+    <ThemeSwitchButton></ThemeSwitchButton>
+  </div>
 
   <button class:list={[ // post toc
     site.iconMap.toc,

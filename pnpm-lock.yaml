@@ -28,6 +28,9 @@ devDependencies:
   '@unocss/transformer-variant-group':
     specifier: ^0.56.4
     version: 0.56.4
+  astro-color-scheme:
+    specifier: ^1.1.2
+    version: 1.1.2
   eslint:
     specifier: ^8.50.0
     version: 8.50.0
@@ -1589,6 +1592,10 @@ packages:
 
   /assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
+    dev: true
+
+  /astro-color-scheme@1.1.2:
+    resolution: {integrity: sha512-HCnBlb805QaT8xgPB59Qur9wqFKoLGA3gQjY33SQe07re1XTF8ksJ3UT8KF55V14aNwfhe/dr4WC0ZZ2DL7U7g==}
     dev: true
 
   /astro-eslint-parser@0.15.0:
