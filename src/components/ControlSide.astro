@@ -67,4 +67,7 @@ const { class: className } = Astro.props
     }
   })
 
+  const tocButton = document.querySelector('.component_control-side_post-toc__button')
+  document.querySelector('.layout_post__toc') || tocButton && (tocButton.style.display = 'none')
+
 </script>
