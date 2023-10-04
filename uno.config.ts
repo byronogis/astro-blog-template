@@ -35,6 +35,8 @@ export default defineConfig({
   ],
   shortcuts: {
     'flex-center': 'flex items-center justify-center',
+    'site-tag': 'px-2 py-1 border-2px border-dashed border-current rounded-md',
+    'site-opacity': 'opacity-60',
   },
   theme: {
     breakpoints: {

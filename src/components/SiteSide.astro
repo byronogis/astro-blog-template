@@ -8,7 +8,7 @@ const { class: className } = Astro.props
 
 <aside class:list={[
   'fixed z-100 bottom-0 w-100vw max-h-60vh overflow-auto translate-y-100% transition-transform bg-strong text-text shadow-md',
-  'md:(w-80px h-100vh max-h-100vh translate-y-0 bg-secondary text-text:70 translate-none shadow-none)',
+  'md:(w-80px h-100vh max-h-100vh translate-y-0 bg-secondary translate-none shadow-none)',
   'xl:(w-18vw)',
   'component_site-side',
   className,
@@ -18,18 +18,19 @@ const { class: className } = Astro.props
     'md:(justify-center)',
   ]}>
     {site.navigation.map(({ title, icon, id }) => (
-      <li class="py-4 text-4">
-        <a href={getPath(id)} title={title} class:list={['block', 'md:(hidden)', 'xl:(block)']}>{title}</a>
+      <li class:list={[
+        'py-4 site-opacity',
+        'md:(hover:opacity-100)',
+      ]}>
+        <a href={getPath(id)} title={title} class:list={['text-4 block', 'md:(hidden)', 'xl:(block)']}>{title}</a>
         <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'md:(block text-6)', 'xl:(hidden)']}></a>
       </li>
     ))}
 
-    <li
-      class:list={[
-        'py-4',
-        'md:(text-6)',
-      ]}
-    >
+    <li class:list={[
+      'py-4 site-opacity',
+      'md:(hover:opacity-100 text-6)',
+    ]}>
       <ThemeSwitchButton></ThemeSwitchButton>
     </li>
   </ul>

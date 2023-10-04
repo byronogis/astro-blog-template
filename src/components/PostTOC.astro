@@ -69,8 +69,6 @@ function normalizeHeadingLevels(headings) {
       '![&:only-child]:bg-none',
       '![&:only-child_>summary]:bg-none',
       '[&:last-child]:bg-[length:1px_0.8em]',
-      // 'opacity-100',
-      // 'lg:opacity-60 lg:hover:(opacity-100)',
     ]}
   >
     <summary
@@ -83,8 +81,8 @@ function normalizeHeadingLevels(headings) {
         'grid grid-cols-[1em_auto_1fr] items-center gap-2 cursor-pointer',
         // 'bg-gradient-to-r from-text to-text',
         'bg-left bg-[length:1.5em_1px] bg-no-repeat',
-        'opacity-100',
-        'lg:opacity-60 lg:hover:(opacity-100)',
+        'site-opacity',
+        'md:(hover:opacity-100)',
         '[&.active]:underline [&.active]:decoration-wavy',
       ]}
     >

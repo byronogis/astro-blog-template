@@ -9,7 +9,7 @@ const { class: className } = Astro.props
 <aside class:list={[
   className,
   'component_control-side',
-  'fixed bottom-8 right-8 grid grid-cols-1 gap-y-2 text-8 text-text:70',
+  'fixed bottom-8 right-8 grid grid-cols-1 gap-y-2 text-8',
 ]}>
   <a href={getPath('about')} class:list={[
     'w-8',
@@ -19,25 +19,30 @@ const { class: className } = Astro.props
   <button class:list={[ // home
     site.iconMap.home,
     'component_control-side_home__button',
-    'hover:text-text',
+    'site-opacity',
     'md:(hidden)',
   ]}/>
 
-  <div class="md:(hidden)">
+  <div class:list={[
+    'component_control-theme-switch__button',
+    'site-opacity',
+    'md:(hidden)',
+  ]}>
     <ThemeSwitchButton></ThemeSwitchButton>
   </div>
 
   <button class:list={[ // post toc
     site.iconMap.toc,
     'component_control-side_post-toc__button',
-    'hover:text-text',
+    'site-opacity',
+    'md:(hover:opacity-100)',
     'lg:(hidden)',
   ]}/>
 
   <button class:list={[ // site side
     site.iconMap.menu,
     'component_control-side_site-side__button',
-    'hover:text-text',
+    'site-opacity',
     'md:(hidden)',
   ]}/>
 
