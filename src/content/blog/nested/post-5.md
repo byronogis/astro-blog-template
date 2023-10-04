@@ -1,18 +1,11 @@
 ---
-title: '我的第三篇博客文章'
-description: '这是我 Astro 博客的第三篇文章。'
-image:
-    url: '@/assets/img/aaa.jpg'
-    alt: 'relative image with alias'
-publishedTime: 2022-07-01
-modifiedTime: 2022-07-01
-author: 'Astro 学习者'
+title: '我的第五篇博客文章博客文章博客文章博客文章博客文章'
+description: '这是我 Astro 博客的第五篇文章。'
 tags: ["astro", "blogging", "learning in public"]
 ---
 
-# 我的第三篇博客文章
+# 我的第五篇博客文章
 
- 发表于：2022-07-01
 
  欢迎来到我学习关于 Astro 的新博客！在这里，我将分享我建立新网站的学习历程。
 
@@ -22,7 +15,7 @@ tags: ["astro", "blogging", "learning in public"]
 
  2. **制作页面**：然后我学习了如何通过创建新的 `.astro` 文件并将它们保存在 `src/pages/` 文件夹里来制作页面。
 
- 3. **发表博客文章**：这是我的第三篇博客文章！我现在有用 Astro 编写的页面和用 Markdown 写的文章了！
+ 3. **发表博客文章**：这是我的第四篇博客文章！我现在有用 Astro 编写的页面和用 Markdown 写的文章了！
 
  ## 下一步计划
 

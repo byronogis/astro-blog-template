@@ -2,8 +2,8 @@
 title: '我的第二篇博客文章'
 description: '这是我 Astro 博客的第二篇文章。'
 image:
-    url: ''
-    alt: 'The full Astro logo.'
+    url: '/placeholder-cover.jpg'
+    alt: '/public image'
 publishedTime: 2022-07-01
 modifiedTime: 2022-07-01
 author: 'Astro 学习者'
