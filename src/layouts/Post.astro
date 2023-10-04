@@ -32,6 +32,7 @@ const { Content, headings } = await render()
       <PostTOC
         range={[2, 4]}
         number={true}
+        line={true}
         headings={headings.map(heading => ({ ...heading, title: heading.text, url: `#${heading.slug}` }))}
       />
     </aside>
