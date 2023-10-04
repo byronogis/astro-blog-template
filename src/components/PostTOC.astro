@@ -1,0 +1,82 @@
+---
+const { headings, range = [1, 6] } = Astro.props
+
+const toc = normalizeHeadingLevels(headings.filter(i => range[0] <= i.depth && i.depth <= range[1]))
+
+function toNested(headings) {
+  if (headings.length <= 1) {
+    return headings
+  }
+
+  const indexList = headings.reduce((acc, val, idx) => [...acc, val.depth === headings[0].depth && idx], []).filter(Boolean)
+  indexList.unshift(0)
+
+  indexList.forEach((val, idx) => {
+    headings[val].children = headings.slice(val + 1, indexList[idx + 1])
+  })
+
+  return headings
+    .filter((_val, idx) => indexList.includes(idx))
+    .map(val => ({
+      ...val,
+      children: val.children && toNested(val.children),
+    }))
+}
+
+function normalizeHeadingLevels(headings) {
+  if (headings.length === 0) {
+    return headings
+  }
+
+  headings = toNested(headings)
+
+  return headings
+}
+
+---
+
+{toc.map(i => (
+  <details
+    open
+    style={{
+      backgroundImage: i.depth === range[0] ? 'none' : 'repeating-linear-gradient(currentColor 0 4px,transparent 0px 8px)',
+      backgroundPositionX: `${(i.depth - range[0]) * 2 - 1.5}em`,
+    }}
+    class:list={[
+      `[&_>summary:not(:only-child)_>div]:i-ic:baseline-arrow-right`,
+      `[&_>summary:not(:only-child)_>div]:open:i-ic:baseline-arrow-drop-down`,
+      `[&_>summary:only-child_>div]:i-ic:outline-circle`,
+      `[&_>summary:only-child_>div]:scale-50`,
+      // 'bg-gradient-to-r from-text to-text ',
+      'bg-left-top bg-[length:1px_100%] bg-no-repeat',
+      '![&:only-child]:bg-none',
+      '![&:only-child_>summary]:bg-none',
+      '[&:last-child]:bg-[length:1px_0.8em]',
+      // 'opacity-100',
+      // 'lg:opacity-60 lg:hover:(opacity-100)',
+    ]}
+  >
+    <summary
+      style={{
+        paddingLeft: `${(i.depth - range[0]) * 2}em`,
+        backgroundImage: 'repeating-linear-gradient(90deg, currentColor 0 4px,transparent 0px 8px)',
+        backgroundPositionX: `${(i.depth - range[0]) * 2 - 1.5}em`,
+      }}
+      class:list={[
+        'grid grid-cols-[1em_1fr] items-center gap-2 cursor-pointer',
+        // 'bg-gradient-to-r from-text to-text',
+        'bg-left bg-[length:1.5em_1px] bg-no-repeat',
+        'opacity-100',
+        'lg:opacity-60 lg:hover:(opacity-100)',
+      ]}
+    >
+      <div class:list={[
+        'text-4',
+      ]}></div>
+      <a class="overflow-hidden text-ellipsis break-all whitespace-nowrap" href={i.url} title={i.title}>{i.title}</a>
+    </summary>
+    {i.children?.map(j => (
+        <Astro.self range={range} headings={[j]} />
+    ))}
+  </details>
+))}

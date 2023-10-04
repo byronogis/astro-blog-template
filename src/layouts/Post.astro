@@ -1,6 +1,7 @@
 ---
 import PostHead from '~/components/PostHead.astro'
 import DefaultLayout from '~/layouts/Default.astro'
+import PostTOC from '~/components/PostTOC.astro'
 
 const { data, render } = Astro.props
 const { Content, headings } = await render()
@@ -28,19 +29,11 @@ const { Content, headings } = await render()
       'lg:(sticky top-0 w-20vw h-100vh max-h-100vh translate-y-0 bg-transparent text-text:70 shadow-none)',
       'layout_post__toc',
     ]}>
-      <ul class:list={[
-        'h-full flex flex-col items-start',
-        'lg:(justify-start)',
-      ]}>
-        {headings.map(heading => (
-          <li
-            style={{ paddingLeft: `${(heading.depth - 1) * 1}em` }}
-            class="w-full"
-          >
-            <a href={`#${heading.slug}`}>{heading.text}</a>
-          </li>
-        ))}
-      </ul>
+      <PostTOC
+        range={[2, 4]}
+        headings={headings.map(heading => ({ ...heading, title: heading.text, url: `#${heading.slug}` }))}
+      />
     </aside>
+
   </div>
 </DefaultLayout>
