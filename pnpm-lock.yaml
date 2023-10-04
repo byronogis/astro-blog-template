@@ -16,6 +16,9 @@ dependencies:
   astro-seo:
     specifier: ^0.8.0
     version: 0.8.0
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
 
 devDependencies:
   '@antfu/eslint-config':
@@ -2088,6 +2091,10 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
     dev: true
+
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: false
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}

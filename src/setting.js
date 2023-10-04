@@ -19,4 +19,6 @@ export const site = {
     menu: 'i-ic:baseline-menu',
   },
   basePath: '/',
+  dateFormate: 'YYYY-MM-DD',
+  timeFormate: 'HH:mm',
 }
