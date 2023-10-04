@@ -14,11 +14,14 @@ const tagsCount = postEntries.reduce((acc, entry) => {
 ---
 
 <DefaultLayout>
-  <ul>
+  <ul class="w-full min-h-full flex flex-row flex-wrap content-center justify-center items-center gap-4">
     {Object.entries(tagsCount).map(([tag, count]) => (
-      <li>
+      <li class:list={[
+        'px-2 py-1 border-2px border-dashed border-text:50 rounded-md',
+        'md:(opacity-60 hover:opacity-100)',
+      ]}>
         <a href={getPath('tag', tag)}>{tag}</a>
-        <span>{count}</span>
+        <span class="ml-2">{count}</span>
       </li>
     ))}
   </ul>
