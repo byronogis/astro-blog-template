@@ -1,5 +1,6 @@
 export const site = {
   author: 'Anonymous',
+  avatar: '/avatar.jpg', // url or path (relative to /public)
   email: 'foo@bar.baz',
   title: 'Astro Starter',
   description: 'Astro Starter Description',

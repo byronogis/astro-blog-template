@@ -1,6 +1,7 @@
 ---
 import ThemeSwitchButton from '~/components/ThemeSwitchButton.astro'
 import { site } from '~/setting'
+import { getPath } from '~/utils/path'
 
 const { class: className } = Astro.props
 ---
@@ -10,6 +11,11 @@ const { class: className } = Astro.props
   'component_control-side',
   'fixed bottom-8 right-8 grid grid-cols-1 gap-y-2 text-8 text-text:70',
 ]}>
+  <a href={getPath('about')} class:list={[
+    'w-8',
+    'md:(hidden)',
+  ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%"></a>
+
   <button class:list={[ // home
     site.iconMap.home,
     'component_control-side_home__button',

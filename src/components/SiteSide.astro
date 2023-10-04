@@ -33,4 +33,10 @@ const { class: className } = Astro.props
       <ThemeSwitchButton></ThemeSwitchButton>
     </li>
   </ul>
+
+  <a href={getPath('about')} class:list={[
+    'hidden',
+    'md:(block absolute bottom-4 left-0 right-0 m-auto w-8)',
+    'xl:(w-30%)',
+  ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%"></a>
 </aside>
