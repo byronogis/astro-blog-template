@@ -4,6 +4,7 @@ const {
   range = [1, 6],
   number = false,
   line = false,
+  key,
 } = Astro.props
 
 const toc = normalizeHeadingLevels(headings.filter(i => range[0] <= i.depth && i.depth <= range[1]))
@@ -52,6 +53,7 @@ function normalizeHeadingLevels(headings) {
 
 {toc.map(i => (
   <details
+    data-key={key}
     open
     style={{
       backgroundImage: line && (i.depth === range[0] ? 'none' : 'repeating-linear-gradient(currentColor 0 4px,transparent 0px 8px)'),
@@ -83,6 +85,7 @@ function normalizeHeadingLevels(headings) {
         'bg-left bg-[length:1.5em_1px] bg-no-repeat',
         'opacity-100',
         'lg:opacity-60 lg:hover:(opacity-100)',
+        '[&.active]:underline',
       ]}
     >
       <div class:list={[
@@ -96,3 +99,32 @@ function normalizeHeadingLevels(headings) {
     ))}
   </details>
 ))}
+
+<script define:vars={{ key }}>
+if (!key) return
+
+const tocItems = document.querySelectorAll(`[data-key=${key}] summary`);
+const tocItemsMap = new Map();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      tocItemsMap.forEach(item => item.classList.remove('active'));
+      tocItemsMap.get(entry.target).classList.add('active');
+    }
+  });
+}, {
+  root: null,
+  threshold: 0.5,
+});
+
+tocItems.forEach(item => {
+  const targetId = item.querySelector('a')?.getAttribute('href')?.slice(1);
+  const targetElement = document.getElementById(targetId);
+
+  if (targetElement) {
+    observer.observe(targetElement);
+    tocItemsMap.set(targetElement, item);
+  }
+});
+</script>
