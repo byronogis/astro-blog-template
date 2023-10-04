@@ -8,6 +8,12 @@ import BaseHead from '~/components/BaseHead.astro'
     <slot name="head">
       <BaseHead />
     </slot>
+
+    <style is:global>
+      :root.dark img {
+        filter: brightness(0.8) saturate(1.25);
+      }
+    </style>
   </head>
   <body class="bg-primary text-text">
     <slot />
