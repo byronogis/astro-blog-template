@@ -14,8 +14,9 @@ This is a template for [Astro](https://astro.build) blog.
 ## Highlights
 
 - use [astro](https://astro.build) to build static site
-- pnpm as package manager
+- [pnpm](https://pnpm.io) as package manager
 - seo friendly
 - light & dark mode
 - responsive design, mobile first, 768px | 1024px | 1280px breakpoints
-- [unocss](https://github.com/unocss/unocss) for css
+- [unocss](https://github.com/unocss/unocss) for css, also [icon](https://unocss.dev/presets/icons) convenient
+
