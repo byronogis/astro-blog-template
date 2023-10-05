@@ -17,8 +17,8 @@ const openGraph = {
   basic: {
     title,
     type: 'article',
-    image: image?.url || new URL('/placeholder-cover.jpg', Astro.url),
-    description,
+    image: image?.url || new URL('/placeholder-cover.jpg', Astro.site),
+    url: new URL(Astro.url.pathname, Astro.site!.origin),
   },
   optional: {
     description,

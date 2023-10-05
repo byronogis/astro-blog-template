@@ -18,6 +18,7 @@ export const site = {
     toc: 'i-ic:baseline-format-list-bulleted',
     menu: 'i-ic:baseline-menu',
   },
+  href: 'https://astro.ucatch.me/', // include basePath
   basePath: '/',
   dateFormate: 'YYYY-MM-DD',
   timeFormate: 'HH:mm',

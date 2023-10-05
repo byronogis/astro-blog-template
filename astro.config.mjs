@@ -5,6 +5,7 @@ import { site } from './src/setting'
 // https://astro.build/config
 export default defineConfig({
   base: site.basePath,
+  site: site.href,
   integrations: [
     UnoCSS({
       injectReset: '@unocss/reset/tailwind.css',

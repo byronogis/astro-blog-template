@@ -27,6 +27,7 @@ const {
 <SEO
   title={title ? `${title} | ${site.title}` : site.title}
   description={description || site.description}
+  canonical={Astro.site}
   charset="utf-8"
   openGraph={openGraph || null}
   extend={extend || null}
