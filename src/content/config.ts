@@ -7,11 +7,11 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     image: z.object({
+      alt: z.string(),
       url: z.string().startsWith('/') // use of /public
         .or(z.string().startsWith('http')) // use of external image
         .or(image().transform(val => val.src)) // use of relative image and support for astro alias
         .catch(() => '/placeholder-cover.jpg'),
-      alt: z.string(),
     }).default({ url: '/placeholder-cover.jpg', alt: 'placeholder-cover' }),
     publishedTime: z.date().default(new Date('1970-01-01')),
     modifiedTime: z.date().default(new Date('1970-01-01')),

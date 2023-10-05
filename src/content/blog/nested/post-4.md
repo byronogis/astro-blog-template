@@ -2,7 +2,7 @@
 title: '我的第四篇博客文章'
 description: '这是我 Astro 博客的第四篇文章。'
 image:
-    url: '../../assets/img/placeholder-cover.jpg'
+    url: '../../../assets/img/placeholder-cover.1.jpg'
     alt: 'relative image'
 publishedTime: 2022-07-01
 modifiedTime: 2022-07-01

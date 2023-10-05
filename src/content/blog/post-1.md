@@ -1,13 +1,13 @@
 ---
 title: '我的第一篇博客文章'
-description: '这是我 Astro 博客的第一篇文章。'
+description: '这是我 Astro 博客的第一篇文章。这是我 Astro 博客的第一篇文章。这是我 Astro 博客的第一篇文章。这是我 Astro 博客的第一篇文章。这是我 Astro 博客的第一篇文章。'
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png'
     alt: 'external image'
 publishedTime: 2022-07-01
 modifiedTime: 2022-07-01
 author: 'Astro 学习者'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "blogging", "learning in public", "markdown", "static site generator", "tutorial", "astro"]
 ---
 
 # 我的第一篇博客文章
