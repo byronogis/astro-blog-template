@@ -1,3 +1,3 @@
 # astro-blog-template
 
-See [there](./src/pages/about.md)
+See [here](./src/pages/about.md)
