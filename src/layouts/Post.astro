@@ -3,8 +3,19 @@ import PostHead from '~/components/PostHead.astro'
 import DefaultLayout from '~/layouts/Default.astro'
 import PostTOC from '~/components/PostTOC.astro'
 
-const { data, render } = Astro.props
-const { Content, headings } = await render()
+let data
+let render
+let headings
+let Content
+
+if (Astro.props.frontmatter) { // used in md
+  ;({ frontmatter: data, headings } = Astro.props)
+}
+else {
+  ;({ data, render } = Astro.props)
+
+  ;({ Content, headings } = await render())
+}
 ---
 
 <DefaultLayout>
@@ -21,7 +32,9 @@ const { Content, headings } = await render()
       'markdown', // unocss typography
       'mx-auto',
     ]}>
-      <Content />
+      <slot>
+        {Content ? <Content /> : null}
+      </slot>
     </article>
 
     <aside class:list={[
