@@ -9,7 +9,7 @@ tags: ["astro"]
 
 This is a template for [Astro](https://astro.build) blog.
 
-**This template is still in progress**
+**This template is still in progress，you can see [Demo in here](https://astro.ucatch.me)**
 
 ## Highlights
 
