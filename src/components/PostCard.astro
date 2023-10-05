@@ -1,0 +1,40 @@
+---
+import PostTag from '~/components/PostTag.astro'
+import { getPath } from '~/utils/path'
+import { getDate } from '~/utils/time'
+
+const { entry } = Astro.props
+---
+
+<li
+  style={{
+    '--cover': `url(${entry.data.image.url})`,
+  }}
+  class:list={[
+    'overflow-hidden relative w-full p-4 shadow-md rounded-lg',
+    'grid grid-rows-[auto_auto_1fr] grid-cols-[10ch_1fr] items-center',
+  ]}
+>
+  <a
+    class:list={[
+      'col-span-2',
+    ]}
+    href={getPath('post', entry.slug)}
+    title={entry.data.title}
+  >{entry.data.title}</a>
+
+  <span
+    class:list={[
+      'col-span-2',
+      'site-opacity text-1 line-clamp-2',
+    ]}
+  >{entry.data.description}</span>
+
+  <span class="self-end site-opacity text-1">{getDate(entry.data.modifiedTime || entry.data.publishedTime)}</span>
+
+  <ul class="justify-self-end self-end flex flex-row flex-wrap justify-end gap-x-2 text-1">
+    {entry.data.tags.map(tag => (
+      <PostTag tag={tag} border={false} />
+    ))}
+  </ul>
+</li>

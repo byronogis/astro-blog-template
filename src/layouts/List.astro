@@ -1,0 +1,12 @@
+---
+import DefaultLayout from '~/layouts/Default.astro'
+---
+
+<DefaultLayout>
+  <ul class:list={[
+    'p-4 w-full min-h-full grid grid-cols-1 auto-rows-min gap-4',
+    'lg:(grid-cols-2)',
+  ]}>
+    <slot />
+  </ul>
+</DefaultLayout>
