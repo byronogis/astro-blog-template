@@ -2,6 +2,10 @@
   "name": "astro-starter",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=18.14.1",
+    "pnpm": ">=8.6.12"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
