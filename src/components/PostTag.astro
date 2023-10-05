@@ -1,0 +1,14 @@
+---
+import { getPath } from '~/utils/path'
+
+const { tag, count = false, border = true } = Astro.props
+---
+
+<li class:list={[
+  border || '!border-0',
+  'site-tag site-opacity',
+  'md:(hover:opacity-100)',
+]}>
+  <a href={getPath('tag', tag)}>{tag}</a>
+  {count ? <span class="ml-2">{count}</span> : null}
+</li>

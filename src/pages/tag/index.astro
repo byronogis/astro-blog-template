@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import DefaultLayout from '~/layouts/Default.astro'
-import { getPath } from '~/utils/path'
+import PostTag from '~/components/PostTag.astro'
 
 const postEntries = await getCollection('blog')
 
@@ -14,15 +14,9 @@ const tagsCount = postEntries.reduce((acc, entry) => {
 ---
 
 <DefaultLayout>
-  <ul class="w-full min-h-full flex flex-row flex-wrap content-center justify-center items-center gap-4">
+  <ul class="p-4 w-full min-h-full flex flex-row flex-wrap content-center justify-center items-center gap-4">
     {Object.entries(tagsCount).map(([tag, count]) => (
-      <li class:list={[
-        'site-tag site-opacity',
-        'md:(hover:opacity-100)',
-      ]}>
-        <a href={getPath('tag', tag)}>{tag}</a>
-        <span class="ml-2">{count}</span>
-      </li>
+      <PostTag tag={tag} count={count} />
     ))}
   </ul>
 </DefaultLayout>
