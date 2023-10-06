@@ -14,7 +14,7 @@ const blogCollection = defineCollection({
         .catch(() => '/placeholder-cover.jpg'),
     }).default({ url: '/placeholder-cover.jpg', alt: 'placeholder-cover' }),
     publishedTime: z.date().default(new Date('1970-01-01')),
-    modifiedTime: z.date().default(new Date('1970-01-01')),
+    modifiedTime: z.date().optional(),
     author: z.string().default(site.author),
     section: z.string().optional(),
     tags: z.array(z.string()).default([]),
