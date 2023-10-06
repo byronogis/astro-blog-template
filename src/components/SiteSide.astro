@@ -7,8 +7,8 @@ const { class: className } = Astro.props
 ---
 
 <aside class:list={[
-  'fixed z-100 bottom-0 w-100vw max-h-60dvh overflow-auto translate-y-100% transition-transform bg-strong text-text shadow-md',
-  'md:(w-80px h-100vh max-h-100vh translate-y-0 bg-secondary translate-none shadow-none)',
+  'fixed z-100 left-0 bottom-0 w-[calc(100vw-2rem-4rem)] h-fit max-h-60dvh overflow-auto translate-x--100% transition-all bg-strong text-text shadow-md',
+  'md:(w-80px h-100vh max-h-100vh translate-none bg-secondary shadow-none)',
   'xl:(w-18vw)',
   'component_site-side',
   className,

@@ -53,6 +53,7 @@ export default defineConfig({
   },
   safelist: [
     ...Object.values(site.iconMap),
+    '!translate-none',
   ],
   layers: {
     theme: 0,

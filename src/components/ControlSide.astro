@@ -9,10 +9,10 @@ const { class: className } = Astro.props
 <aside class:list={[
   className,
   'component_control-side',
-  'fixed bottom-8 right-8 grid grid-cols-1 gap-y-2 text-8',
+  'fixed bottom-8 right-8 grid grid-cols-1 gap-y-2 text-8 w-8',
 ]}>
   <a href={getPath('about')} class:list={[
-    'w-8',
+    'w-full',
     'md:(hidden)',
   ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%"></a>
 
@@ -56,30 +56,19 @@ const { class: className } = Astro.props
 
   const controlSide = document.querySelector('.component_control-side')
   controlSide?.addEventListener('click', ({target}) => {
-    let height
-    let isExpanded
-
     if (target?.classList.contains('component_control-side_home__button')) { // home
       goPath('home')
       return
     } else if (target?.classList.contains('component_control-side_post-toc__button')) { // post toc
       if(!postToc) return
-      siteSide?.classList.add('translate-y-100%')
-      height = postToc.getBoundingClientRect().height
-      isExpanded = !postToc.classList.toggle('translate-y-100%')
+      siteSide?.classList.remove('!translate-none')
+      postToc?.classList.toggle('!translate-none')
     } else if (target?.classList.contains('component_control-side_site-side__button')) { // site side
       if(!siteSide) return
-      postToc?.classList.add('translate-y-100%')
-      height = siteSide.getBoundingClientRect().height
-      isExpanded = !siteSide.classList.toggle('translate-y-100%')
+      postToc?.classList.remove('!translate-none')
+      siteSide.classList.toggle('!translate-none')
     } else {
       return
-    }
-
-    if (isExpanded) {
-      controlSide.style.bottom = `calc(2rem + ${height}px)`
-    } else {
-      controlSide.style.bottom = `2rem`
     }
   })
 
