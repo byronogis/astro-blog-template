@@ -11,7 +11,7 @@ const { entry } = Astro.props
     '--cover': `url(${entry.data.image.url})`,
   }}
   class:list={[
-    'overflow-hidden relative w-full p-4 shadow-md rounded-lg',
+    'overflow-hidden relative w-full p-4 shadow-md rounded-lg cursor-pointer',
     'grid grid-rows-[auto_auto_1fr] grid-cols-[10ch_1fr] items-center',
   ]}
 >
@@ -26,13 +26,13 @@ const { entry } = Astro.props
   <span
     class:list={[
       'col-span-2',
-      'site-opacity text-1 line-clamp-2',
+      'site-opacity text-3 line-clamp-2',
     ]}
   >{entry.data.description}</span>
 
-  <span class="self-end site-opacity text-1">{getDate(entry.data.modifiedTime || entry.data.publishedTime)}</span>
+  <span class="self-end site-opacity text-3">{getDate(entry.data.modifiedTime || entry.data.publishedTime)}</span>
 
-  <ul class="justify-self-end self-end flex flex-row flex-wrap justify-end gap-x-2 text-1">
+  <ul class="justify-self-end self-end flex flex-row flex-wrap justify-end gap-x-2 text-3">
     {entry.data.tags.map(tag => (
       <PostTag tag={tag} border={false} />
     ))}
