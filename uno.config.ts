@@ -15,6 +15,11 @@ export default defineConfig({
     presetIcons(),
     presetTypography({
       selectorName: 'markdown',
+      cssExtend: {
+        'p>code': {
+          'white-space': 'break-spaces',
+        },
+      },
     }),
     presetTheme({
       theme: {
