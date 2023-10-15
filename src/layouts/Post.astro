@@ -54,3 +54,11 @@ else {
 
   </div>
 </DefaultLayout>
+
+<script>
+  const toc = document.querySelector('.layout_post__toc')
+  toc?.addEventListener('click', ({ target }) => {
+    if (window.innerWidth >= 1024 || target?.tagName !== 'A') return
+    toc.classList.remove('!translate-none')
+  })
+</script>
