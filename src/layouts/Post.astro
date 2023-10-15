@@ -38,9 +38,9 @@ else {
     </article>
 
     <aside class:list={[
-      'fixed z-100 left-0 bottom-0 w-[calc(100vw-2rem-4rem)] h-60dvh max-h-60dvh overflow-auto translate-x--100% transition-all bg-strong text-text shadow-md',
-      'p-4',
-      'lg:(sticky top-0 w-20vw h-100dvh max-h-100dvh translate-none bg-transparent text-text:70 shadow-none)',
+      'overflow-auto',
+      'lt-lg:(fixed z-100 left-0 bottom-0 w-full h-60dvh max-h-60dvh p-4 pr-[calc(2.5rem+4rem)] translate-x--100% transition-all bg-strong shadow-md)',
+      'lg:(sticky top-0 w-20vw h-100dvh max-h-100dvh bg-transparent text-text:70)',
       'layout_post__toc',
     ]}>
       <PostTOC

@@ -7,8 +7,9 @@ const { class: className } = Astro.props
 ---
 
 <aside class:list={[
-  'fixed z-100 left-0 bottom-0 w-[calc(100vw-2rem-4rem)] h-fit max-h-60dvh overflow-auto translate-x--100% transition-all bg-strong text-text shadow-md',
-  'md:(w-80px h-100vh max-h-100vh translate-none bg-secondary shadow-none)',
+  'fixed z-100 left-0 bottom-0 overflow-auto',
+  'lt-md:(w-100vw h-fit max-h-60dvh pr-[calc(2.5rem+4rem)] translate-x--100% transition-all bg-strong shadow-md)',
+  'md:(w-80px h-100vh max-h-100vh bg-secondary)',
   'xl:(w-18vw)',
   'component_site-side',
   className,
@@ -28,8 +29,8 @@ const { class: className } = Astro.props
     ))}
 
     <li class:list={[
-      'py-4 site-opacity',
-      'md:(hover:opacity-100 text-6)',
+      'py-4 site-opacity text-6',
+      'md:(hover:opacity-100)',
     ]}>
       <ThemeSwitchButton></ThemeSwitchButton>
     </li>
