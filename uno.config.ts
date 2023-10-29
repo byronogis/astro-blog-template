@@ -40,7 +40,6 @@ export default defineConfig({
   ],
   shortcuts: {
     'flex-center': 'flex items-center justify-center',
-    'site-tag': 'px-0.5em py-0.25em border-2px border-dashed border-current rounded-0.5em text-nowrap',
     'site-opacity': 'opacity-60',
   },
   theme: {

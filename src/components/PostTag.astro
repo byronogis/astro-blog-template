@@ -6,7 +6,7 @@ const { tag, count = false, border = true } = Astro.props
 
 <li class:list={[
   border || '!border-0',
-  'site-tag site-opacity',
+  'px-0.5em py-0.25em border-2px border-dashed border-current rounded-0.5em text-nowrap site-opacity',
   'md:(hover:opacity-100)',
 ]}>
   <a href={getPath('tag', tag)}>{tag}</a>
