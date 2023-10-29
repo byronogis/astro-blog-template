@@ -18,6 +18,7 @@ export default defineConfig({
       cssExtend: {
         'p>code': {
           'white-space': 'break-spaces',
+          'word-break': 'break-all',
         },
       },
     }),
