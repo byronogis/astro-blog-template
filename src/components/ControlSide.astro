@@ -1,7 +1,5 @@
 ---
-import ThemeSwitchButton from '~/components/ThemeSwitchButton.astro'
 import { site } from '~/setting'
-import { getPath } from '~/utils/path'
 
 const { class: className } = Astro.props
 ---
@@ -13,29 +11,6 @@ const { class: className } = Astro.props
   'lt-md:(box-content p-2 bg-secondary rounded-2 shadow-md)',
   '[&>*]:(h-10 overflow-hidden)',
 ]}>
-  <!-- avatar -->
-  <a href={getPath('about')} class:list={[
-    'w-full',
-    'md:(hidden)',
-  ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%"></a>
-
-  <!-- home -->
-  <button class:list={[
-    site.iconMap.home,
-    'component_control-side_home__button',
-    'site-opacity',
-    'md:(hidden)',
-  ]}/>
-
-  <!-- theme -->
-  <div class:list={[
-    'component_control-theme-switch__button',
-    'site-opacity',
-    'md:(hidden)',
-  ]}>
-    <ThemeSwitchButton></ThemeSwitchButton>
-  </div>
-
   <!-- toc -->
   <button class:list={[
     site.iconMap.toc,
@@ -63,10 +38,7 @@ const { class: className } = Astro.props
 
   const controlSide = document.querySelector('.component_control-side')
   controlSide?.addEventListener('click', ({target}) => {
-    if (target?.classList.contains('component_control-side_home__button')) { // home
-      goPath('home')
-      return
-    } else if (target?.classList.contains('component_control-side_post-toc__button')) { // post toc
+    if (target?.classList.contains('component_control-side_post-toc__button')) { // post toc
       if(!postToc) return
       siteSide?.classList.remove('!translate-none')
       postToc?.classList.toggle('!translate-none')

@@ -7,16 +7,15 @@ const { class: className } = Astro.props
 ---
 
 <aside class:list={[
-  'fixed z-100 left-0 bottom-0 overflow-auto overscroll-contain',
-  'lt-md:(w-100vw h-fit max-h-60dvh pr-[calc(2.5rem+4rem)] translate-x--100% transition-all bg-strong shadow-md)',
-  'md:(w-80px h-100vh max-h-100vh bg-secondary)',
+  'fixed z-100 left-0 top-0 bottom-0 h-full overflow-auto overscroll-contain',
+  'lt-md:(w-60vw translate-x--100% transition-all bg-strong shadow-md)',
+  'md:(w-80px bg-secondary)',
   'xl:(w-18vw)',
   'component_site-side',
   className,
 ]}>
   <ul class:list={[
-    'h-full flex flex-col items-center',
-    'md:(justify-center)',
+    'h-full flex flex-col justify-center items-center',
   ]}>
     {site.navigation.map(({ title, icon, id }) => (
       <li class:list={[
