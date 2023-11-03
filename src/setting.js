@@ -1,6 +1,6 @@
 export const site = {
   author: 'Anonymous',
-  avatar: '/avatar.jpg', // url or path (relative to /public)
+  avatar: '/avatar.jpg', // url or path (relative to /public) of false to disable
   email: 'foo@bar.baz',
   title: 'Astro Starter',
   description: 'Astro Starter Description',
