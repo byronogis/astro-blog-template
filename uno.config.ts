@@ -42,6 +42,8 @@ export default defineConfig({
   shortcuts: {
     'flex-center': 'flex items-center justify-center',
     'site-opacity': 'opacity-60',
+    'site-section-title': 'text-xl font-bold text-center py-4',
+    'site-list': 'grid grid-cols-1 auto-rows-min gap-4',
   },
   theme: {
     breakpoints: {

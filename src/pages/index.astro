@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content'
+import DefaultLayout from '~/layouts/Default.astro'
+import PostCard from '~/components/PostCard.astro'
+
+const postEntries = await getCollection('blog')
+const postEntriesSorted = postEntries.sort((a, b) => {
+  const aTime = new Date(a.data.modifiedTime ?? a.data.publishedTime).getTime()
+  const bTime = new Date(b.data.modifiedTime ?? b.data.publishedTime).getTime()
+  return bTime - aTime
+})
+
+const postSeries = postEntries.reduce((series, entry) => {
+  const seriesName = entry.data.series
+  if (!seriesName)
+    return series
+
+  if (!series[seriesName]) {
+    series[seriesName] = []
+  }
+
+  series[seriesName].push(entry)
+  return series
+}, {})
+---
+
+<DefaultLayout>
+  <div class="p-4">
+    <section>
+      <h2 class="site-section-title">Recent</h2>
+      <ul class="site-list">
+        {postEntriesSorted.slice(0, 6).map(entry => (
+          <PostCard entry={entry} />
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="site-section-title">Series</h2>
+      <ul class="site-list">
+        {Object.entries(postSeries).map(([seriesName, entries]) => (
+          <li>
+            <details>
+              <summary>{seriesName} ({entries.length})</summary>
+
+              <ul>
+                {entries.map(entry => (
+                  <PostCard entry={entry} />
+                ))}
+              </ul>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</DefaultLayout>
+
+<style>
+  //
+</style>
