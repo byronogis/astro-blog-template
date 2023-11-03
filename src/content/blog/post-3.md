@@ -5,7 +5,7 @@ image:
     url: '@/assets/img/aaa.jpg'
     alt: 'relative image with alias'
 publishedTime: 2022-07-01
-modifiedTime: 2022-07-01
+modifiedTime: 2022-07-08
 author: 'Astro 学习者'
 tags: ["astro", "blogging", "learning in public"]
 ---

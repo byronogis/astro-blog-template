@@ -5,9 +5,10 @@ image:
     url: 'https://docs.astro.build/assets/full-logo-light.png'
     alt: 'external image'
 publishedTime: 2022-07-01
-modifiedTime: 2022-07-01
+modifiedTime: 2022-07-02
 author: 'Astro 学习者'
 tags: ["astro", "blogging", "learning in public", "markdown", "static site generator", "tutorial", "astro"]
+series: 'Learn Astro'
 ---
 
 # 我的第一篇博客文章

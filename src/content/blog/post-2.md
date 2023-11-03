@@ -8,6 +8,7 @@ publishedTime: 2022-07-01
 modifiedTime: 2022-07-01
 author: 'Astro 学习者'
 tags: ["astro", "blogging", "learning in public"]
+series: 'Learn Astro'
 ---
 
 # top
