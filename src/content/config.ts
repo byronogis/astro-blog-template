@@ -17,6 +17,7 @@ const blogCollection = defineCollection({
     modifiedTime: z.date().optional(),
     author: z.string().default(site.author),
     section: z.string().optional(),
+    series: z.string().optional(),
     tags: z.array(z.string()).default([]),
   }),
 })
