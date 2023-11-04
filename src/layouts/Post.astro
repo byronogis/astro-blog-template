@@ -30,7 +30,8 @@ else {
   >
     <article class:list={[
       'markdown', // unocss typography
-      'mx-auto !max-w-[min(90vw,65ch)]',
+      'mx-auto !max-w-[clamp(70%,90%,65ch)]',
+      'lg:(px-8)',
     ]}>
       <slot>
         {Content ? <Content /> : null}
@@ -38,9 +39,10 @@ else {
     </article>
 
     <aside class:list={[
+      'flex-1',
       'overflow-auto overscroll-contain p-4',
       'lt-lg:(fixed z-100 left-4 right-4 top-4 h-60lvh m-auto translate-x--100vw transition-all bg-strong shadow-md)',
-      'lg:(sticky top-0 w-20vw h-100dvh max-h-100dvh bg-transparent text-text:70)',
+      'lg:(sticky top-0 h-100dvh max-h-100dvh bg-transparent text-text:70)',
       'layout_post__toc',
     ]}>
       <PostTOC

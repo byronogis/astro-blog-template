@@ -11,9 +11,10 @@ import ControlSide from '~/components/ControlSide.astro'
     <BaseHead />
   </slot>
 
-  <div class="min-h-100dvh flex flex-row layout_default">
+  <div class="relative max-w-1440px m-auto min-h-100dvh flex flex-row layout_default">
+    <div class="fixed left-0 xl:(w-[calc((100%-1440px)/2)] bg-secondary h-full)"></div>
     <SiteSide class="flex-none" />
-    <main class="flex-1 md:(pl-80px) xl:(pl-18vw)">
+    <main class="flex-1 w-0">
       <slot />
     </main>
     <ControlSide class="flex-none" />
