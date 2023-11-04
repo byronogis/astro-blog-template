@@ -41,7 +41,7 @@ const postSeries = postEntries.reduce((series, entry) => {
         {Object.entries(postSeries).map(([seriesName, entries]) => (
           <li>
             <details>
-              <summary>{seriesName} ({entries.length})</summary>
+              <summary class="cursor-pointer">{seriesName} ({entries.length})</summary>
 
               <ul>
                 {entries.map(entry => (
