@@ -16,7 +16,7 @@ export default defineConfig({
     presetTypography({
       selectorName: 'markdown',
       cssExtend: {
-        '*>code': {
+        ':not(pre)>code': {
           'white-space': 'break-spaces',
           'word-break': 'break-all',
         },
