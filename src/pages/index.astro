@@ -25,7 +25,7 @@ const postSeries = postEntries.reduce((series, entry) => {
 ---
 
 <DefaultLayout>
-  <div class="p-4">
+  <div>
     <section>
       <h2 class="site-section-title">Recent</h2>
       <ul class="site-list">
@@ -37,13 +37,13 @@ const postSeries = postEntries.reduce((series, entry) => {
 
     <section>
       <h2 class="site-section-title">Series</h2>
-      <ul class="site-list">
+      <ul>
         {Object.entries(postSeries).map(([seriesName, entries]) => (
           <li>
             <details>
-              <summary class="cursor-pointer">{seriesName} ({entries.length})</summary>
+              <summary class="cursor-pointer lg:px-8">{seriesName} ({entries.length})</summary>
 
-              <ul>
+              <ul class="site-list">
                 {entries.map(entry => (
                   <PostCard entry={entry} />
                 ))}

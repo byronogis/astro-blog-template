@@ -43,7 +43,7 @@ export default defineConfig({
     'flex-center': 'flex items-center justify-center',
     'site-opacity': 'opacity-60',
     'site-section-title': 'text-xl font-bold text-center py-4',
-    'site-list': 'grid grid-cols-1 auto-rows-min gap-4 lg:(grid-cols-2 gap-8 !p-8)',
+    'site-list': 'grid grid-cols-1 auto-rows-min gap-4 lg:(grid-cols-2 gap-8 p-8)',
   },
   theme: {
     breakpoints: {
