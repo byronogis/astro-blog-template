@@ -14,7 +14,7 @@ const tagsCount = postEntries.reduce((acc, entry) => {
 ---
 
 <DefaultLayout>
-  <ul class="p-4 w-full min-h-full flex flex-row flex-wrap content-center justify-center items-center gap-4">
+  <ul class="w-full min-h-full flex flex-row flex-wrap content-center justify-center items-center gap-4">
     {Object.entries(tagsCount).map(([tag, count]) => (
       <PostTag tag={tag} count={count} />
     ))}

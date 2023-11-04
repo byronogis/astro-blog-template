@@ -41,7 +41,7 @@ const postSeries = postEntries.reduce((series, entry) => {
         {Object.entries(postSeries).map(([seriesName, entries]) => (
           <li>
             <details>
-              <summary class="cursor-pointer lg:px-8">{seriesName} ({entries.length})</summary>
+              <summary class="cursor-pointer py-4">{seriesName} ({entries.length})</summary>
 
               <ul class="site-list">
                 {entries.map(entry => (
