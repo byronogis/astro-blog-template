@@ -36,8 +36,7 @@ const { class: className } = Astro.props
   </ul>
 
   {site.avatar && <a href={getPath('about')} class:list={[
-    'hidden',
-    'md:(block absolute bottom-4 left-0 right-0 m-auto w-8)',
-    'xl:(w-30%)',
+    'block absolute bottom-4 left-0 right-0 m-auto w-30%',
+    'md:(w-8) xl:(w-30%)',
   ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%" /></a>}
 </aside>
