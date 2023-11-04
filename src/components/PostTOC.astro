@@ -90,7 +90,7 @@ function normalizeHeadingLevels(headings) {
         'text-4',
       ]}></div>
       <span>{i.number}</span>
-      <a class="line-clamp-1" href={i.url} title={i.title}>{i.title}</a>
+      <a class="line-clamp-1 break-all" href={i.url} title={i.title}>{i.title}</a>
     </summary>
     {i.children?.map(j => (
         <Astro.self range={range} number={false} line={line} headings={[j]} />
