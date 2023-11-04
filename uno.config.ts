@@ -39,6 +39,9 @@ export default defineConfig({
     transformerVariantGroup(),
     transformerDirectives(),
   ],
+  rules: [
+    [/^site-shadow-(\d+)$/, ([, d]) => ({ 'box-shadow': `0 0 4px 0 rgba(0, 0, 0, ${Number(d) / 100})` })],
+  ],
   shortcuts: {
     'flex-center': 'flex items-center justify-center',
     'site-opacity': 'opacity-60',
