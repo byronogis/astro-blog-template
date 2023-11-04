@@ -1,23 +1,34 @@
 ---
+import { getCollection } from 'astro:content'
 import PostHead from '~/components/PostHead.astro'
 import DefaultLayout from '~/layouts/Default.astro'
 import PostTOC from '~/components/PostTOC.astro'
 import PostTag from '~/components/PostTag.astro'
 import { getDate } from '~/utils/time'
+import { getPath } from '~/utils/path'
 
 let data
 let render
 let headings
 let Content
+let slug
 
 if (Astro.props.frontmatter) { // used in md
   ;({ frontmatter: data, headings } = Astro.props)
 }
 else {
-  ;({ data, render } = Astro.props)
+  ;({ data, render, slug } = Astro.props)
 
   ;({ Content, headings } = await render())
 }
+
+const postEntries = (await getCollection('blog'))
+  .filter(entry => entry.data.series && (entry.data.series === data.series))
+  .sort((a, b) => {
+    const aTime = new Date(a.data.modifiedTime ?? a.data.publishedTime).getTime()
+    const bTime = new Date(b.data.modifiedTime ?? b.data.publishedTime).getTime()
+    return bTime - aTime
+  })
 ---
 
 <DefaultLayout>
@@ -54,6 +65,23 @@ else {
             <li class="w-0.4em h-0.4em mx-1 rounded-50% bg-text:20 last:hidden"></li>
           ))}
         </ul>
+
+        {data.series && <details>
+          <summary class="cursor-pointer py-4">{data.series} ({postEntries.length})</summary>
+
+          <ul class="flex flex-col">
+            {postEntries.map(entry => (
+              <a
+                class:list={[
+                  'my-2',
+                  { 'font-bold': slug === entry.slug, 'font-normal': slug !== entry.slug },
+                ]}
+                href={getPath('post', entry.slug)}
+                title={entry.data.title}
+              >{entry.data.title}{entry.slug}{}</a>
+            ))}
+          </ul>
+        </details>}
 
         <hr class="my-4">
       </section>
