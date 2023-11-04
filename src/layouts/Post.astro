@@ -59,8 +59,31 @@ else {
 
 <script>
   const toc = document.querySelector('.layout_post__toc')
-  toc?.addEventListener('click', ({ target }) => {
-    if (window.innerWidth >= 1024 || target?.tagName !== 'A') return
-    toc.classList.remove('!translate-none')
+  toc?.addEventListener('click', (event) => {
+    if (window.innerWidth < 1024 || event.target?.tagName === 'A') {
+      toc.classList.remove('!translate-none')
+    }
+
+    if (
+      event.target
+      && event.target instanceof HTMLAnchorElement
+      && event.target.hash.startsWith('#')
+    ) {
+      event.preventDefault()
+      // do something
+      try {
+        // 解码这一步会有失败的可能, 这里使用 try catch 进行捕获
+        const hash = decodeURIComponent(event.target.hash)
+        const target = document.querySelector(hash)
+        window.scrollTo({
+          top: target?.offsetTop - 20,
+          behavior: 'smooth',
+        })
+        history.pushState(null, '', event.target.hash)
+      }
+      catch (error) {
+        console.error(error)
+      }
+    }
   })
 </script>
