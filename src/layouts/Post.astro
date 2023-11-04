@@ -2,6 +2,8 @@
 import PostHead from '~/components/PostHead.astro'
 import DefaultLayout from '~/layouts/Default.astro'
 import PostTOC from '~/components/PostTOC.astro'
+import PostTag from '~/components/PostTag.astro'
+import { getDate } from '~/utils/time'
 
 let data
 let render
@@ -33,6 +35,29 @@ else {
       'mx-auto !max-w-[clamp(70%,90%,65ch)] w-[clamp(70%,90%,65ch)]',
       'lg:(px-8)',
     ]}>
+      <section class="not-markdown text-center">
+        <h1 class="site-title">{data.title}</h1>
+
+        <div class="my-4 site-opacity text-4 grid grid-cols-[1fr_1fr] justify-center [&>span:nth-child(odd)]:(pr-2 text-right) [&>span:nth-child(even)]:(pr-2 text-left)">
+          <span>Author:</span>
+          <span>{data.author}</span>
+
+          <span>Last updated:</span>
+          <span>{getDate(data.modifiedTime || data.publishedTime)}</span>
+        </div>
+
+        <p class="font-italic site-opacity">{data.description}</p>
+
+        <ul class="flex flex-row flex-wrap justify-center items-center text-3 [&_li::after]:(content-[''])">
+          {data.tags.map(tag => (
+            <PostTag tag={tag} border={false} />
+            <li class="w-0.4em h-0.4em mx-1 rounded-50% bg-text:20 last:hidden"></li>
+          ))}
+        </ul>
+
+        <hr class="my-4">
+      </section>
+
       <slot>
         {Content ? <Content /> : null}
       </slot>
