@@ -21,6 +21,7 @@ const { class: className } = Astro.props
       <li class:list={[
         'py-4 site-opacity',
         'sm:(hover:opacity-100)',
+        'component_site-side_list_item',
       ]}>
         <a href={getPath(id)} title={title} class:list={['text-4 block', 'sm:(hidden)', 'lg:(block)']}>{title}</a>
         <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'sm:(block text-6)', 'lg:(hidden)']}></a>
@@ -30,6 +31,7 @@ const { class: className } = Astro.props
     <li class:list={[
       'py-4 site-opacity text-6',
       'sm:(hover:opacity-100)',
+      'component_site-side_list_item component_site-side_list_item__close',
       'component_site-side__search',
     ]}>
       <button class="i-ic:baseline-search"></button>
@@ -38,6 +40,7 @@ const { class: className } = Astro.props
     <li class:list={[
       'py-4 site-opacity text-6',
       'sm:(hover:opacity-100)',
+      'component_site-side_list_item',
     ]}>
       <ThemeSwitchButton></ThemeSwitchButton>
     </li>
@@ -54,6 +57,16 @@ const { class: className } = Astro.props
   const searchBtn = document.querySelector('.component_site-side__search')
 
   searchBtn.addEventListener('click', () => {
-    siteSearch.classList.remove('hidden')
+    siteSearch.classList.toggle('hidden')
+  })
+
+  const siteSide = document.querySelector('.component_site-side')
+  const listItems = document.querySelectorAll('.component_site-side_list_item')
+  listItems.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      if (e.currentTarget.classList.contains('component_site-side_list_item__close')) {
+        siteSide.classList.toggle('!translate-none')
+      }
+    })
   })
 </script>
