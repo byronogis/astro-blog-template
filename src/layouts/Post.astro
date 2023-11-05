@@ -95,8 +95,9 @@ const postEntries = (await getCollection('blog'))
     <aside class:list={[
       'flex-1',
       'overflow-auto overscroll-contain p-4 bg-primary',
-      'sm:(!left-[calc(1rem+80px)])',
-      'lt-md:(fixed z-10 left-4 right-4 top-4 h-60lvh m-auto translate-x--100vw transition-all site-shadow-60 rounded-lg)',
+      'lt-sm:(w-[min(90%,calc(1440px*0.65))])',
+      'sm:(!left-[calc(80px)])',
+      'lt-md:(fixed z-10 left-0 right-0 top-8 h-60lvh w-[calc(calc(100%-80px)*0.9)] m-auto leading-8 translate-x--100vw transition-all site-shadow-60 rounded-lg)',
       'md:(sticky top-0 h-100dvh max-h-100dvh  text-text:70)',
       'layout_post__toc',
     ]}>
