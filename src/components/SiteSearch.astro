@@ -1,0 +1,58 @@
+---
+import Search from 'astro-pagefind/components/Search'
+
+const options = {
+  showImage: false,
+  showSubResults: true,
+}
+---
+
+<div
+  id="component_site-search"
+  class="hiddennn"
+>
+  <div
+    class="component_site-search__mask"
+    class:list={[
+      'fixed z-2000 inset-0 m-auto bg-primary:95',
+    ]}
+  >
+    <div
+      class:list={[
+        'absolute left-0 right-0 top-8 bottom-8 m-auto p-8 w-[min(90%,calc(1440px*0.65))] bg-primary site-shadow-40 rounded-lg',
+      ]}
+    >
+      <Search id="search" className="pagefind-ui" uiOptions={options} />
+    </div>
+  </div>
+</div>
+
+<script>
+  const siteSearch = document.querySelector('#component_site-search')
+  const siteSearchMask = document.querySelector('.component_site-search__mask')
+
+  siteSearchMask.addEventListener('click', e => {
+    if (e.target !== e.currentTarget) return
+    siteSearch.classList.add('hidden')
+  })
+</script>
+
+<style is:inline>
+  #component_site-search {
+  }
+  .pagefind-ui {
+    height: 100%;
+  }
+  .pagefind-ui__form {
+    position: relative;
+    height: 100%;
+  }
+
+  .pagefind-ui__drawer {
+    position: absolute;
+    bottom: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    height: calc(100% - calc(64px * var(--pagefind-ui-scale)));
+  }
+</style>

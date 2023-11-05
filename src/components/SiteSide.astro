@@ -30,6 +30,14 @@ const { class: className } = Astro.props
     <li class:list={[
       'py-4 site-opacity text-6',
       'md:(hover:opacity-100)',
+      'component_site-side__search',
+    ]}>
+      <button class="i-ic:baseline-search"></button>
+    </li>
+
+    <li class:list={[
+      'py-4 site-opacity text-6',
+      'md:(hover:opacity-100)',
     ]}>
       <ThemeSwitchButton></ThemeSwitchButton>
     </li>
@@ -40,3 +48,12 @@ const { class: className } = Astro.props
     'md:(w-8) xl:(w-30%)',
   ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%" /></a>}
 </aside>
+
+<script>
+  const siteSearch = document.querySelector('#component_site-search')
+  const searchBtn = document.querySelector('.component_site-side__search')
+
+  searchBtn.addEventListener('click', () => {
+    siteSearch.classList.remove('hidden')
+  })
+</script>
