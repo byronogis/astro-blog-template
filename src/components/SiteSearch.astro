@@ -15,11 +15,15 @@ const options = {
     class="component_site-search__mask"
     class:list={[
       'fixed z-30 inset-0 m-auto bg-primary:95',
+      'sm:(left-80px)',
+      'lg:(left-20%)',
+      'xl:(left-[calc((100vw-1440px)/2+1440px*0.2)])',
     ]}
   >
     <div
       class:list={[
         'absolute left-0 right-0 top-8 bottom-8 m-auto p-8 w-[min(90%,calc(1440px*0.65))] bg-primary site-shadow-40 rounded-lg',
+        'xl:(right-[calc((100vw-1440px)/2)])',
       ]}
     >
       <Search id="search" className="pagefind-ui" uiOptions={options} />
