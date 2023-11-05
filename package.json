@@ -28,7 +28,7 @@
     "@unocss/reset": "^0.57.1",
     "@unocss/transformer-directives": "^0.57.1",
     "@unocss/transformer-variant-group": "^0.57.1",
-    "astro-color-scheme": "^1.1.2",
+    "astro-color-scheme": "1.1.2",
     "bumpp": "^9.2.0",
     "eslint": "^8.52.0",
     "eslint-plugin-astro": "^0.29.1",
