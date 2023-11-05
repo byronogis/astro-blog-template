@@ -8,7 +8,7 @@ const { class: className } = Astro.props
   className,
   'component_control-side',
   'fixed z-20 bottom-8 right-8 grid grid-cols-1 gap-y-2 text-10 w-10',
-  'lt-md:(box-content p-2 bg-primary rounded-10 site-shadow-20)',
+  'lt-sm:(box-content p-2 bg-primary rounded-10 site-shadow-20)',
   '[&>*]:(h-10 overflow-hidden)',
 ]}>
   <!-- back to top -->
@@ -16,7 +16,7 @@ const { class: className } = Astro.props
     'i-ic:baseline-vertical-align-top',
     'component_control-side_back-to-top__button',
     'site-opacity',
-    'md:(hover:opacity-100)',
+    'sm:(hover:opacity-100)',
   ]}/>
 
   <!-- toc -->
@@ -24,8 +24,8 @@ const { class: className } = Astro.props
     site.iconMap.toc,
     'component_control-side_post-toc__button',
     'site-opacity',
-    'md:(hover:opacity-100)',
-    'lg:(hidden)',
+    'sm:(hover:opacity-100)',
+    'md:(hidden)',
   ]}/>
 
   <!-- menu -->
@@ -33,7 +33,7 @@ const { class: className } = Astro.props
     site.iconMap.menu,
     'component_control-side_site-side__button',
     'site-opacity',
-    'md:(hidden)',
+    'sm:(hidden)',
   ]}/>
 
 </aside>

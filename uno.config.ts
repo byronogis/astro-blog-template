@@ -47,13 +47,14 @@ export default defineConfig({
     'site-opacity': 'opacity-60',
     'site-title': 'text-3xl font-bold text-center py-4',
     'site-section-title': 'text-xl font-bold text-center py-4',
-    'site-list': 'grid grid-cols-1 auto-rows-min gap-4 lg:(grid-cols-2 gap-8)',
+    'site-list': 'grid grid-cols-1 auto-rows-min gap-4 md:(grid-cols-2 gap-8)',
   },
   theme: {
     breakpoints: {
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
+      sm: '768px',
+      md: '1024px',
+      lg: '1280px',
+      xl: '1440px',
     },
     colors: {
       primary: '#FFFFFF',

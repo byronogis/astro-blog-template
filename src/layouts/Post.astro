@@ -45,7 +45,7 @@ const postEntries = (await getCollection('blog'))
     <article class:list={[
       'markdown', // unocss typography
       'mx-auto !max-w-[clamp(70%,90%,65ch)] w-[clamp(70%,90%,65ch)]',
-      'lg:(px-8)',
+      'md:(px-8)',
     ]}>
       <section class="not-markdown text-center">
         <h1 class="site-title">{data.title}</h1>
@@ -95,8 +95,8 @@ const postEntries = (await getCollection('blog'))
     <aside class:list={[
       'flex-1',
       'overflow-auto overscroll-contain p-4 bg-primary',
-      'lt-lg:(fixed z-10 left-4 right-4 top-4 h-60lvh m-auto translate-x--100vw transition-all site-shadow-60 rounded-lg)',
-      'lg:(sticky top-0 h-100dvh max-h-100dvh  text-text:70)',
+      'lt-md:(fixed z-10 left-4 right-4 top-4 h-60lvh m-auto translate-x--100vw transition-all site-shadow-60 rounded-lg)',
+      'md:(sticky top-0 h-100dvh max-h-100dvh  text-text:70)',
       'layout_post__toc',
     ]}>
       <PostTOC

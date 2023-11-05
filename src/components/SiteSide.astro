@@ -8,9 +8,9 @@ const { class: className } = Astro.props
 
 <aside class:list={[
   'fixed z-100 left-0 top-0 bottom-0 h-100dvh overflow-auto overscroll-contain',
-  'lt-md:(w-60vw translate-x--100% transition-all bg-strong shadow-md)',
-  'md:(w-80px sticky bg-secondary)',
-  'xl:(w-20%)',
+  'lt-sm:(w-60vw translate-x--100% transition-all bg-strong shadow-md)',
+  'sm:(w-80px sticky bg-secondary)',
+  'lg:(w-20%)',
   'component_site-side',
   className,
 ]}>
@@ -20,16 +20,16 @@ const { class: className } = Astro.props
     {site.navigation.map(({ title, icon, id }) => (
       <li class:list={[
         'py-4 site-opacity',
-        'md:(hover:opacity-100)',
+        'sm:(hover:opacity-100)',
       ]}>
-        <a href={getPath(id)} title={title} class:list={['text-4 block', 'md:(hidden)', 'xl:(block)']}>{title}</a>
-        <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'md:(block text-6)', 'xl:(hidden)']}></a>
+        <a href={getPath(id)} title={title} class:list={['text-4 block', 'sm:(hidden)', 'lg:(block)']}>{title}</a>
+        <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'sm:(block text-6)', 'lg:(hidden)']}></a>
       </li>
     ))}
 
     <li class:list={[
       'py-4 site-opacity text-6',
-      'md:(hover:opacity-100)',
+      'sm:(hover:opacity-100)',
       'component_site-side__search',
     ]}>
       <button class="i-ic:baseline-search"></button>
@@ -37,7 +37,7 @@ const { class: className } = Astro.props
 
     <li class:list={[
       'py-4 site-opacity text-6',
-      'md:(hover:opacity-100)',
+      'sm:(hover:opacity-100)',
     ]}>
       <ThemeSwitchButton></ThemeSwitchButton>
     </li>
@@ -45,7 +45,7 @@ const { class: className } = Astro.props
 
   {site.avatar && <a href={getPath('about')} class:list={[
     'block absolute bottom-4 left-0 right-0 m-auto w-30%',
-    'md:(w-8) xl:(w-30%)',
+    'sm:(w-8) lg:(w-30%)',
   ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%" /></a>}
 </aside>
 
