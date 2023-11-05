@@ -3,6 +3,7 @@ import BaseLayout from '~/layouts/Base.astro'
 import BaseHead from '~/components/BaseHead.astro'
 import SiteSide from '~/components/SiteSide.astro'
 import ControlSide from '~/components/ControlSide.astro'
+import Footer from '~/components/Footer.astro'
 
 ---
 
@@ -14,8 +15,10 @@ import ControlSide from '~/components/ControlSide.astro'
   <div class="relative max-w-1440px m-auto min-h-100dvh flex flex-row layout_default">
     <div class="fixed left-0 xl:(w-[calc((100%-1440px)/2)] bg-secondary h-full)"></div>
     <SiteSide class="flex-none" />
-    <main class="flex-1 w-0 p-4 lg:p-8">
+    <main class="flex-1 w-0 p-4 lg:p-8 pb-16">
       <slot />
+
+     <Footer />
     </main>
     <ControlSide class="flex-none" />
   </div>
