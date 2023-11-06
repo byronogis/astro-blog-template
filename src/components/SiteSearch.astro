@@ -36,32 +36,33 @@ const options = {
         'absolute left-0 right-0 bottom-12 m-auto transform-translate-y-50% w-max flex flex-row justify-center items-center',
         'bg-primary rounded-10 site-shadow-40 site-opacity text-10',
         'sm:(hidden)',
+        'component_site-search__close-button',
       ]}
     >
       <button
         class:list={[
           'i-ic:baseline-close',
-          'component_site-search__close-button',
         ]}
       ></button>
     </div>
-    <!-- <div class="">
-    </div> -->
   </div>
 </div>
 
 <script>
+  const closeButton = document.querySelector('.component_site-search__close-button')
+  closeButton.addEventListener('click', e => {
+    siteSearch.classList.add('hidden')
+  })
+
   const siteSearch = document.querySelector('#component_site-search')
   const siteSearchMask = document.querySelector('.component_site-search__mask')
 
   siteSearchMask.addEventListener('click', e => {
-    if (e.target !== e.currentTarget) return
-    siteSearch.classList.add('hidden')
-  })
-
-  const closeButton = document.querySelector('.component_site-search__close-button')
-  closeButton.addEventListener('click', e => {
-    siteSearch.classList.add('hidden')
+    const isCurrentTarget = e.target === e.currentTarget
+    const isCloseButtonHidden = window.getComputedStyle(closeButton).display === 'none'
+    if (isCurrentTarget && isCloseButtonHidden) {
+      siteSearch.classList.add('hidden')
+    }
   })
 </script>
 
