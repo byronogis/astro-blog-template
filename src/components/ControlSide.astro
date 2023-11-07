@@ -41,18 +41,16 @@ const { class: className } = Astro.props
 <script>
   import { goPath } from '~/utils/path'
 
-  const postToc = document.querySelector('.layout_post__toc') as HTMLElement
+  const postToc = document.querySelector('.layout_post__toc')
   const siteSide = document.querySelector('.component_site-side') as HTMLElement
 
   const controlSide = document.querySelector('.component_control-side') as HTMLElement
   controlSide.addEventListener('click', ({target}: HTMLElementEvent<HTMLElement>) => {
     if (target.classList.contains('component_control-side_post-toc__button')) { // post toc
       if(!postToc) return
-      siteSide.classList.remove('!translate-none')
       postToc.classList.add('!block')
     } else if (target.classList.contains('component_control-side_site-side__button')) { // site side
       if(!siteSide) return
-      postToc.classList.remove('!block')
       siteSide.classList.add('!translate-none')
     } else if (target.classList.contains('component_control-side_back-to-top__button')) { // back to top
       window.scrollTo({ top: 0, behavior: 'smooth' })
