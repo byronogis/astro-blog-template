@@ -41,27 +41,27 @@ const { class: className } = Astro.props
 <script>
   import { goPath } from '~/utils/path'
 
-  const postToc = document.querySelector('.layout_post__toc')
-  const siteSide = document.querySelector('.component_site-side')
+  const postToc = document.querySelector('.layout_post__toc') as HTMLElement
+  const siteSide = document.querySelector('.component_site-side') as HTMLElement
 
-  const controlSide = document.querySelector('.component_control-side')
-  controlSide?.addEventListener('click', ({target}) => {
-    if (target?.classList.contains('component_control-side_post-toc__button')) { // post toc
+  const controlSide = document.querySelector('.component_control-side') as HTMLElement
+  controlSide.addEventListener('click', ({target}: HTMLElementEvent<HTMLElement>) => {
+    if (target.classList.contains('component_control-side_post-toc__button')) { // post toc
       if(!postToc) return
-      siteSide?.classList.remove('!translate-none')
-      postToc?.classList.toggle('!translate-none')
-    } else if (target?.classList.contains('component_control-side_site-side__button')) { // site side
+      siteSide.classList.remove('!translate-none')
+      postToc.classList.toggle('!translate-none')
+    } else if (target.classList.contains('component_control-side_site-side__button')) { // site side
       if(!siteSide) return
-      postToc?.classList.remove('!translate-none')
+      postToc.classList.remove('!translate-none')
       siteSide.classList.toggle('!translate-none')
-    } else if (target?.classList.contains('component_control-side_back-to-top__button')) { // back to top
+    } else if (target.classList.contains('component_control-side_back-to-top__button')) { // back to top
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       return
     }
   })
 
-  const tocButton = document.querySelector('.component_control-side_post-toc__button')
+  const tocButton = document.querySelector('.component_control-side_post-toc__button') as HTMLElement
   postToc || tocButton && (tocButton.style.display = 'none')
 
 </script>

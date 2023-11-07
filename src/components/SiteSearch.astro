@@ -49,13 +49,13 @@ const options = {
 </div>
 
 <script>
-  const closeButton = document.querySelector('.component_site-search__close-button')
+  const closeButton = document.querySelector('.component_site-search__close-button') as HTMLElement
   closeButton.addEventListener('click', e => {
     siteSearch.classList.add('hidden')
   })
 
-  const siteSearch = document.querySelector('#component_site-search')
-  const siteSearchMask = document.querySelector('.component_site-search__mask')
+  const siteSearch = document.querySelector('#component_site-search') as HTMLElement
+  const siteSearchMask = document.querySelector('.component_site-search__mask') as HTMLElement
 
   siteSearchMask.addEventListener('click', e => {
     const isCurrentTarget = e.target === e.currentTarget

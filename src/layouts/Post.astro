@@ -114,8 +114,8 @@ const postEntries = (await getCollection('blog'))
 
 <script>
   const toc = document.querySelector('.layout_post__toc')
-  toc?.addEventListener('click', (event) => {
-    if (window.innerWidth < 1024 || event.target?.tagName === 'A') {
+  toc?.addEventListener('click', (event: HTMLElementEvent<HTMLElement>) => {
+    if (window.innerWidth < 1024 || event.target.tagName === 'A') {
       toc.classList.remove('!translate-none')
     }
 
@@ -129,7 +129,7 @@ const postEntries = (await getCollection('blog'))
       try {
         // 解码这一步会有失败的可能, 这里使用 try catch 进行捕获
         const hash = decodeURIComponent(event.target.hash)
-        const target = document.querySelector(hash)
+        const target = document.querySelector(hash) as HTMLElement
         window.scrollTo({
           top: target?.offsetTop - 20,
           behavior: 'smooth',
