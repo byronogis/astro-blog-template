@@ -9,56 +9,21 @@ const options = {
 
 <div
   id="component_site-search"
-  class="hidden"
+  site-mask
+  class:list={[
+    'hidden',
+    'site-mask',
+  ]}
 >
   <div
-    class="component_site-search__mask"
     class:list={[
-      'site-mask',
+      'site-mask__content',
     ]}
   >
-    <div
-      class:list={[
-        'site-mask__content',
-      ]}
-    >
-      <Search id="search" className="pagefind-ui" uiOptions={options} />
-    </div>
-
-    <div
-      class:list={[
-        'absolute left-0 right-0 bottom-12 m-auto transform-translate-y-50% w-max flex flex-row justify-center items-center',
-        'bg-primary rounded-10 site-shadow-40 site-opacity text-10',
-        'sm:(hidden)',
-        'component_site-search__close-button',
-      ]}
-    >
-      <button
-        class:list={[
-          'i-ic:baseline-close',
-        ]}
-      ></button>
-    </div>
+    <Search id="search" className="pagefind-ui" uiOptions={options} />
+    <button class="site-mask__close">Close</button>
   </div>
 </div>
-
-<script>
-  const closeButton = document.querySelector('.component_site-search__close-button') as HTMLElement
-  closeButton.addEventListener('click', e => {
-    siteSearch.classList.add('hidden')
-  })
-
-  const siteSearch = document.querySelector('#component_site-search') as HTMLElement
-  const siteSearchMask = document.querySelector('.component_site-search__mask') as HTMLElement
-
-  siteSearchMask.addEventListener('click', e => {
-    const isCurrentTarget = e.target === e.currentTarget
-    const isCloseButtonHidden = window.getComputedStyle(closeButton).display === 'none'
-    if (isCurrentTarget && isCloseButtonHidden) {
-      siteSearch.classList.add('hidden')
-    }
-  })
-</script>
 
 <style is:inline>
   #component_site-search {

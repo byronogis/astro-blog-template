@@ -49,11 +49,11 @@ const { class: className } = Astro.props
     if (target.classList.contains('component_control-side_post-toc__button')) { // post toc
       if(!postToc) return
       siteSide.classList.remove('!translate-none')
-      postToc.classList.toggle('!translate-none')
+      postToc.classList.add('!block')
     } else if (target.classList.contains('component_control-side_site-side__button')) { // site side
       if(!siteSide) return
-      postToc.classList.remove('!translate-none')
-      siteSide.classList.toggle('!translate-none')
+      postToc.classList.remove('!block')
+      siteSide.classList.add('!translate-none')
     } else if (target.classList.contains('component_control-side_back-to-top__button')) { // back to top
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {

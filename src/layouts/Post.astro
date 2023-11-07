@@ -92,25 +92,36 @@ const postEntries = (await getCollection('blog'))
       </slot>
     </article>
 
-    <aside class:list={[
+    <aside site-mask class:list={[
       'flex-1',
-      'lt-md:(site-mask leading-8 translate-x--100vw transition-all)',
+      'lt-md:(site-mask leading-8 hidden)',
       'md:(sticky top-0 h-100dvh max-h-100dvh  text-text:70)',
       'layout_post__toc',
     ]}>
       <div
         class:list={[
-          'overflow-auto overscroll-contain p-4',
           'lt-md:(site-mask__content)',
         ]}
       >
-        <PostTOC
-          range={[2, 4]}
-          number={true}
-          line={true}
-          key="post-aside"
-          headings={headings.map(heading => ({ ...heading, title: heading.text, url: `#${heading.slug}` }))}
-        />
+        <div
+          class:list={[
+            'overflow-auto overscroll-contain p-4',
+          ]}
+        >
+          <PostTOC
+            range={[2, 4]}
+            number={true}
+            line={true}
+            key="post-aside"
+            headings={headings.map(heading => ({ ...heading, title: heading.text, url: `#${heading.slug}` }))}
+          />
+        </div>
+        <button
+          class:list={[
+            'site-mask__close',
+            'md:(hidden)',
+          ]}
+        >Close</button>
       </div>
     </aside>
 
