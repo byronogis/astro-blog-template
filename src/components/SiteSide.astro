@@ -64,7 +64,7 @@ const { class: className } = Astro.props
   const searchBtn = document.querySelector('.component_site-side__search') as HTMLElement
 
   searchBtn.addEventListener('click', () => {
-    siteSearch.classList.add('!block')
+    siteSearch.classList.toggle('!block')
   })
 
   const siteSide = document.querySelector('.component_site-side') as HTMLElement
