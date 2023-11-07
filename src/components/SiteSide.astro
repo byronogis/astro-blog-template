@@ -59,12 +59,14 @@ const { class: className } = Astro.props
   </div>
 </aside>
 
-<script>
+<script>import { site } from "~/setting"
+
   const siteSearch = document.querySelector('#component_site-search') as HTMLElement
   const searchBtn = document.querySelector('.component_site-side__search') as HTMLElement
 
   searchBtn.addEventListener('click', () => {
     siteSearch.classList.toggle('!block')
+      && (siteSearch.querySelector('.pagefind-ui__search-input') as HTMLInputElement).focus()
   })
 
   const siteSide = document.querySelector('.component_site-side') as HTMLElement
