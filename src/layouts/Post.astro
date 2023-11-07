@@ -101,11 +101,12 @@ const postEntries = (await getCollection('blog'))
       <div
         class:list={[
           'lt-md:(site-mask__content)',
+          'md:(h-full)',
         ]}
       >
         <div
           class:list={[
-            'overflow-auto overscroll-contain p-4',
+            'h-full overflow-auto overscroll-contain p-4',
           ]}
         >
           <PostTOC
