@@ -8,48 +8,55 @@ const { class: className } = Astro.props
 
 <aside class:list={[
   'fixed z-100 left-0 top-0 bottom-0 h-100dvh overflow-auto overscroll-contain',
-  'lt-sm:(w-60vw translate-x--100% transition-all bg-strong shadow-md)',
+  'lt-sm:(site-mask translate-x--100% transition-all)',
   'sm:(w-80px sticky bg-secondary)',
   'lg:(w-20%)',
   'component_site-side',
   className,
 ]}>
-  <ul class:list={[
-    'h-full flex flex-col justify-center items-center',
-  ]}>
-    {site.navigation.map(({ title, icon, id }) => (
+  <div
+    class:list={[
+      'lt-sm:(site-mask__content !inset-0 !right-unset w-60vw)',
+      'sm:(h-full)',
+    ]}
+  >
+    <ul class:list={[
+      'h-full flex flex-col justify-center items-center',
+    ]}>
+      {site.navigation.map(({ title, icon, id }) => (
+        <li class:list={[
+          'py-4 site-opacity',
+          'sm:(hover:opacity-100)',
+          'component_site-side_list_item',
+        ]}>
+          <a href={getPath(id)} title={title} class:list={['text-4 block', 'sm:(hidden)', 'lg:(block)']}>{title}</a>
+          <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'sm:(block text-6)', 'lg:(hidden)']}></a>
+        </li>
+      ))}
+
       <li class:list={[
-        'py-4 site-opacity',
+        'py-4 site-opacity text-6',
+        'sm:(hover:opacity-100)',
+        'component_site-side_list_item component_site-side_list_item__close',
+        'component_site-side__search',
+      ]}>
+        <button class="i-ic:baseline-search"></button>
+      </li>
+
+      <li class:list={[
+        'py-4 site-opacity text-6',
         'sm:(hover:opacity-100)',
         'component_site-side_list_item',
       ]}>
-        <a href={getPath(id)} title={title} class:list={['text-4 block', 'sm:(hidden)', 'lg:(block)']}>{title}</a>
-        <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'sm:(block text-6)', 'lg:(hidden)']}></a>
+        <ThemeSwitchButton></ThemeSwitchButton>
       </li>
-    ))}
+    </ul>
 
-    <li class:list={[
-      'py-4 site-opacity text-6',
-      'sm:(hover:opacity-100)',
-      'component_site-side_list_item component_site-side_list_item__close',
-      'component_site-side__search',
-    ]}>
-      <button class="i-ic:baseline-search"></button>
-    </li>
-
-    <li class:list={[
-      'py-4 site-opacity text-6',
-      'sm:(hover:opacity-100)',
-      'component_site-side_list_item',
-    ]}>
-      <ThemeSwitchButton></ThemeSwitchButton>
-    </li>
-  </ul>
-
-  {site.avatar && <a href={getPath('about')} class:list={[
-    'block absolute bottom-4 left-0 right-0 m-auto w-30%',
-    'sm:(w-8) lg:(w-30%)',
-  ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%" /></a>}
+    {site.avatar && <a href={getPath('about')} class:list={[
+      'block absolute bottom-4 left-0 right-0 m-auto w-30%',
+      'sm:(w-8) lg:(w-30%)',
+    ]}><img src={site.avatar} alt="avatar" class="w-full rounded-10%" /></a>}
+  </div>
 </aside>
 
 <script>

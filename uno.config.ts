@@ -48,6 +48,18 @@ export default defineConfig({
     'site-title': 'text-3xl font-bold text-center py-4',
     'site-section-title': 'text-xl font-bold text-center py-4',
     'site-list': 'grid grid-cols-1 auto-rows-min gap-4 md:(grid-cols-2 gap-8)',
+    'site-mask': [
+      'fixed z-30 inset-0 m-auto bg-primary:95',
+      'sm:(left-80px)',
+      'lg:(left-20%)',
+      'xl:(left-[calc((100vw-1440px)/2+1440px*0.2)])',
+    ].join(' '),
+    'site-mask__content': [
+      'absolute left-0 right-0 top-8 bottom-8 m-auto p-8 w-[min(90%,calc(1440px*0.65))] bg-primary site-shadow-60 rounded-lg',
+      'lt-sm:(bottom-24)',
+      'lt-md:(p-4)',
+      'xl:(right-[calc((100vw-1440px)/2)])',
+    ].join(' '),
   },
   theme: {
     breakpoints: {
