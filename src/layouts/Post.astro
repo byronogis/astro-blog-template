@@ -124,8 +124,8 @@ const postEntries = (await getCollection('blog'))
 </DefaultLayout>
 
 <script>
-  const toc = document.querySelector('.layout_post__toc')
-  toc?.addEventListener('click', (event: HTMLElementEvent<HTMLElement>) => {
+  const toc = document.querySelector('.component_post-toc') as HTMLElement
+  toc.addEventListener('click', (event: HTMLElementEvent<HTMLElement>) => {
     if (
       event.target
       && event.target instanceof HTMLAnchorElement
@@ -140,6 +140,16 @@ const postEntries = (await getCollection('blog'))
         const hash = decodeURIComponent(event.target.hash)
         const target = document.querySelector(hash) as HTMLElement
         Promise.resolve().then(() => {
+          toc.classList.add('no-active')
+          tocItemsMap.forEach(item => item.classList.remove('active'))
+          ;(event.target.parentElement as HTMLElement).classList.add('active')
+
+          const scrollEndHandler = () => {
+            toc.classList.remove('no-active')
+            window.removeEventListener('scrollend', scrollEndHandler)
+          }
+          window.addEventListener('scrollend', scrollEndHandler)
+
           window.scrollTo({
             top: target?.offsetTop - 20,
             behavior: 'smooth',
@@ -157,6 +167,8 @@ const postEntries = (await getCollection('blog'))
   const tocItemsMap = new Map();
 
   const observer = new IntersectionObserver(entries => {
+    if (toc.classList.contains('no-active')) return
+
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         tocItemsMap.forEach(item => item.classList.remove('active'));
