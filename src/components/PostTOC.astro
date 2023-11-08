@@ -56,10 +56,10 @@ function normalizeHeadingLevels(headings) {
     data-key={key}
     open
     style={{
-      backgroundImage: line && (i.depth === range[0] ? 'none' : 'repeating-linear-gradient(currentColor 0 4px,transparent 0px 8px)'),
       backgroundPositionX: `${(i.depth - range[0]) * 2 - 1.5}em`,
     }}
     class:list={[
+      line && (i.depth === range[0] ? 'bg-none' : 'bg-(gradient-repeating-linear gradient-stops-[currentColor_0_4px,transparent_0_8px])'),
       `[&_>summary:not(:only-child)_>div]:i-ic:baseline-arrow-right`,
       `[&_>summary:not(:only-child)_>div]:open:i-ic:baseline-arrow-drop-down`,
       `[&_>summary:only-child_>div]:i-ic:outline-circle`,
@@ -74,10 +74,10 @@ function normalizeHeadingLevels(headings) {
     <summary
       style={{
         paddingLeft: `${(i.depth - range[0]) * 2}em`,
-        backgroundImage: line && 'repeating-linear-gradient(90deg, currentColor 0 4px,transparent 0px 8px)',
         backgroundPositionX: `${(i.depth - range[0]) * 2 - 1.5}em`,
       }}
       class:list={[
+        line && 'bg-(gradient-repeating-linear gradient-stops-[currentColor_0_4px,transparent_0_8px])',
         'grid grid-cols-[1em_auto_1fr] items-center gap-2 cursor-pointer',
         // 'bg-gradient-to-r from-text to-text',
         'bg-left bg-[length:1.5em_1px] bg-no-repeat',
