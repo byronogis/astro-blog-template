@@ -145,9 +145,11 @@ const postEntries = (await getCollection('blog'))
         // 解码这一步会有失败的可能, 这里使用 try catch 进行捕获
         const hash = decodeURIComponent(event.target.hash)
         const target = document.querySelector(hash) as HTMLElement
-        window.scrollTo({
-          top: target?.offsetTop - 20,
-          behavior: 'smooth',
+        Promise.resolve().then(() => {
+          window.scrollTo({
+            top: target?.offsetTop - 20,
+            behavior: 'smooth',
+          })
         })
         history.pushState(null, '', event.target.hash)
       }
