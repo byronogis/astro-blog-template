@@ -131,7 +131,7 @@ const postEntries = (await getCollection('blog'))
       && event.target instanceof HTMLAnchorElement
       && event.target.hash.startsWith('#')
     ) {
-      toc.classList.remove('!block')
+      (document.querySelector('.layout_post__toc') as HTMLElement).classList.remove('!block')
 
       event.preventDefault()
       // do something
