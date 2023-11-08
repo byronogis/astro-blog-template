@@ -12,6 +12,11 @@ export function pausePageScroll(el = document.body) {
 
 export function restorePageScroll(el = document.body) {
   const scrollY = el.style.top
+
+  if (scrollY === '') {
+    return
+  }
+
   el.style.position = ''
   el.style.top = ''
   el.style.width = ``
