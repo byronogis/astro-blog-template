@@ -28,7 +28,7 @@ This is a template for [Astro](https://astro.build) blog.
 
 - put your post in 'src/content/blog'
 
-## Update with template
+## Update with template when first time
 
 ### add template origin repo as upstream
 
@@ -48,16 +48,39 @@ git fetch origin-template
 git switch --orphan template
 ```
 
+### pull first
+
+```bash
+git pull origin-template main
+```
+
 ### set upstream to template
 
 ```bash
-git push -u origin-template/main template
+git branch -u origin-template/main template
 ```
 
-### pull template
+### merge template to main
 
 ```bash
-# switch to template branch first
+git switch main
+git merge template --allow-unrelated-histories --squash
+# maybe you need to fix conflict
+git add .
+git commit -m "merge template"
+```
+
+## Update with template when you have used this template
+
+### Switch to template branch
+
+```bash
+git switch template
+```
+
+### pull
+
+```bash
 git pull
 ```
 
@@ -70,3 +93,8 @@ git merge template --allow-unrelated-histories --squash
 git add .
 git commit -m "merge template"
 ```
+
+## About fix conflict
+
+In general, you just need to fix the conflict in 'src/setting'.
+And other files, you can just use the template version.
