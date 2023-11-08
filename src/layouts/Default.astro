@@ -31,12 +31,19 @@ import SiteSearch from '~/components/SiteSearch.astro'
 
   const siteMasksObserver = new MutationObserver((mutationList) => {
     mutationList.forEach((mutation) => {
-      const isShow = (mutation.target as HTMLElement).classList.contains('!block')
-        || (mutation.target as HTMLElement).classList.contains('!translate-none')
+      const target = mutation.target as HTMLElement
+
+      const isShow = target.classList.contains('!block')
+        || target.classList.contains('!translate-none')
 
       isShow
         ? pausePageScroll()
         : restorePageScroll()
+
+      const isSiteSearch = target.classList.contains('component_site-search')
+      if (isSiteSearch && isShow) {
+        (target.querySelector('.pagefind-ui__search-input') as HTMLInputElement).focus()
+      }
     })
   })
 

@@ -60,7 +60,7 @@ const { class: className } = Astro.props
 </aside>
 
 <script>
-  const siteSearch = document.querySelector('#component_site-search') as HTMLElement
+  const siteSearch = document.querySelector('.component_site-search') as HTMLElement
 
   const siteSide = document.querySelector('.component_site-side') as HTMLElement
   const listItems = document.querySelectorAll('.component_site-side_list_item')
@@ -73,7 +73,6 @@ const { class: className } = Astro.props
       // search btn
       if (e.currentTarget.classList.contains('component_site-side__search')) {
         siteSearch.classList.toggle('!block')
-          && (siteSearch.querySelector('.pagefind-ui__search-input') as HTMLInputElement).focus()
       }
     })
   })
