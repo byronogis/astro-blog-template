@@ -104,19 +104,13 @@ const postEntries = (await getCollection('blog'))
           'md:(h-full)',
         ]}
       >
-        <div
-          class:list={[
-            'h-full overflow-auto overscroll-contain p-4',
-          ]}
-        >
-          <PostTOC
-            range={[2, 4]}
-            number={true}
-            line={true}
-            key="post-aside"
-            headings={headings.map(heading => ({ ...heading, title: heading.text, url: `#${heading.slug}` }))}
-          />
-        </div>
+        <PostTOC
+          range={[2, 4]}
+          number={true}
+          line={true}
+          isWrapper={true}
+          headings={headings.map(heading => ({ ...heading, title: heading.text, url: `#${heading.slug}` }))}
+        />
         <button
           class:list={[
             'site-mask__close',
@@ -158,4 +152,32 @@ const postEntries = (await getCollection('blog'))
       }
     }
   })
+
+  const tocItems = document.querySelectorAll(`.component_post-toc summary`);
+  const tocItemsMap = new Map();
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocItemsMap.forEach(item => item.classList.remove('active'));
+        tocItemsMap.get(entry.target).classList.add('active');
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.5,
+  });
+
+  tocItems.forEach(item => {
+    const targetId = item.querySelector('a')?.getAttribute('href')?.slice(1);
+
+    if (targetId === undefined) return
+
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      observer.observe(targetElement);
+      tocItemsMap.set(targetElement, item);
+    }
+  });
 </script>

@@ -4,8 +4,10 @@ const {
   range = [1, 6],
   number = false,
   line = false,
-  key,
+  isWrapper = false,
 } = Astro.props
+
+const Element = isWrapper ? 'div' : Fragment
 
 const toc = normalizeHeadingLevels(headings.filter(i => range[0] <= i.depth && i.depth <= range[1]))
 
@@ -51,78 +53,55 @@ function normalizeHeadingLevels(headings) {
 
 ---
 
-{toc.map(i => (
-  <details
-    data-key={key}
-    open
-    style={{
-      backgroundPositionX: `${(i.depth - range[0]) * 2 - 1.5}em`,
-    }}
-    class:list={[
-      line && (i.depth === range[0] ? 'bg-none' : 'bg-(gradient-repeating-linear gradient-stops-[currentColor_0_4px,transparent_0_8px])'),
-      `[&_>summary:not(:only-child)_>div]:i-ic:baseline-arrow-right`,
-      `[&_>summary:not(:only-child)_>div]:open:i-ic:baseline-arrow-drop-down`,
-      `[&_>summary:only-child_>div]:i-ic:outline-circle`,
-      `[&_>summary:only-child_>div]:scale-50`,
-      // 'bg-gradient-to-r from-text to-text ',
-      'bg-left-top bg-[length:1px_100%] bg-no-repeat',
-      '![&:only-child]:bg-none',
-      '![&:only-child_>summary]:bg-none',
-      '[&:last-child]:bg-[length:1px_0.8em]',
-    ]}
-  >
-    <summary
+<Element
+  class:list={[
+    'h-full overflow-auto overscroll-contain p-4',
+    'component_post-toc',
+  ]}
+>
+  {toc.map(i => (
+    <details
+      open
       style={{
-        paddingLeft: `${(i.depth - range[0]) * 2}em`,
         backgroundPositionX: `${(i.depth - range[0]) * 2 - 1.5}em`,
       }}
       class:list={[
-        line && 'bg-(gradient-repeating-linear gradient-stops-[currentColor_0_4px,transparent_0_8px])',
-        'grid grid-cols-[1em_auto_1fr] items-center gap-2 cursor-pointer',
-        // 'bg-gradient-to-r from-text to-text',
-        'bg-left bg-[length:1.5em_1px] bg-no-repeat',
-        'site-opacity',
-        'sm:(hover:opacity-100)',
-        '[&.active]:underline [&.active]:decoration-wavy',
+        line && (i.depth === range[0] ? 'bg-none' : 'bg-(gradient-repeating-linear gradient-stops-[currentColor_0_4px,transparent_0_8px])'),
+        `[&_>summary:not(:only-child)_>div]:i-ic:baseline-arrow-right`,
+        `[&_>summary:not(:only-child)_>div]:open:i-ic:baseline-arrow-drop-down`,
+        `[&_>summary:only-child_>div]:i-ic:outline-circle`,
+        `[&_>summary:only-child_>div]:scale-50`,
+        // 'bg-gradient-to-r from-text to-text ',
+        'bg-left-top bg-[length:1px_100%] bg-no-repeat',
+        '![&:only-child]:bg-none',
+        '![&:only-child_>summary]:bg-none',
+        '[&:last-child]:bg-[length:1px_0.8em]',
       ]}
     >
-      <div class:list={[
-        'text-4',
-      ]}></div>
-      <span>{i.number}</span>
-      <a class="line-clamp-1 break-all" href={i.url} title={i.title}>{i.title}</a>
-    </summary>
-    {i.children?.map(j => (
-        <Astro.self range={range} number={false} line={line} headings={[j]} />
-    ))}
-  </details>
-))}
-
-<script define:vars={{ key }}>
-if (!key) return
-
-const tocItems = document.querySelectorAll(`[data-key=${key}] summary`);
-const tocItemsMap = new Map();
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      tocItemsMap.forEach(item => item.classList.remove('active'));
-      tocItemsMap.get(entry.target).classList.add('active');
-    }
-  });
-}, {
-  root: null,
-  threshold: 0.5,
-});
-
-tocItems.forEach(item => {
-  const targetId = item.querySelector('a')?.getAttribute('href')?.slice(1);
-  const targetElement = document.getElementById(targetId);
-
-  if (targetElement) {
-    observer.observe(targetElement);
-    tocItemsMap.set(targetElement, item);
-  }
-});
-</script>
+      <summary
+        style={{
+          paddingLeft: `${(i.depth - range[0]) * 2}em`,
+          backgroundPositionX: `${(i.depth - range[0]) * 2 - 1.5}em`,
+        }}
+        class:list={[
+          line && 'bg-(gradient-repeating-linear gradient-stops-[currentColor_0_4px,transparent_0_8px])',
+          'grid grid-cols-[1em_auto_1fr] items-center gap-2 cursor-pointer',
+          // 'bg-gradient-to-r from-text to-text',
+          'bg-left bg-[length:1.5em_1px] bg-no-repeat',
+          'site-opacity',
+          'sm:(hover:opacity-100)',
+          '[&.active]:underline [&.active]:decoration-wavy',
+        ]}
+      >
+        <div class:list={[
+          'text-4',
+        ]}></div>
+        <span>{i.number}</span>
+        <a class="line-clamp-1 break-all" href={i.url} title={i.title}>{i.title}</a>
+      </summary>
+      {i.children?.map(j => (
+          <Astro.self range={range} number={false} line={line} headings={[j]} />
+      ))}
+    </details>
+  ))}
+</Element>
