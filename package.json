@@ -1,7 +1,7 @@
 {
   "name": "astro-starter",
   "type": "module",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "engines": {
     "node": ">=18.14.1",
     "pnpm": ">=8.6.12"
