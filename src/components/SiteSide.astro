@@ -66,14 +66,14 @@ const { class: className } = Astro.props
   const listItems = document.querySelectorAll('.component_site-side_list_item')
   listItems.forEach((item) => {
     item.addEventListener('click', (e: HTMLElementEvent<HTMLElement>) => {
+      if (e.currentTarget.classList.contains('component_site-side_list_item__close')) {
+        siteSide.classList.contains('!translate-none') && siteSide.classList.remove('!translate-none')
+      }
+
       // search btn
       if (e.currentTarget.classList.contains('component_site-side__search')) {
         siteSearch.classList.toggle('!block')
           && (siteSearch.querySelector('.pagefind-ui__search-input') as HTMLInputElement).focus()
-      }
-
-      if (e.currentTarget.classList.contains('component_site-side_list_item__close')) {
-        siteSide.classList.contains('!translate-none') && siteSide.classList.remove('!translate-none')
       }
     })
   })
