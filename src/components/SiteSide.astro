@@ -73,7 +73,7 @@ const { class: className } = Astro.props
   listItems.forEach((item) => {
     item.addEventListener('click', (e: HTMLElementEvent<HTMLElement>) => {
       if (e.currentTarget.classList.contains('component_site-side_list_item__close')) {
-        siteSide.classList.toggle('!translate-none')
+        siteSide.classList.contains('!translate-none') && siteSide.classList.remove('!translate-none')
       }
     })
   })
