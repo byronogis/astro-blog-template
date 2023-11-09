@@ -22,4 +22,6 @@ export const site = {
   basePath: '/',
   dateFormate: 'YYYY-MM-DD',
   timeFormate: 'HH:mm',
+  locales: ['zh', 'en'],
+  preferredLocale: 'zh',
 }
