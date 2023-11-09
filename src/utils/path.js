@@ -1,3 +1,4 @@
+import { localizePath } from 'astro-i18next'
 import { site } from '~/setting'
 
 export function getPath(id, path = '', params) {
@@ -5,16 +6,14 @@ export function getPath(id, path = '', params) {
 
   const reg = /^\/+|\/+$/g // remove all splash at the start and end of the string
 
-  const siteBase = site.basePath.replace(reg, '')
-
   if (id === 'home') {
-    return `/${siteBase}${query}`
+    return localizePath(`/${query}`)
   }
 
   const idBase = (site.navigation.find(i => i.id === id)?.path ?? '').replace(reg, '')
   path = path.replace(reg, '')
 
-  return ['', ...[siteBase, idBase, path].filter(Boolean)].join('/') + query
+  return localizePath(`/${idBase}/${path}${query}`)
 }
 
 export function goPath(id, path = '', params) {
