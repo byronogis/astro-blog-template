@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro-i18next generate && astro build",
+    "prebuild": "astro-i18next generate",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
