@@ -22,7 +22,7 @@ const postSeries = postEntries.reduce((series, entry) => {
 
   series[seriesName].push(entry)
   return series
-}, {})
+}, {} as Record<string, any[]>)
 ---
 
 <DefaultLayout>
