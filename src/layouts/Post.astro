@@ -173,13 +173,18 @@ const postEntries = (await getCollection('blog'))
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         tocItemsMap.forEach(item => item.classList.remove('active'));
-        tocItemsMap.get(entry.target).classList.add('active');
+        const tocItem = tocItemsMap.get(entry.target)
+        tocItem.classList.add('active');
+        tocItem.scrollIntoViewIfNeeded({
+          block: 'center',
+          behavior: 'smooth',
+        });
       }
     });
   }, {
     root: null,
     rootMargin: '0% 0% -90%',
-    threshold: 1,
+    threshold: 0.1,
   });
 
   tocItems.forEach(item => {
