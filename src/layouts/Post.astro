@@ -177,7 +177,8 @@ const postEntries = (await getCollection('blog'))
     });
   }, {
     root: null,
-    threshold: 0.5,
+    rootMargin: '0% 0% -90%',
+    threshold: 1,
   });
 
   tocItems.forEach(item => {
