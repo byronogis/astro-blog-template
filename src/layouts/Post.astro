@@ -1,4 +1,5 @@
 ---
+import { t } from 'i18next'
 import { getCollection } from 'astro:content'
 import PostHead from '~/components/PostHead.astro'
 import DefaultLayout from '~/layouts/Default.astro'
@@ -51,10 +52,10 @@ const postEntries = (await getCollection('blog'))
         <h1 class="site-title">{data.title}</h1>
 
         <div class="my-4 site-opacity text-4 grid grid-cols-[1fr_1fr] justify-center [&>span:nth-child(odd)]:(pr-2 text-right) [&>span:nth-child(even)]:(pr-2 text-left)">
-          <span>Author:</span>
+          <span>{t('post.author')}:</span>
           <span>{data.author}</span>
 
-          <span>Last updated:</span>
+          <span>{t('post.lastUpdated')}:</span>
           <span>{getDate(data.modifiedTime || data.publishedTime)}</span>
         </div>
 

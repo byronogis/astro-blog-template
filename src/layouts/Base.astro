@@ -1,9 +1,10 @@
 ---
+import i18next from 'i18next'
 import BaseHead from '~/components/BaseHead.astro'
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={i18next.language}>
   <head>
     <slot name="head">
       <BaseHead />

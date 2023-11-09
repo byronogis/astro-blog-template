@@ -1,4 +1,5 @@
 ---
+import { t } from 'i18next'
 import ThemeSwitchButton from '~/components/ThemeSwitchButton.astro'
 import { site } from '~/setting'
 import { getPath } from '~/utils/path'
@@ -23,14 +24,14 @@ const { class: className } = Astro.props
     <ul class:list={[
       'h-full flex flex-col justify-center items-center',
     ]}>
-      {site.navigation.map(({ title, icon, id }) => (
+      {site.navigation.map(({ icon, id }) => (
         <li class:list={[
           'py-4 site-opacity',
           'sm:(hover:opacity-100)',
           'component_site-side_list_item',
         ]}>
-          <a href={getPath(id)} title={title} class:list={['text-4 block', 'sm:(hidden)', 'lg:(block)']}>{title}</a>
-          <a href={getPath(id)} title={title} class:list={[site.iconMap[icon], 'hidden', 'sm:(block text-6)', 'lg:(hidden)']}></a>
+          <a href={getPath(id)} title={t(`nav.${id}`)} class:list={['text-4 block', 'sm:(hidden)', 'lg:(block)']}>{t(`nav.${id}`)}</a>
+          <a href={getPath(id)} title={t(`nav.${id}`)} class:list={[site.iconMap[icon], 'hidden', 'sm:(block text-6)', 'lg:(hidden)']}></a>
         </li>
       ))}
 
@@ -40,7 +41,7 @@ const { class: className } = Astro.props
         'component_site-side_list_item component_site-side_list_item__close',
         'component_site-side__search',
       ]}>
-        <button class="i-ic:baseline-search" title="Search"></button>
+        <button class="i-ic:baseline-search" title={t('nav.search')}></button>
       </li>
 
       <li class:list={[

@@ -1,4 +1,5 @@
 ---
+import { t } from 'i18next'
 import Search from 'astro-pagefind/components/Search'
 
 const options = {
@@ -21,7 +22,7 @@ const options = {
     ]}
   >
     <Search id="search" className="pagefind-ui" uiOptions={options} />
-    <button class="site-mask__close">Close</button>
+    <button class="site-mask__close">{t('search.close')}</button>
   </div>
 </div>
 

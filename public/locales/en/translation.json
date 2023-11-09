@@ -1,0 +1,20 @@
+{
+  "nav": {
+    "home": "Home",
+    "post": "Post",
+    "tag": "Tag",
+    "about": "About",
+    "search": "Search",
+    "theme": "Theme",
+    "avatar": "Avatar"
+  },
+  "post": {
+    "author": "Author",
+    "lastUpdated": "Last Updated",
+    "recent": "Recent",
+    "series": "Series"
+  },
+  "search": {
+    "close": "Close"
+  }
+}

@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro-i18next generate && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "astro": "^3.4.3",
+    "astro-i18next": "1.0.0-beta.21",
     "astro-seo": "^0.8.0",
     "dayjs": "^1.11.10"
   },

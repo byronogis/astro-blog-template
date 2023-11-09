@@ -1,4 +1,5 @@
 ---
+import { t } from 'i18next'
 import { getCollection } from 'astro:content'
 import DefaultLayout from '~/layouts/Default.astro'
 import PostCard from '~/components/PostCard.astro'
@@ -27,7 +28,7 @@ const postSeries = postEntries.reduce((series, entry) => {
 <DefaultLayout>
   <div>
     <section>
-      <h2 class="site-section-title">Recent</h2>
+      <h2 class="site-section-title">{t('post.recent')}</h2>
       <ul class="site-list">
         {postEntries.slice(0, 6).map(entry => (
           <PostCard entry={entry} />
@@ -36,7 +37,7 @@ const postSeries = postEntries.reduce((series, entry) => {
     </section>
 
     <section>
-      <h2 class="site-section-title">Series</h2>
+      <h2 class="site-section-title">{t('post.series')}</h2>
       <ul>
         {Object.entries(postSeries).map(([seriesName, entries]) => (
           <li>

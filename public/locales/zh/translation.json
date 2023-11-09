@@ -1,0 +1,20 @@
+{
+  "nav": {
+    "home": "首页",
+    "post": "文章",
+    "tag": "标签",
+    "about": "关于",
+    "search": "搜索",
+    "theme": "主题",
+    "avatar": "头像"
+  },
+  "post": {
+    "author": "作者",
+    "lastUpdated": "最后更新",
+    "recent": "最近",
+    "series": "系列"
+  },
+  "search": {
+    "close": "关闭"
+  }
+}
