@@ -13,10 +13,22 @@ import SiteSearch from '~/components/SiteSearch.astro'
     <BaseHead />
   </slot>
 
-  <div class="absolute left-0 lg:(w-20% bg-secondary h-full) xl:(w-[calc((100vw-1440px)/2+1440px*0.2)])"></div>
-  <div class="relative max-w-1440px m-auto min-h-100dvh flex flex-row layout_default">
-    <SiteSide class="flex-none" />
-    <main class="flex-1 w-0 p-6 pb-16">
+  <div class:list={[
+    'fixed left-0 h-full bg-secondary',
+    'sm:(w-80px)',
+    'lg:(w-20%)',
+    'xl:(w-[calc((100vw-1440px)/2+1440px*0.2)])',
+  ]}></div>
+
+  <div class:list={[
+    'relative w-full min-h-100dvh layout_default',
+    'grid grid-cols-1',
+    'sm:(grid-cols-[80px_1fr])',
+    'lg:(grid-cols-[20%_1fr])',
+    'xl:(px-[calc((100%-1440px)/2)])',
+  ]}>
+    <SiteSide />
+    <main class="p-6 pb-16">
       <slot />
 
       <SiteSearch />
