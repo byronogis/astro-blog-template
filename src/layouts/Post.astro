@@ -38,14 +38,15 @@ const postEntries = (await getCollection('blog'))
   <div
     class:list={[
       'relative',
-      'flex flex-row',
+      'grid grid-cols-1',
+      'md:(grid-cols-[70%_30%])',
       'layout_post',
     ]}
     data-pagefind-body
   >
     <article class:list={[
       'markdown', // unocss typography
-      'mx-auto !max-w-[clamp(70%,100%,65ch)] w-[clamp(70%,100%,65ch)]',
+      '!max-w-full w-full',
       'md:(px-8)',
     ]}>
       <section class="not-markdown text-center">
@@ -94,7 +95,6 @@ const postEntries = (await getCollection('blog'))
     </article>
 
     <aside site-mask class:list={[
-      'flex-1',
       'lt-md:(site-mask leading-8 hidden)',
       'md:(sticky top-0 h-100dvh text-text:70)',
       'layout_post__toc',
