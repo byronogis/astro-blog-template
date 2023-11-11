@@ -23,10 +23,9 @@ else {
   ;({ Content, headings } = await render())
 }
 
-const seriesMap = getPostSeriesMap(
-  await getPostEntries('blog', { sort: true }),
-  { include: data.series },
-)
+const seriesMap = data.series
+  ? getPostSeriesMap(await getPostEntries('blog', { sort: true }), { include: data.series })
+  : {}
 ---
 
 <DefaultLayout>
@@ -66,7 +65,7 @@ const seriesMap = getPostSeriesMap(
           ))}
         </ul>
 
-        {Object.keys(seriesMap).length && (
+        {!!Object.keys(seriesMap).length && (
           Object.entries(seriesMap).map(([series, entries]) => (
             //
             <details>
