@@ -7,7 +7,7 @@ import BaseHead from '~/components/BaseHead.astro'
 <html lang={i18next.language} class="relative w-100vw overflow-x-hidden">
   <head>
     <slot name="head">
-      <BaseHead />
+      <BaseHead title={Astro.props.title} />
     </slot>
 
     <style is:global>

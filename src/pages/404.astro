@@ -3,7 +3,7 @@ import BlankLayout from '~/layouts/Blank.astro'
 import { getPath } from '~/utils/path'
 ---
 
-<BlankLayout>
+<BlankLayout title="404">
   <div class="h-100dvh flex flex-col justify-center items-center">
     <button class="i-ic:baseline-insert-page-break text-40" title="Page not Found"></button>
     <span class="text-8">Page not Found, Go <a href={getPath('home')} class="underline">Home</a></span>
