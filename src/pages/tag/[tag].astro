@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content'
 import ListLayout from '~/layouts/List.astro'
 import PostCard from '~/components/PostCard.astro'
+import { getPostEntries } from '~/utils/post'
 
 export async function getStaticPaths() {
-  const postEntries = await getCollection('blog')
+  const postEntries = await getPostEntries('blog', { sort: true })
 
   const tags = postEntries.reduce((acc, entry) => [...new Set([...acc, ...(entry.data.tags || [])])], [])
 

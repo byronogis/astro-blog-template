@@ -1,22 +1,17 @@
 ---
-import { getCollection } from 'astro:content'
 import DefaultLayout from '~/layouts/Default.astro'
 import PostTag from '~/components/PostTag.astro'
+import { getPostEntries, getPostTagsMap } from '~/utils/post'
 
-const postEntries = await getCollection('blog')
+const postEntries = await getPostEntries('blog')
 
-const tagsCount = postEntries.reduce((acc, entry) => {
-  entry.data.tags?.forEach((tag) => {
-    acc[tag] = acc[tag] ? acc[tag] + 1 : 1
-  })
-  return acc
-}, {})
+const tagsMap = getPostTagsMap(postEntries)
 ---
 
 <DefaultLayout>
   <ul class="w-full min-h-full flex flex-row flex-wrap content-center justify-center items-center gap-4">
-    {Object.entries(tagsCount).map(([tag, count]) => (
-      <PostTag tag={tag} count={count} />
+    {Object.entries(tagsMap).map(([tag, entries]) => (
+      <PostTag tag={tag} count={entries.length} />
     ))}
   </ul>
 </DefaultLayout>

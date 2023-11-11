@@ -1,28 +1,12 @@
 ---
 import { t } from 'i18next'
-import { getCollection } from 'astro:content'
 import DefaultLayout from '~/layouts/Default.astro'
 import PostCard from '~/components/PostCard.astro'
+import { getPostEntries, getPostSeriesMap } from '~/utils/post'
 
-const postEntries = (await getCollection('blog'))
-  .sort((a, b) => {
-    const aTime = new Date(a.data.modifiedTime ?? a.data.publishedTime).getTime()
-    const bTime = new Date(b.data.modifiedTime ?? b.data.publishedTime).getTime()
-    return bTime - aTime
-  })
+const postEntries = await getPostEntries('blog', { sort: true })
 
-const postSeries = postEntries.reduce((series, entry) => {
-  const seriesName = entry.data.series
-  if (!seriesName)
-    return series
-
-  if (!series[seriesName]) {
-    series[seriesName] = []
-  }
-
-  series[seriesName].push(entry)
-  return series
-}, {} as Record<string, any[]>)
+const postSeries = getPostSeriesMap(postEntries)
 ---
 
 <DefaultLayout>
