@@ -72,10 +72,11 @@ import SiteSearch from '~/components/SiteSearch.astro'
 
     const closeMask = () => mask.classList.remove('!block', '!translate-none')
 
-    mask.addEventListener('click', (e) => {
+    mask.addEventListener('click', (e: HTMLElementEvent<HTMLElement>) => {
       const isCurrentTarget = e.target === e.currentTarget
       if (isCurrentTarget) {
-        closeMask()
+        const isCloseableBySelf = window.getComputedStyle(e.currentTarget).getPropertyValue('--site-mask-clickable-by-self') === '1'
+        isCloseableBySelf && closeMask()
       }
     })
 

@@ -10,6 +10,7 @@ const { class: className } = Astro.props
 <aside site-mask class:list={[
   'fixed z-100 left-0 top-0 bottom-0 h-100dvh overflow-auto overscroll-contain',
   'lt-sm:(site-mask translate-x--100% transition-all)',
+  '[&]:(lt-sm:([--site-mask-clickable-by-self:1]))',
   'sm:(sticky)',
   'component_site-side',
   className,
