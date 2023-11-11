@@ -25,6 +25,7 @@ You can find source code in [here](https://github.com/byronogis/astro-blog-templ
 - i18n support by [astro-i18next](https://github.com/yassinedoghri/astro-i18next), you can switch language in footer after you add more language
 - local search by [astro-pagefind](https://github.com/shishkin/astro-pagefind)
 - toc friendly when ever you device is mobile or desktop
+- **series** support, you can add series in frontmatter of post with `string[]` or `string`
 
 ## Usage
 
