@@ -9,13 +9,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "astro-i18next generate",
+    "prebuild": "pnpm i18n",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp",
+    "i18n": "astro-i18next generate",
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
