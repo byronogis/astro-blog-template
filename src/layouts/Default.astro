@@ -23,8 +23,8 @@ import SiteSearch from '~/components/SiteSearch.astro'
   <div class:list={[
     'relative w-full min-h-100dvh layout_default',
     'grid grid-cols-1',
-    'sm:(grid-cols-[80px_1fr])',
-    'lg:(grid-cols-[20%_1fr])',
+    'sm:(grid-cols-[80px_calc(100%-80px)])',
+    'lg:(grid-cols-[20%_80%])',
     'xl:(px-[calc((100%-1440px)/2)])',
   ]}>
     <SiteSide />
