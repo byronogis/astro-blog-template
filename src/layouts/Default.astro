@@ -28,7 +28,10 @@ import SiteSearch from '~/components/SiteSearch.astro'
     'xl:(px-[calc((100%-1440px)/2)])',
   ]}>
     <SiteSide />
-    <main class="p-6">
+    <main class:list={[
+      'p-6',
+      'grid grid-cols-1 grid-rows-[1fr_auto]',
+    ]}>
       <slot />
 
       <Footer />
