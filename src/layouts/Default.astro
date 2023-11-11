@@ -49,8 +49,8 @@ import SiteSearch from '~/components/SiteSearch.astro'
     mutationList.forEach((mutation) => {
       const target = mutation.target as HTMLElement
 
-      const isShow = target.classList.contains('!block')
-        || target.classList.contains('!translate-none')
+      const isShow = ['!block', '!translate-none']
+        .some((className) => target.classList.contains(className))
 
       isShow
         ? pausePageScroll()
