@@ -5,10 +5,10 @@ image:
     url: '/placeholder-cover.jpg'
     alt: '/public image'
 publishedTime: 2022-07-01
-modifiedTime: 2022-07-01
+modifiedTime: 2022-07-04
 author: 'Astro 学习者'
 tags: ["astro", "blogging", "learning in public"]
-series: 'Learn Astro'
+series: ['Learn Astro', 'Astro Tutorial']
 ---
 
 # top
