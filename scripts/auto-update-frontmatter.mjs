@@ -16,7 +16,7 @@ try {
 
   echo('Updating frontmatter...')
 
-  await spinner(() => Promise.all(stagedMdPaths.map(updateFrontmatter, currentDate)))
+  await spinner(() => Promise.all(stagedMdPaths.map(mdPath => updateFrontmatter(mdPath, currentDate))))
 
   await $`git add ${stagedMdPaths}`.quiet()
 
