@@ -23,7 +23,8 @@
     "astro": "^3.4.3",
     "astro-i18next": "1.0.0-beta.21",
     "astro-seo": "^0.8.0",
-    "dayjs": "^1.11.10"
+    "dayjs": "^1.11.10",
+    "zx": "^7.2.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "1.0.0-beta.18",
@@ -49,7 +50,7 @@
     }
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "pnpm lint-staged && npx zx ./scripts/auto-update-frontmatter.mjs"
   },
   "lint-staged": {
     "*": "eslint --fix"
