@@ -39,7 +39,6 @@
     "eslint": "^8.53.0",
     "eslint-plugin-astro": "^0.29.1",
     "lint-staged": "^15.0.2",
-    "pagefind": "^1.0.3",
     "simple-git-hooks": "^2.9.0",
     "unocss": "^0.57.2",
     "unocss-preset-theme": "^0.11.0"
