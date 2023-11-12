@@ -1,5 +1,6 @@
 {
   "nav": {
+    "_": "导航",
     "home": "首页",
     "post": "文章",
     "tag": "标签",
@@ -11,10 +12,15 @@
   "post": {
     "author": "作者",
     "lastUpdated": "最后更新",
+    "toc": "目录",
     "recent": "最近",
     "series": "系列"
   },
   "search": {
     "close": "关闭"
+  },
+  "other": {
+    "back2top": "返回顶部",
+    "language": "语言"
   }
 }

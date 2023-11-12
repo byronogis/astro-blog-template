@@ -1,5 +1,6 @@
 {
   "nav": {
+    "_": "Navigation",
     "home": "Home",
     "post": "Post",
     "tag": "Tag",
@@ -11,10 +12,15 @@
   "post": {
     "author": "Author",
     "lastUpdated": "Last Updated",
+    "toc": "Table of Contents",
     "recent": "Recent",
     "series": "Series"
   },
   "search": {
     "close": "Close"
+  },
+  "other": {
+    "back2top": "Back to top",
+    "language": "Language"
   }
 }

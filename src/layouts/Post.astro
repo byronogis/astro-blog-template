@@ -73,14 +73,12 @@ const seriesMap = data.series
 
               <ul class="flex flex-col">
                 {entries.map(entry => (
-                  <a
+                  <li
                     class:list={[
                       'my-2',
                       { 'font-bold': slug === entry.slug, 'font-normal': slug !== entry.slug },
                     ]}
-                    href={getPath('post', entry.slug)}
-                    title={entry.data.title}
-                  >{entry.data.title}{entry.slug}{}</a>
+                  ><a href={getPath('post', entry.slug)} title={entry.data.title}>{entry.data.title}</a></li>
                 ))}
               </ul>
             </details>

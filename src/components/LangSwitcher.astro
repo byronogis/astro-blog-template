@@ -1,9 +1,10 @@
 ---
+import { t } from 'i18next'
 import { LanguageSelector } from 'astro-i18next/components'
 
 ---
 
-<LanguageSelector showFlag={true} class:list={[
+<LanguageSelector showFlag={true} title={t('other.language')} class:list={[
   'component_lang-switcher',
   'bg-transparent',
 ]} />

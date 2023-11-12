@@ -1,4 +1,5 @@
 ---
+import { t } from 'i18next'
 import { site } from '~/setting'
 
 const { class: className } = Astro.props
@@ -12,29 +13,38 @@ const { class: className } = Astro.props
   '[&>*]:(h-10 overflow-hidden)',
 ]}>
   <!-- back to top -->
-  <button class:list={[
-    'i-ic:baseline-vertical-align-top',
-    'component_control-side_back-to-top__button',
-    'site-opacity',
-    'sm:(hover:opacity-100)',
-  ]}/>
+  <button
+    class:list={[
+      'i-ic:baseline-vertical-align-top',
+      'component_control-side_back-to-top__button',
+      'site-opacity',
+      'sm:(hover:opacity-100)',
+    ]}
+    title={t('other.back2top')}
+  />
 
   <!-- toc -->
-  <button class:list={[
-    site.iconMap.toc,
-    'component_control-side_post-toc__button',
-    'site-opacity',
-    'sm:(hover:opacity-100)',
-    'md:(hidden)',
-  ]}/>
+  <button
+    class:list={[
+      site.iconMap.toc,
+      'component_control-side_post-toc__button',
+      'site-opacity',
+      'sm:(hover:opacity-100)',
+      'md:(hidden)',
+    ]}
+    title={t('post.toc')}
+  />
 
   <!-- menu -->
-  <button class:list={[
-    site.iconMap.menu,
-    'component_control-side_site-side__button',
-    'site-opacity',
-    'sm:(hidden)',
-  ]}/>
+  <button
+    class:list={[
+      site.iconMap.menu,
+      'component_control-side_site-side__button',
+      'site-opacity',
+      'sm:(hidden)',
+    ]}
+    title={t('nav._')}
+  />
 
 </aside>
 
