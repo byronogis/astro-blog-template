@@ -1,7 +1,8 @@
 {
-  "name": "astro-starter",
+  "name": "astro-blog-template",
   "type": "module",
   "version": "0.0.34",
+  "private": false,
   "engines": {
     "node": ">=18.14.1",
     "pnpm": ">=8.6.12"
