@@ -70,7 +70,7 @@ export default defineConfig({
       sm: '768px',
       md: '1024px',
       lg: '1280px',
-      xl: '1440px',
+      xl: '1880px',
     },
     colors: {
       primary: '#FFFFFF',
