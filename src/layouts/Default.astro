@@ -17,7 +17,7 @@ import SiteSearch from '~/components/SiteSearch.astro'
     'fixed left-0 h-full bg-secondary',
     'sm:(w-80px)',
     'lg:(w-20%)',
-    'xl:(w-[calc((100vw-1440px)/2+1440px*0.2)])',
+    'xl:(w-[calc((100vw-var(--site-theme-breakpoints-xl,1440px))/2+var(--site-theme-breakpoints-xl,1440px)*0.2)])',
   ]}></div>
 
   <div class:list={[
@@ -25,7 +25,7 @@ import SiteSearch from '~/components/SiteSearch.astro'
     'grid grid-cols-1',
     'sm:(grid-cols-[80px_calc(100%-80px)])',
     'lg:(grid-cols-[20%_80%])',
-    'xl:(px-[calc((100%-1440px)/2)])',
+    'xl:(px-[calc((100%-var(--site-theme-breakpoints-xl,1440px))/2)])',
   ]}>
     <SiteSide />
     <main class:list={[
