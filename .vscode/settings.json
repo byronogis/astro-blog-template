@@ -1,6 +1,6 @@
 {
   // Enable the ESlint flat config support
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
 
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
@@ -8,8 +8,8 @@
 
   // Auto fix
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": false
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
   },
 
   // Silent the stylistic rules in you IDE, but still auto fix them
