@@ -1,0 +1,35 @@
+---
+import DefaultLayout from '../../layouts/Default.astro'
+import { getPostList } from '../../utils/content/post'
+import { getTagList } from '../../utils/content/tag'
+import { getPath } from '../../utils/path'
+
+export async function getStaticPaths() {
+  const tagList = await getTagList()
+
+  return tagList.map(tag => ({
+    params: {
+      slug: tag,
+    },
+  }))
+}
+
+const {
+  slug,
+} = Astro.params
+
+const extryList = await getPostList({
+  filters: {
+    tags: slug,
+  },
+})
+
+---
+
+<DefaultLayout>
+  <ul>
+    {extryList.map(entry => (
+      <li><a href={getPath('post', [entry.collection, entry.id])}>{entry.data.title}</a></li>
+    ))}
+  </ul>
+</DefaultLayout>

@@ -1,0 +1,16 @@
+---
+import DefaultLayout from '../../layouts/Default.astro'
+import { getTagList } from '../../utils/content/tag'
+import { getPath } from '../../utils/path'
+
+
+const tagList = await getTagList()
+---
+
+<DefaultLayout>
+  <ul>
+    {tagList.map(tag => (
+      <li><a href={getPath('tag', [tag])}>{tag}</a></li>
+    ))}
+  </ul>
+</DefaultLayout>

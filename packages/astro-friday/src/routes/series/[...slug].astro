@@ -1,0 +1,35 @@
+---
+import DefaultLayout from '../../layouts/Default.astro'
+import { getPostList } from '../../utils/content/post'
+import { getSeriesList } from '../../utils/content/series'
+import { getPath } from '../../utils/path'
+
+export async function getStaticPaths() {
+  const seriesList = await getSeriesList()
+
+  return seriesList.map(series => ({
+    params: {
+      slug: series,
+    },
+  }))
+}
+
+const {
+  slug,
+} = Astro.params
+
+const extryList = await getPostList({
+  filters: {
+    series: slug,
+  },
+})
+
+---
+
+<DefaultLayout>
+  <ul>
+    {extryList.map(entry => (
+      <li><a href={getPath('post', [entry.collection, entry.id])}>{entry.data.title}</a></li>
+    ))}
+  </ul>
+</DefaultLayout>

@@ -1,0 +1,15 @@
+---
+import DefaultLayout from '../../layouts/Default.astro'
+import { getSeriesList } from '../../utils/content/series'
+import { getPath } from '../../utils/path'
+
+const seriesList = await getSeriesList()
+---
+
+<DefaultLayout>
+  <ul>
+    {seriesList.map(series => (
+      <li><a href={getPath('series', [series])}>{series}</a></li>
+    ))}
+  </ul>
+</DefaultLayout>

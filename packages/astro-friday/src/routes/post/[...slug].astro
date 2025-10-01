@@ -1,0 +1,34 @@
+---
+import { render } from 'astro:content'
+import DefaultLayout from '../../layouts/Default.astro'
+import { getPostList } from '../../utils/content/post'
+
+export async function getStaticPaths() {
+  const entryList = await getPostList()
+
+  return entryList.map(entry => ({
+    params: {
+      collection: entry.collection,
+      slug: entry.id,
+    },
+    props: {
+      entry,
+    },
+  }))
+}
+
+// const { collection, slug } = Astro.params
+
+const { entry } = Astro.props
+
+const {
+  Content,
+  // @ts-expect-error never
+} = await render(entry)
+---
+
+<DefaultLayout>
+  <ul>
+    <Content />
+  </ul>
+</DefaultLayout>

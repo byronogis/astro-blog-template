@@ -1,0 +1,24 @@
+{
+  "name": "astro-friday",
+  "type": "module",
+  "version": "1.0.0-alpha.0",
+  "exports": {
+    ".": "./src/index.ts",
+    "./routes/*": "./src/routes/*"
+  },
+  "scripts": {
+    "prepare": "astro sync",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "astro": "catalog:build",
+    "unocss": "catalog:deps"
+  },
+  "dependencies": {
+    "defu": "catalog:deps",
+    "type-fest": "catalog:deps"
+  },
+  "devDependencies": {
+    "typescript": "catalog:deps"
+  }
+}
