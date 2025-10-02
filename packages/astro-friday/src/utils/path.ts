@@ -1,16 +1,15 @@
 import path from 'node:path'
 import config from 'virtual:astro-friday-config'
 
-export function getPath<T extends 'post' | 'tag' | 'series'>(
+type PathType = 'home' | 'post' | 'tag' | 'series'
+
+export function getPath<T extends PathType>(
   type: T,
-  params: {
-    post: string[]
-    tag: string[]
-    series: string[]
-  }[T] = [],
+  params: string[] = [],
 ) {
   const base = config.base
   const prefix = {
+    home: '',
     post: 'post',
     tag: 'tag',
     series: 'series',
