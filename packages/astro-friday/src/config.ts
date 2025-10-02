@@ -22,9 +22,9 @@ export const defaultConfig: Config = {
   },
   collections: {},
   navigations: [
-    { label: 'Blog', link: '/post', icon: 'i-lucide:scroll-text' },
-    { label: 'Tag', link: '/tag', icon: 'i-lucide:tag' },
-    { label: 'Series', link: '/series', icon: 'i-lucide:square-library' },
+    { label: 'Blog', link: '/post', icon: 'i-lucide:scroll-text', order: 100 },
+    { label: 'Tag', link: '/tag', icon: 'i-lucide:tag', order: 100 },
+    { label: 'Series', link: '/series', icon: 'i-lucide:square-library', order: 100 },
   ],
 }
 
@@ -36,6 +36,8 @@ export function resolveConfig(userConfig: Config, astroConfig: AstroConfig): Res
   } = astroConfig
 
   mergedConfig.base = path.join('/', astroBase, mergedConfig.base)
+
+  mergedConfig.navigations = mergedConfig.navigations.sort((a, b) => (b.order || 0) - (a.order || 0))
 
   return mergedConfig
 }

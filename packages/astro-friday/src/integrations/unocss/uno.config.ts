@@ -20,6 +20,7 @@ export default defineConfig({
     'i-lucide:scroll-text',
     'i-lucide:tag',
     'i-lucide:square-library',
+    'i-uil:github-alt',
   ],
   presets: [
     presetWind4(),

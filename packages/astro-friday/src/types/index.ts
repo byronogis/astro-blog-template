@@ -2,10 +2,9 @@ export interface NavItem {
   label: string
   link: string
   icon?: string
+  type?: 'icon'
   /**
    * Whether the link is external (opens in a new tab)
-   *
-   * @default false
    */
   external?: boolean
   /**

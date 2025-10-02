@@ -25,8 +25,18 @@ const {
             target={item.external ? '_blank' : '_self'}
             class="hoverable-text"
           >
-            <span class="lt-md:hidden">{item.label}</span>
-            {item.icon && <i class={`${item.icon} md:hidden`}></i>}
+            {
+              item.type === 'icon' && item.icon
+              ? (
+                  <i class={`${item.icon}`}></i>
+                )
+              : (
+                  <>
+                    <span class="lt-md:hidden">{item.label}</span>
+                    {item.icon && <i class={`${item.icon} md:hidden`}></i>}
+                  </>
+                )
+            }
           </a>
         </li>
       ))}
