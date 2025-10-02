@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content'
+import dayjs from 'dayjs'
 import config from 'virtual:astro-friday-config'
 
 /**
@@ -9,6 +10,7 @@ export function getPostList(
 ) {
   const {
     filters = {},
+    sort = 'created-desc',
   } = options
 
   const tags = [filters.tags || []].flat()
@@ -36,7 +38,17 @@ export function getPostList(
     return true
   }))
 
-  return Promise.all(tasks).then(lists => lists.flat())
+  return Promise.all(tasks)
+    .then(lists => lists.flat())
+    .then(list => list.sort((a, b) => {
+      if (sort === 'created-asc') {
+        return dayjs(a.data.created).isAfter(dayjs(b.data.created)) ? 1 : -1
+      }
+      else if (sort === 'created-desc') {
+        return dayjs(a.data.created).isBefore(dayjs(b.data.created)) ? 1 : -1
+      }
+      return 0
+    }))
 }
 
 interface GetPostListOptions {
@@ -44,5 +56,15 @@ interface GetPostListOptions {
     tags?: string | string[]
     series?: string | string[]
   }
-  sort?: 'desc' | 'asc' | false
+  /**
+   * Sort order for the posts.
+   *
+   * By default, posts are sorted by created date in descending order (newest first).
+   *
+   * - 'created-desc': Sort by created date in descending order (newest first).
+   * - 'created-asc': Sort by created date in ascending order (oldest first).
+   *
+   * @default 'created-desc'
+   */
+  sort?: 'created-desc' | 'created-asc'
 }
