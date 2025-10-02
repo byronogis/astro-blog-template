@@ -16,6 +16,7 @@ catalogs:
     zx: ^8.8.4
   lint:
     '@antfu/eslint-config': ^5.4.1
+    '@unocss/eslint-plugin': ^66.5.2
     bumpp: ^10.2.3
     eslint: ^9.36.0
     eslint-plugin-astro: ^1.3.1

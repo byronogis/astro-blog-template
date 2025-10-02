@@ -5,6 +5,7 @@ import type { AstroIntegration } from 'astro'
 import type { Config } from './config'
 import path from 'node:path'
 import { resolveConfig } from './config'
+import { unocss } from './integrations/unocss'
 import { vitePluginAstroFridayCollection } from './plugins/collection'
 import { vitePluginAstroFridayConfig } from './plugins/config'
 
@@ -22,6 +23,9 @@ export function integration(userConfig: Config = {}): AstroIntegration {
         console.warn('Friday setup hook', { userConfig, resolvedConfig } /* config */)
 
         updateConfig({
+          integrations: [
+            ...unocss(config),
+          ],
           vite: {
             plugins: [
               vitePluginAstroFridayConfig(resolvedConfig),

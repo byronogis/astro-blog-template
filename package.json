@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:lint",
+    "@unocss/eslint-plugin": "catalog:lint",
     "astro": "catalog:build",
     "bumpp": "catalog:lint",
     "eslint": "catalog:lint",
