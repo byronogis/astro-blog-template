@@ -4,23 +4,33 @@
 import type { AstroIntegration } from 'astro'
 import type { Config } from './config'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { resolveConfig } from './config'
 import { unocss } from './integrations/unocss'
 import { vitePluginAstroFridayCollection } from './plugins/collection'
 import { vitePluginAstroFridayConfig } from './plugins/config'
+
+const _dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export function integration(userConfig: Config = {}): AstroIntegration {
   return {
     name: 'astro-friday',
     hooks: {
       'astro:config:setup': ({
+        command,
         config,
         updateConfig,
         injectRoute,
+        addWatchFile,
       }) => {
         const resolvedConfig = resolveConfig(userConfig, config)
 
-        console.warn('Friday setup hook', { userConfig, resolvedConfig } /* config */)
+        if (command === 'dev') {
+          addWatchFile(path.resolve(_dirname, './collection.ts'))
+          addWatchFile(path.resolve(_dirname, './config.ts'))
+          addWatchFile(path.resolve(_dirname, './integration.ts'))
+          addWatchFile(path.resolve(_dirname, './integrations/unocss/uno.config.ts'))
+        }
 
         updateConfig({
           integrations: [
