@@ -50,7 +50,7 @@ export function integration(userConfig: Config = {}): AstroIntegration {
         })
 
         injectRoute({
-          pattern: path.join(resolvedConfig.base, `post/[collection]`),
+          pattern: path.join(resolvedConfig.base, `post`),
           entrypoint: `astro-friday/routes/post/index.astro`,
         })
 

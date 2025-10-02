@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from '../types/content'
+import dayjs from 'dayjs'
+import { formatDate } from '../utils/date'
+import { getPath } from '../utils/path'
+
+
+interface Props {
+  entryList: CollectionEntry[]
+}
+
+const { entryList } = Astro.props
+
+/**
+ * Group entries by year
+ *
+ * {2023: [entry1, entry2], 2022: [entry3, entry4]}
+ *
+ * Use Map to keep the order of years
+ */
+const groupedByYear = entryList.reduce((acc, entry) => {
+  const year = dayjs(entry.data.created).year()
+  if (!acc.has(year)) {
+    acc.set(year, [])
+  }
+  acc.get(year)!.push(entry)
+  return acc
+}, new Map<number, typeof entryList>())
+---
+
+{
+  entryList.length === 0
+    ? (
+        <div class="py2 op-50" is:raw>
+          { nothing here yet }
+        </div>
+      )
+    : Array.from(groupedByYear).map(([year, entries]) => (
+        <section class="mb-10">
+          <div
+            class="slide-enter mx-auto h20 pointer-events-none select-none relative prose"
+          >
+            <span
+              class="text-8em color-transparent font-bold text-stroke-2 text-stroke-hex-aaa op10 left--3rem top--2rem absolute"
+            >{year}</span>
+          </div>
+
+          <ul class="mx-auto prose">
+            {entries.map(entry => (
+              <li class="mb-6 mt-2">
+                <a
+                  class="text-lg leading-1.2em hoverable-text no-underline flex flex-col gap-2 md:(flex-row flex-items-center)"
+                  href={getPath('post', [entry.collection, entry.id])}
+                >
+                  <span class="text-#000">{entry.data.title}</span>
+
+                  <div class="flex gap-2 items-center">
+                    <span class="text-sm ws-nowrap">
+                      { formatDate(entry.data.created, true) }
+                    </span>
+
+                    <span
+                      class="text-xs text-zinc:500 my-auto px-1 py-0.5 align-middle rounded bg-zinc:15 flex-none md:hidden"
+                    >{entry.collection}</span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+}
+
+
+

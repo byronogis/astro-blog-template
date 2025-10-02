@@ -1,30 +1,12 @@
 ---
-import config from 'virtual:astro-friday-config'
+import ArticleList from '../../components/ArticleList.astro'
 import DefaultLayout from '../../layouts/Default.astro'
 import { getPostList } from '../../utils/content/post'
-import { getPath } from '../../utils/path'
 
-export async function getStaticPaths() {
-  return Object.keys(config.collections).map(name => ({
-    params: {
-      collection: name,
-    },
-  }))
-}
-
-const {
-  collection,
-} = Astro.params
-
-const extryList = await getPostList()
-
+const entryList = await getPostList()
 ---
 
 <DefaultLayout>
-  <ul>
-    {extryList.map(entry => (
-      <li><a href={getPath('post', [collection, entry.id])}>{entry.data.title}</a></li>
-    ))}
-  </ul>
+  <ArticleList {entryList} />
 </DefaultLayout>
 

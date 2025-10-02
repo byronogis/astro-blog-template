@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content'
+import ArticleDetail from '../../components/ArticleDetail.astro'
 import DefaultLayout from '../../layouts/Default.astro'
 import { getPostList } from '../../utils/content/post'
 
@@ -28,7 +29,7 @@ const {
 ---
 
 <DefaultLayout>
-  <ul>
+  <ArticleDetail {entry}>
     <Content />
-  </ul>
+  </ArticleDetail>
 </DefaultLayout>

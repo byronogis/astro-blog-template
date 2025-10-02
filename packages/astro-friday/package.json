@@ -12,6 +12,7 @@
   },
   "peerDependencies": {
     "astro": "catalog:build",
+    "dayjs": "catalog:deps",
     "unocss": "catalog:deps"
   },
   "dependencies": {
