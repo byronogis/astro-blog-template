@@ -1,12 +1,5 @@
 declare module 'astro:content' {
-  interface _CollectionEntry {
-    id: string
-    body?: string
-    collection: string
-    data: import('../collection').Schema
-    rendered?: import('../collection').RenderedContent
-    filePath?: string
-  }
+  type _CollectionEntry = import('../types/content').CollectionEntry
 
   export function getCollection(
     collection: string,

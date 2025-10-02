@@ -1,0 +1,35 @@
+---
+import type { NavItem } from '../types'
+import { getPath } from '../utils/path'
+
+interface Props {
+  navigations?: NavItem[]
+}
+
+const {
+  navigations = [],
+} = Astro.props
+---
+
+<header class="p-2rem flex items-center">
+  <a href={getPath('home')}>Home</a>
+
+  <i class="flex-1"></i>
+
+  <nav>
+    <ul class="gap-1.2rem grid grid-flow-col">
+      {navigations.map(item => (
+        <li>
+          <a
+            href={item.link}
+            target={item.external ? '_blank' : '_self'}
+            class="hoverable-text"
+          >
+            <span class="lt-md:hidden">{item.label}</span>
+            {item.icon && <i class={`${item.icon} md:hidden`}></i>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

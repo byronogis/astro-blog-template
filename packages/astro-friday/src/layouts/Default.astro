@@ -1,9 +1,12 @@
 ---
-import HeadContent from '../components/HeadContent.astro';
+import config from 'virtual:astro-friday-config'
+import Footer from '../components/Footer.astro'
+import HeadContent from '../components/HeadContent.astro'
+import Header from '../components/Header.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="relative w-100vw overflow-x-hidden">
+<html lang="en" class="">
   <head>
     <HeadContent />
 
@@ -13,7 +16,12 @@ import HeadContent from '../components/HeadContent.astro';
       }
     </style>
   </head>
-  <body class="bg-primary text-text">
-    <slot />
+  <body class="text-gray-700 font-sans relative dark:text-gray-200">
+    <Header navigations={config.navigations} />
+
+    <main class="px-1.75rem py-2.5rem">
+      <slot />
+      <Footer />
+    </main>
   </body>
 </html>

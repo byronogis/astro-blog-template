@@ -1,0 +1,21 @@
+---
+import config from 'virtual:astro-friday-config'
+---
+
+<footer class="copyright m-auto mb-6 mt-10 flex prose">
+  <span class="text-sm op-50">
+    <a
+      target="_blank"
+      href={config.copyright.license.url}
+      style="color:inherit"
+    >{config.copyright.license.type}</a>
+    {config.copyright.copyrightYears} © {config.author.name}
+  </span>
+  <div class="flex-auto"></div>
+</footer>
+
+<style>
+  :root:has(.no-copyright) .copyright {
+    display: none;
+  }
+</style>
