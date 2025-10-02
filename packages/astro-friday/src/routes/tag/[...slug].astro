@@ -2,15 +2,19 @@
 import ArticleList from '../../components/ArticleList.astro'
 import DefaultLayout from '../../layouts/Default.astro'
 import { getPostList } from '../../utils/content/post'
-import { getTagList } from '../../utils/content/tag'
 
 
 export async function getStaticPaths() {
-  const tagList = await getTagList()
+  const tagInfos = await getPostList({
+    groupBy: 'tag',
+  })
 
-  return tagList.map(tag => ({
+  return Array.from(tagInfos.entries()).map(([tag, entryList]) => ({
     params: {
       slug: tag,
+    },
+    props: {
+      entryList,
     },
   }))
 }
@@ -19,14 +23,15 @@ const {
   slug,
 } = Astro.params
 
-const entryList = await getPostList({
-  filters: {
-    tags: slug,
-  },
-})
+const { entryList } = Astro.props
 
 ---
 
 <DefaultLayout>
+  <p class="text-2xl mx-auto mb-4 op-60 flex gap-2 items-center justify-start prose">
+    <i class="i-lucide:tag"></i>
+    <span>{slug}</span>
+  </p>
+
   <ArticleList {entryList} />
 </DefaultLayout>

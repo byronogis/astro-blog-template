@@ -1,15 +1,25 @@
 ---
 import DefaultLayout from '../../layouts/Default.astro'
-import { getSeriesList } from '../../utils/content/series'
+import { getPostList } from '../../utils/content/post'
 import { getPath } from '../../utils/path'
 
-const seriesList = await getSeriesList()
+const seriesInfos = await getPostList({
+  groupBy: 'series',
+})
 ---
 
 <DefaultLayout>
-  <ul>
-    {seriesList.map(series => (
-      <li><a href={getPath('series', [series])}>{series}</a></li>
+  <ul class="mx-auto flex flex-col gap-4 prose">
+    {seriesInfos.entries().map(([series, entryList]) => (
+      <li class="not-prose">
+        <a
+          href={getPath('series', [series])}
+          class="text-xl py-2 pr-4 hoverable-text relative"
+        >
+          {series}
+          <span class="text-sm font-italic right-0 top-0 absolute z-1">{entryList.length}</span>
+        </a>
+      </li>
     ))}
   </ul>
 </DefaultLayout>

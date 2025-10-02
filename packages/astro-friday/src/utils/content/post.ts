@@ -1,14 +1,26 @@
+import type { SetRequired } from 'type-fest'
+import type { CollectionEntry } from '../../types/content'
 import { getCollection } from 'astro:content'
 import dayjs from 'dayjs'
 import config from 'virtual:astro-friday-config'
 
 /**
- * Get a list of content entries from all collections which are defined in the config.
+ * Get a list or map of content entries from all collections which are defined in the config.
+ *
+ * By default, this function returns a flat list of entries, but if the `groupBy` option is provided,
+ * it will return a map of entries grouped by the specified key.
  */
 export function getPostList(
-  options: Omit<GetPostListOptions, 'parameters'> = {},
-) {
+  options: SetRequired<GetPostListOptions, 'groupBy'>,
+): Promise<Map<string, CollectionEntry[]>>
+export function getPostList(
+  options?: GetPostListOptions,
+): Promise<CollectionEntry[]>
+export function getPostList(
+  options: GetPostListOptions = {},
+): Promise<CollectionEntry[] | Map<string, CollectionEntry[]>> {
   const {
+    groupBy,
     filters = {},
     sort = 'created-desc',
   } = options
@@ -49,9 +61,31 @@ export function getPostList(
       }
       return 0
     }))
+    .then((list) => {
+      if (!groupBy)
+        return list
+
+      return list.reduce((acc, cur) => {
+        const key = {
+          year: () => String(dayjs(cur.data.created).year()),
+          tag: () => cur.data.tags,
+          series: () => cur.data.series,
+        }[groupBy]()
+
+        ;[key].flat().forEach((k) => {
+          if (!acc.has(k)) {
+            acc.set(k, [])
+          }
+          acc.get(k)!.push(cur)
+        })
+
+        return acc
+      }, new Map<string, CollectionEntry[]>())
+    })
 }
 
 interface GetPostListOptions {
+  groupBy?: 'year' | 'tag' | 'series'
   filters?: {
     tags?: string | string[]
     series?: string | string[]
