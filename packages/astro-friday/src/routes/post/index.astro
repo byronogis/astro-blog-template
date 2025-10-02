@@ -6,7 +6,12 @@ import { getPostList } from '../../utils/content/post'
 const entryList = await getPostList()
 ---
 
-<DefaultLayout>
+<DefaultLayout
+  seo={{
+    noindex: true,
+    nofollow: true,
+  }}
+>
   <ArticleList {entryList} />
 </DefaultLayout>
 

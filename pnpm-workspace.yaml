@@ -15,6 +15,10 @@ catalogs:
     typescript: ^5.9.2
     unocss: ^66.5.2
     zx: ^8.8.4
+  icons:
+    '@iconify-json/logos': ^1.2.9
+    '@iconify-json/lucide': ^1.2.68
+    '@iconify-json/uil': ^1.2.3
   lint:
     '@antfu/eslint-config': ^5.4.1
     '@unocss/eslint-plugin': ^66.5.2
@@ -25,6 +29,9 @@ catalogs:
     lint-staged: ^16.2.1
     prettier-plugin-astro: ^0.14.1
     simple-git-hooks: ^2.13.1
+  seo:
+    '@vercel/og': ^0.8.5
+    astro-seo: ^0.8.4
 
 enablePrePostScripts: true
 

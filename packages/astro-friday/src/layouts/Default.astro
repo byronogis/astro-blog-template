@@ -2,13 +2,20 @@
 import config from 'virtual:astro-friday-config'
 import Footer from '../components/Footer.astro'
 import HeadContent from '../components/HeadContent.astro'
-import Header from '../components/Header.astro';
+import Header from '../components/Header.astro'
+
+interface Props {
+  seo?: import('astro-seo').Props
+}
+
+const { seo } = Astro.props
+
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="">
   <head>
-    <HeadContent />
+    <HeadContent {seo} />
 
     <style is:global>
       :root.dark img {

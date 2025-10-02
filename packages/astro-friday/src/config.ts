@@ -1,4 +1,5 @@
 import type { AstroConfig } from 'astro'
+import type { Props as SEO } from 'astro-seo'
 import type { glob } from 'astro/loaders'
 import type { SetRequiredDeep } from 'type-fest'
 import type { NavItem } from './types'
@@ -9,6 +10,7 @@ type GlobOptions = Parameters<typeof glob>[0]
 
 export const defaultConfig: Config = {
   title: 'Friday',
+  description: 'A content-focused Astro starter template with tag and series support.',
   base: '.',
   author: {
     name: 'Anonymous',
@@ -63,6 +65,12 @@ export interface Config {
     glob: GlobOptions
   }>
   navigations?: NavItem[]
+  /**
+   * SEO configuration for `astro-seo` integration
+   *
+   * @see https://github.com/jonasmerlin/astro-seo?tab=readme-ov-file#supported-props
+   */
+  seo?: SEO
 }
 
 export type ResolvedConfig = SetRequiredDeep<

@@ -3,6 +3,7 @@ import { render } from 'astro:content'
 import ArticleDetail from '../../components/ArticleDetail.astro'
 import DefaultLayout from '../../layouts/Default.astro'
 import { getPostList } from '../../utils/content/post'
+import { getPath } from '../../utils/path'
 
 export async function getStaticPaths() {
   const entryList = await getPostList()
@@ -28,7 +29,33 @@ const {
 } = await render(entry)
 ---
 
-<DefaultLayout>
+<DefaultLayout
+  seo={{
+    noindex: entry.data.draft,
+    nofollow: entry.data.draft,
+    openGraph: {
+      basic: {
+        title: entry.data.title,
+        type: 'article',
+        image: getPath('og', [entry.collection, entry.id], { host: Astro.url.origin }),
+        url: Astro.url.href,
+      },
+      article: {
+        publishedTime: entry.data.created,
+        modifiedTime: entry.data.modified || entry.data.created,
+        authors: [entry.data.author],
+        section: undefined,
+        tags: entry.data.tags,
+      },
+      image: {
+        type: 'image/png',
+        width: 1200,
+        height: 630,
+        alt: entry.data.title,
+      },
+    },
+  }}
+>
   <ArticleDetail {entry}>
     <Content />
   </ArticleDetail>

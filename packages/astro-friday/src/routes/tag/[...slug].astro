@@ -27,7 +27,12 @@ const { entryList } = Astro.props
 
 ---
 
-<DefaultLayout>
+<DefaultLayout
+  seo={{
+    noindex: true,
+    nofollow: true,
+  }}
+>
   <p class="text-2xl mx-auto mb-4 op-60 flex gap-2 items-center justify-start prose">
     <i class="i-lucide:tag"></i>
     <span>{slug}</span>

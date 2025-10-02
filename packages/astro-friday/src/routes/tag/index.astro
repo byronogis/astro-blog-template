@@ -9,7 +9,12 @@ const tagInfos = await getPostList({
 })
 ---
 
-<DefaultLayout>
+<DefaultLayout
+  seo={{
+    noindex: true,
+    nofollow: true,
+  }}
+>
   <ul class="mx-auto flex flex-row flex-wrap gap-4 prose">
     {tagInfos.entries().map(([tag, entryList]) => (
       <li class="not-prose">

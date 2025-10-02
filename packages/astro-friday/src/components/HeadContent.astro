@@ -1,6 +1,38 @@
 ---
+import type { Props as SEOProps } from 'astro-seo'
+import { SEO } from 'astro-seo'
+import { defu } from 'defu'
+import config from 'virtual:astro-friday-config'
+
+interface Props {
+  seo?: SEOProps
+}
+
+const { seo } = Astro.props
+
+const mergedSEO = defu<SEOProps, SEOProps[]>(
+  seo || {},
+  config.seo || {},
+  {
+    title: config.title,
+    description: config.description,
+    canonical: Astro.url.href,
+    charset: 'utf-8',
+    extend: {
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      ],
+    },
+  },
+)
 
 ---
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<SEO
+  extend={{
+    meta: [
+      // ...
+    ],
+  }}
+  {...mergedSEO}
+/>

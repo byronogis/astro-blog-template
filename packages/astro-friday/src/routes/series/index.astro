@@ -8,7 +8,12 @@ const seriesInfos = await getPostList({
 })
 ---
 
-<DefaultLayout>
+<DefaultLayout
+  seo={{
+    noindex: true,
+    nofollow: true,
+  }}
+>
   <ul class="mx-auto flex flex-col gap-4 prose">
     {seriesInfos.entries().map(([series, entryList]) => (
       <li class="not-prose">
