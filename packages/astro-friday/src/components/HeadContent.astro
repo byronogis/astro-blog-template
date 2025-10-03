@@ -16,7 +16,6 @@ const mergedSEO = defu<SEOProps, SEOProps[]>(
   {
     title: config.title,
     description: config.description,
-    canonical: Astro.url.href,
     charset: 'utf-8',
     extend: {
       meta: [

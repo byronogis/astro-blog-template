@@ -8,9 +8,9 @@ export function getPath<T extends PathType>(
   params: string[] = [],
   options: {
     /**
-     * If true, return the full URL including the base. Otherwise, return the path relative to the base.
+     * If true, return the full URL including the host. Otherwise, return the path relative to the host.
      *
-     * If a string is provided, it will be used as the base instead of the `window.location.origin`.
+     * If a string is provided, it will be used as the host instead of the `window.location.origin`.
      */
     host?: boolean | string
   } = {},
@@ -21,7 +21,7 @@ export function getPath<T extends PathType>(
 
   const _host = host === true ? window.location.origin : host
 
-  const base = config.base
+  const base = config.baseFull
   const prefix = {
     home: '',
     post: 'post',
@@ -30,6 +30,6 @@ export function getPath<T extends PathType>(
     og: 'og',
   }[type]
 
-  const _path = path.join(base, prefix, ...params)
+  const _path = path.join('/', base, prefix, ...params)
   return _host ? new URL(_path, _host).href : _path
 }
