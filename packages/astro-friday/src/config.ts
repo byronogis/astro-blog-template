@@ -39,8 +39,6 @@ export function resolveConfig(userConfig: Config, astroConfig: AstroConfig): Res
 
   mergedConfig.base = path.join('/', astroBase, mergedConfig.base)
 
-  mergedConfig.navigations = mergedConfig.navigations.sort((a, b) => (b.order || 0) - (a.order || 0))
-
   return mergedConfig
 }
 

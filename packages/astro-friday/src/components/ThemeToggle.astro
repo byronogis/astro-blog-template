@@ -1,0 +1,21 @@
+---
+import { ThemeSwitch } from 'astro-color-scheme'
+
+---
+
+<ThemeSwitch strategy="button">
+  <!-- Due to control the time of the switch excute, -->
+  <!-- use a button to trigger the theme switch by self -->
+  <button id="header-theme-toggle-btn--callback" /><button id="header-theme-toggle-btn--trigger" class="i-lucide:sun dark:i-lucide:moon hoverable-text"></button>
+</ThemeSwitch>
+
+<script>
+import { toggleDark } from '../utils/theme'
+
+const callback = document.getElementById('header-theme-toggle-btn--callback')
+const trigger = document.getElementById('header-theme-toggle-btn--trigger')
+trigger?.addEventListener('click', (e) => {
+  const isDark = document.documentElement.classList.contains('dark')
+  toggleDark(e, { isDark: !isDark, toggle: () => callback?.click() })
+})
+</script>
