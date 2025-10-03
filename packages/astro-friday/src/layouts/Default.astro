@@ -1,5 +1,4 @@
 ---
-import config from 'virtual:astro-friday-config'
 import Footer from '../components/Footer.astro'
 import HeadContent from '../components/HeadContent.astro'
 import Header from '../components/Header.astro'
@@ -24,7 +23,7 @@ const { seo } = Astro.props
     </style>
   </head>
   <body class="text-gray-700 font-sans relative dark:text-gray-200">
-    <Header navigations={config.navigations} />
+    <Header />
 
     <main class="px-1.75rem py-2.5rem">
       <slot />

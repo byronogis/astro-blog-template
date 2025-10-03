@@ -23,11 +23,12 @@ export const defaultConfig: Config = {
     },
   },
   collections: {},
-  navigations: [
-    { label: 'Blog', link: '/post', icon: 'i-lucide:scroll-text', order: 100 },
-    { label: 'Tag', link: '/tag', icon: 'i-lucide:tag', order: 100 },
-    { label: 'Series', link: '/series', icon: 'i-lucide:square-library', order: 100 },
-  ],
+  navigations: {
+    'post': { label: 'Blog', link: '/post', icon: 'i-lucide:scroll-text', order: 100 },
+    'tag': { label: 'Tag', link: '/tag', icon: 'i-lucide:tag', order: 200 },
+    'series': { label: 'Series', link: '/series', icon: 'i-lucide:square-library', order: 300 },
+    'theme-toggle': { label: 'Theme', link: 'javascript:;', order: 1000 },
+  },
 }
 
 export function resolveConfig(userConfig: Config, astroConfig: AstroConfig): ResolvedConfig {
@@ -62,7 +63,9 @@ export interface Config {
   collections?: Record<string, {
     glob: GlobOptions
   }>
-  navigations?: NavItem[]
+  navigations?: Partial<Record<'post' | 'tag' | 'series' | 'theme-toggle', NavItem>> & {
+    [key: string]: NavItem
+  }
   /**
    * SEO configuration for `astro-seo` integration
    *
@@ -82,4 +85,5 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'copyright.license'
   | 'collections'
   | 'navigations'
+  | `navigations.${string}`
 >
