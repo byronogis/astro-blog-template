@@ -1,6 +1,6 @@
-import {
-  createLocalFontProcessor,
-} from '@unocss/preset-web-fonts/local'
+// import {
+//   createLocalFontProcessor,
+// } from '@unocss/preset-web-fonts/local'
 import {
   defineConfig,
   presetIcons,
@@ -42,7 +42,8 @@ export default defineConfig({
         condensed: 'Roboto Condensed',
         wisper: 'Bad Script',
       },
-      processors: createLocalFontProcessor(),
+      // TODO fix `fontServeBaseUrl` pathing issue with local fonts while astro has base set
+      // processors: createLocalFontProcessor(),
     }),
     presetTypography({
       selectorName: 'prose',
