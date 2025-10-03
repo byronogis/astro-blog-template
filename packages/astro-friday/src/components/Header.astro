@@ -1,5 +1,6 @@
 ---
 import type { NavItem } from '../types'
+import { ThemeSwitch } from 'astro-color-scheme'
 import { getPath } from '../utils/path'
 
 interface Props {
@@ -11,7 +12,7 @@ const {
 } = Astro.props
 ---
 
-<header class="p-2rem flex items-center">
+<header class="p-2rem flex gap-1.2rem items-center">
   <a href={getPath('home')}>Home</a>
 
   <i class="flex-1"></i>
@@ -42,4 +43,19 @@ const {
       ))}
     </ul>
   </nav>
+
+  <ThemeSwitch strategy="button">
+    <button id="header-theme-toggle-btn--callback" /><button id="header-theme-toggle-btn--trigger" class="i-lucide:sun dark:i-lucide:moon hoverable-text"></button>
+  </ThemeSwitch>
 </header>
+
+<script>
+import { toggleDark } from '../utils/theme'
+
+const callback = document.getElementById('header-theme-toggle-btn--callback')
+const trigger = document.getElementById('header-theme-toggle-btn--trigger')
+trigger?.addEventListener('click', (e) => {
+  const isDark = document.documentElement.classList.contains('dark')
+  toggleDark(e, { isDark: !isDark, toggle: () => callback?.click() })
+})
+</script>

@@ -21,6 +21,8 @@ export default defineConfig({
     'i-lucide:tag',
     'i-lucide:square-library',
     'i-uil:github-alt',
+    'i-lucide:sun',
+    'i-lucide:moon',
   ],
   presets: [
     presetWind4(),
