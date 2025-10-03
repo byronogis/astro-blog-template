@@ -16,15 +16,6 @@ export default defineConfig({
     'hoverable-text': 'opacity-60 hover:opacity-100 transition-(opacity 200 ease)',
     'live-area': 'max-w-65rch mx-auto',
   },
-  safelist: [
-    'i-lucide-house',
-    'i-lucide:scroll-text',
-    'i-lucide:tag',
-    'i-lucide:square-library',
-    'i-uil:github-alt',
-    'i-lucide:sun',
-    'i-lucide:moon',
-  ],
   presets: [
     presetWind4(),
     presetIcons({
