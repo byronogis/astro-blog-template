@@ -85,6 +85,11 @@ export function integration(userConfig: Config = {}): AstroIntegration {
           pattern: path.join(resolvedConfig.base, `og/[collection]/[...slug]`),
           entrypoint: `astro-friday/routes/og/[...slug].ts`,
         })
+
+        resolvedConfig.inject404 && injectRoute({
+          pattern: path.join(resolvedConfig.base, `404`),
+          entrypoint: `astro-friday/routes/404.astro`,
+        })
       },
     },
   }

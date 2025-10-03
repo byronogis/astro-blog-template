@@ -32,6 +32,7 @@ export function getDefaultConfig(config: Config = {}): Config {
       'series': { label: 'Series', link: path.join(base, 'series'), icon: 'i-lucide:square-library', order: 300 },
       'theme-toggle': { label: 'Theme', link: 'javascript:;', order: 1000 },
     },
+    inject404: true,
   }
 }
 
@@ -83,6 +84,12 @@ export interface Config {
    * @see https://github.com/jonasmerlin/astro-seo?tab=readme-ov-file#supported-props
    */
   seo?: SEO
+  /**
+   * Inject a 404 page when one page is not found.
+   *
+   * @default true
+   */
+  inject404?: boolean
 }
 
 export type ResolvedConfig = SetRequiredDeep<

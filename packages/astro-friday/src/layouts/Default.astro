@@ -1,9 +1,7 @@
 ---
 import Footer from '../components/Footer.astro'
-import HeadContent from '../components/HeadContent.astro'
 import Header from '../components/Header.astro'
-import 'virtual:astro-friday-unocss-extract'
-import '../styles/main.css'
+import BasicLayout from './Basic.astro'
 
 interface Props {
   seo?: import('astro-seo').Props
@@ -13,23 +11,11 @@ const { seo } = Astro.props
 
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="">
-  <head>
-    <HeadContent {seo} />
+<BasicLayout {seo}>
+  <Header />
 
-    <style is:global>
-      :root.dark img {
-        filter: brightness(0.8) saturate(1.25);
-      }
-    </style>
-  </head>
-  <body class="text-gray-700 font-sans relative dark:text-gray-200">
-    <Header />
-
-    <main class="px-1.75rem py-2.5rem">
-      <slot />
-      <Footer />
-    </main>
-  </body>
-</html>
+  <main class="px-1.75rem py-2.5rem">
+    <slot />
+    <Footer />
+  </main>
+</BasicLayout>

@@ -1,0 +1,28 @@
+---
+import HeadContent from '../components/HeadContent.astro'
+import 'virtual:astro-friday-unocss-extract'
+import '../styles/main.css'
+
+interface Props {
+  seo?: import('astro-seo').Props
+}
+
+const { seo } = Astro.props
+
+---
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <HeadContent {seo} />
+
+    <style is:global>
+      :root.dark img {
+        filter: brightness(0.8) saturate(1.25);
+      }
+    </style>
+  </head>
+  <body class="text-gray-700 font-sans relative dark:text-gray-200">
+    <slot />
+  </body>
+</html>
