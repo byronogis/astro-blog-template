@@ -10,7 +10,7 @@ type GlobOptions = Parameters<typeof glob>[0]
 
 export const defaultConfig: Config = {
   title: 'Friday',
-  description: 'A content-focused Astro starter template with tag and series support.',
+  description: 'A content-focused Astro integration with tag and series support.',
   base: '.',
   author: {
     name: 'Anonymous',

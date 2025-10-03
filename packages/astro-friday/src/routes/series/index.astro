@@ -14,9 +14,9 @@ const seriesInfos = await getPostList({
     nofollow: true,
   }}
 >
-  <ul class="mx-auto flex flex-col gap-4 prose">
+  <ul class="live-area flex flex-col gap-4">
     {seriesInfos.entries().map(([series, entryList]) => (
-      <li class="not-prose">
+      <li class="">
         <a
           href={getPath('series', [series])}
           class="text-xl py-2 pr-4 hoverable-text relative"

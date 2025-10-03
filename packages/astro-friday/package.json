@@ -2,7 +2,7 @@
   "name": "astro-friday",
   "type": "module",
   "version": "1.0.0-alpha.0",
-  "description": "A content-focused Astro starter template with tag and series support.",
+  "description": "A content-focused Astro integration with tag and series support.",
   "exports": {
     ".": "./src/index.ts",
     "./routes/*": "./src/routes/*"

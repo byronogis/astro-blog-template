@@ -15,9 +15,9 @@ const tagInfos = await getPostList({
     nofollow: true,
   }}
 >
-  <ul class="mx-auto flex flex-row flex-wrap gap-4 prose">
+  <ul class="live-area flex flex-row flex-wrap gap-4">
     {tagInfos.entries().map(([tag, entryList]) => (
-      <li class="not-prose">
+      <li class="">
         <a
           href={getPath('tag', [tag])}
           class="text-xl py-2 pr-4 hoverable-text relative"

@@ -31,36 +31,36 @@ const groupedByYear = entryList.reduce((acc, entry) => {
 {
   entryList.length === 0
     ? (
-        <div class="py2 op-50" is:raw>
+        <div class="live-area py2 op-50" is:raw>
           { nothing here yet }
         </div>
       )
     : Array.from(groupedByYear).map(([year, entries]) => (
-        <section class="mb-10">
+        <section class="live-area mb-10">
           <div
-            class="slide-enter mx-auto h20 pointer-events-none select-none relative prose"
+            class="h-20 pointer-events-none select-none relative"
           >
             <span
-              class="text-8em color-transparent font-bold text-stroke-2 text-stroke-hex-aaa op10 left--3rem top--2rem absolute"
+              class="text-8em color-transparent font-bold text-stroke-2 text-stroke-hex-aaa op-10 left--3rem top--2rem absolute"
             >{year}</span>
           </div>
 
-          <ul class="mx-auto prose">
+          <ul class="">
             {entries.map(entry => (
               <li class="mb-6 mt-2">
                 <a
-                  class="text-lg leading-1.2em hoverable-text no-underline flex flex-col gap-2 md:(flex-row flex-items-center)"
+                  class="text-lg leading-1.2em hoverable-text flex flex-col gap-2 md:(flex-row flex-items-center)"
                   href={getPath('post', [entry.collection, entry.id])}
                 >
-                  <span class="text-#000">{entry.data.title}</span>
+                  <span class="text-#000 dark:text-#fff">{entry.data.title}</span>
 
                   <div class="flex gap-2 items-center">
                     <span class="text-sm ws-nowrap">
-                      { formatDate(entry.data.created, true) }
+                      { formatDate(entry.data.modified || entry.data.created, true) }
                     </span>
 
                     <span
-                      class="text-xs text-zinc:500 my-auto px-1 py-0.5 align-middle rounded bg-zinc:15 flex-none md:hidden"
+                      class="text-xs text-zinc:500 my-auto px-1 py-0.5 align-middle rounded bg-zinc:15 flex-none"
                     >{entry.collection}</span>
                   </div>
                 </a>

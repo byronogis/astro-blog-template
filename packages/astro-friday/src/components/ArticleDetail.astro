@@ -10,7 +10,7 @@ const { entry } = Astro.props
 
 ---
 
-<div class="mx-auto prose">
+<div class="mx-auto prose dark:prose-invert">
   <h1>{entry.data.title}</h1>
 
   <p class="op-50 !-mt-6">
@@ -37,6 +37,6 @@ const { entry } = Astro.props
   }
 </div>
 
-<article class="mx-auto prose">
+<article class="mx-auto prose dark:prose-invert">
   <slot />
 </article>
