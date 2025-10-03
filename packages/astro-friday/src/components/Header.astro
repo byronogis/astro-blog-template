@@ -11,10 +11,9 @@ import ThemeToggle from './ThemeToggle.astro'
     href={getPath('home')}
     class="hoverable-text size-2.5rem absolute"
     style={{
-      backgroundSize: 'contain',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundImage: `url(${config?.logo?.url || Logo.src})`,
+      'background-color': 'currentColor',
+      '-webkit-mask': `url(${config?.logo?.url || Logo.src}) center / 100% no-repeat`,
+      'mask': `url(${config?.logo?.url || Logo.src}) center / 100% no-repeat`,
     }}
   />
 
