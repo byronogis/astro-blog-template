@@ -9,7 +9,7 @@ export function getSchema(config: ResolvedConfig) {
     description: z.string().optional(),
     created: z.date().default(new Date('1970-01-01')).transform(val => dayjs(val).format('YYYY-MM-DDTHH:mm:ssZ')),
     modified: z.date().optional().transform(val => val ? dayjs(val).format('YYYY-MM-DDTHH:mm:ssZ') : undefined),
-    author: z.string().default(config.author.name).transform(val => `${val}${config.author.email ? ` <${config.author.email}>` : ''}`),
+    author: z.string().default(config.author.name), // .transform(val => `${val}${config.author.email ? ` <${config.author.email}>` : ''}`),
     series: z.union([z.string(), z.array(z.string())]).optional().default([]).transform(val => Array.isArray(val) ? val : [val]),
     tags: z.union([z.string(), z.array(z.string())]).optional().default([]).transform(val => Array.isArray(val) ? val : [val]),
     draft: z.boolean().default(false),
