@@ -24,7 +24,7 @@ export const defaultConfig: Config = {
   },
   collections: {},
   navigations: {
-    'post': { label: 'Blog', link: '/post', icon: 'i-lucide:scroll-text', order: 100 },
+    'post': { label: 'Post', link: '/post', icon: 'i-lucide:scroll-text', order: 100 },
     'tag': { label: 'Tag', link: '/tag', icon: 'i-lucide:tag', order: 200 },
     'series': { label: 'Series', link: '/series', icon: 'i-lucide:square-library', order: 300 },
     'theme-toggle': { label: 'Theme', link: 'javascript:;', order: 1000 },
