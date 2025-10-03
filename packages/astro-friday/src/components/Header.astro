@@ -17,7 +17,12 @@ import ThemeToggle from './ThemeToggle.astro'
           return (<li style={{ order: config.navigations['theme-toggle']!.order }}><ThemeToggle /></li>)
         }
         return (
-          <li style={{ order: item.order ?? 0 }}>
+          <li
+            style={{
+              order: item.order ?? 0,
+              display: item.hidden ? 'none' : undefined,
+            }}
+          >
             <a
               href={item.link}
               target={item.external ? '_blank' : '_self'}

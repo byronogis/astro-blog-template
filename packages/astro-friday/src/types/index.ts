@@ -15,4 +15,5 @@ export interface NavItem {
    * @default 0
    */
   order?: number
+  hidden?: boolean
 }

@@ -63,7 +63,7 @@ export interface Config {
   collections?: Record<string, {
     glob: GlobOptions
   }>
-  navigations?: Partial<Record<'post' | 'tag' | 'series' | 'theme-toggle', NavItem>> & {
+  navigations?: Partial<Record<'post' | 'tag' | 'series' | 'theme-toggle', Partial<NavItem>>> | {
     [key: string]: NavItem
   }
   /**
