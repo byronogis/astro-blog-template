@@ -1,0 +1,53 @@
+:root {
+  --c-bg: #fff;
+  --c-scrollbar: #eee;
+  --c-scrollbar-hover: #bbb;
+  color-scheme: light dark;
+}
+
+html {
+  background-color: var(--c-bg);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+html.dark {
+  --c-bg: #050505;
+  --c-scrollbar: #111;
+  --c-scrollbar-hover: #222;
+  color-scheme: dark;
+}
+
+::selection {
+  background: #8884;
+}
+
+* {
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: var(--c-bg);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-hover);
+}
+
+h2 + p > em:first-child {
+  opacity: 0.5;
+  display: block;
+  margin-top: -20px;
+  font-size: 0.9em;
+}
