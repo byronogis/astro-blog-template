@@ -19,6 +19,7 @@ export default defineConfig({
   presets: [
     presetWind4(),
     presetIcons({
+      autoInstall: true,
       extraProperties: {
         'display': 'inline-block',
         'vertical-align': 'middle',
