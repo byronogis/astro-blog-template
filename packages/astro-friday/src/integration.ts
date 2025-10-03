@@ -46,49 +46,54 @@ export function integration(userConfig: Config = {}): AstroIntegration {
           },
         })
 
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `.`),
-          entrypoint: `astro-friday/routes/index.astro`,
-        })
+        const routes: {
+          pattern: string
+          entrypoint: string
+        }[] = [
+          {
+            pattern: path.join(resolvedConfig.base, `.`),
+            entrypoint: `astro-friday/routes/index.astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `post`),
+            entrypoint: `astro-friday/routes/post/index.astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `post/[collection]/[...slug]`),
+            entrypoint: `astro-friday/routes/post/[...slug].astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `tag`),
+            entrypoint: `astro-friday/routes/tag/index.astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `tag/[...slug]`),
+            entrypoint: `astro-friday/routes/tag/[...slug].astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `series`),
+            entrypoint: `astro-friday/routes/series/index.astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `series/[...slug]`),
+            entrypoint: `astro-friday/routes/series/[...slug].astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `og/[collection]/[...slug]`),
+            entrypoint: `astro-friday/routes/og/[...slug].ts`,
+          },
+        ]
 
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `post`),
-          entrypoint: `astro-friday/routes/post/index.astro`,
-        })
-
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `post/[collection]/[...slug]`),
-          entrypoint: `astro-friday/routes/post/[...slug].astro`,
-        })
-
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `tag`),
-          entrypoint: `astro-friday/routes/tag/index.astro`,
-        })
-
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `tag/[...slug]`),
-          entrypoint: `astro-friday/routes/tag/[...slug].astro`,
-        })
-
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `series`),
-          entrypoint: `astro-friday/routes/series/index.astro`,
-        })
-
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `series/[...slug]`),
-          entrypoint: `astro-friday/routes/series/[...slug].astro`,
-        })
-
-        injectRoute({
-          pattern: path.join(resolvedConfig.base, `og/[collection]/[...slug]`),
-          entrypoint: `astro-friday/routes/og/[...slug].ts`,
-        })
-
-        resolvedConfig.inject404 && injectRoute({
+        resolvedConfig.inject404 && routes.push({
           pattern: path.join(resolvedConfig.base, `404`),
           entrypoint: `astro-friday/routes/404.astro`,
+        })
+
+        routes.forEach((route) => {
+          injectRoute({
+            pattern: route.pattern,
+            entrypoint: route.entrypoint,
+          })
         })
       },
     },
