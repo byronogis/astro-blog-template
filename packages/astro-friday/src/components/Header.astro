@@ -1,12 +1,22 @@
 ---
 import config from 'virtual:astro-friday-config'
+import Logo from '../assets/favicon.svg'
 import { getPath } from '../utils/path'
 import ThemeToggle from './ThemeToggle.astro'
 
 ---
 
-<header class="p-2rem flex gap-1.2rem items-center">
-  <a href={getPath('home')}>Home</a>
+<header class="p-2rem flex gap-1.2rem items-center relative">
+  <a
+    href={getPath('home')}
+    class="hoverable-text size-2.5rem absolute"
+    style={{
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundImage: `url(${config?.logo?.url || Logo.src})`,
+    }}
+  />
 
   <i class="flex-1"></i>
 

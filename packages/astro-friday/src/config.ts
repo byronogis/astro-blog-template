@@ -90,6 +90,9 @@ export interface Config {
    * @default true
    */
   inject404?: boolean
+  logo?: {
+    url?: string
+  }
 }
 
 export type ResolvedConfig = SetRequiredDeep<
