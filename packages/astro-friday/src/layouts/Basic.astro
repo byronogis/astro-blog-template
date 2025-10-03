@@ -1,4 +1,5 @@
 ---
+import Art from '../components/Art/Art.astro'
 import HeadContent from '../components/HeadContent.astro'
 import 'virtual:astro-friday-unocss-extract'
 import '../styles/main.css'
@@ -24,5 +25,6 @@ const { seo } = Astro.props
   </head>
   <body class="text-gray-700 font-sans relative dark:text-gray-200">
     <slot />
+    <Art />
   </body>
 </html>

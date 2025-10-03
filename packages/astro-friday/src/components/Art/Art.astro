@@ -1,0 +1,17 @@
+---
+import config from 'virtual:astro-friday-config'
+import { selectByWeight } from '../../utils/random'
+import ArtDots from './ArtDots.astro'
+import ArtPlum from './ArtPlum.astro'
+
+
+const artWeights = {
+  dots: config.art.dots.weight,
+  plum: config.art.plum.weight,
+}
+const selectedArt = selectByWeight(artWeights)
+
+---
+
+{selectedArt === 'dots' && <ArtDots />}
+{selectedArt === 'plum' && <ArtPlum />}

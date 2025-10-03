@@ -2,7 +2,7 @@ import type { AstroConfig } from 'astro'
 import type { Props as SEO } from 'astro-seo'
 import type { glob } from 'astro/loaders'
 import type { SetRequiredDeep } from 'type-fest'
-import type { NavItem } from './types'
+import type { ArtConfig, NavItem } from './types'
 import path from 'node:path'
 import { defu } from 'defu'
 
@@ -33,6 +33,10 @@ export function getDefaultConfig(config: Config = {}): Config {
       'theme-toggle': { label: 'Theme', link: 'javascript:;', order: 1000 },
     },
     inject404: true,
+    art: {
+      dots: { weight: 1 },
+      plum: { weight: 1 },
+    },
   }
 }
 
@@ -93,6 +97,7 @@ export interface Config {
   logo?: {
     url?: string
   }
+  art?: Partial<Record<'dots' | 'plum', Partial<ArtConfig>>>
 }
 
 export type ResolvedConfig = SetRequiredDeep<
@@ -107,6 +112,11 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'collections'
   | 'navigations'
   | `navigations.${string}`
+  | 'art'
+  | 'art.dots'
+  | 'art.plum'
+  | 'art.dots.weight'
+  | 'art.plum.weight'
 > & {
   /**
    * The full base path, including Astro's base.

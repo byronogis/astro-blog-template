@@ -17,6 +17,8 @@
     "astro-color-scheme": "catalog:deps",
     "astro-seo": "catalog:seo",
     "dayjs": "catalog:deps",
+    "pixi.js": "catalog:frontend",
+    "simplex-noise": "catalog:frontend",
     "unocss": "catalog:deps"
   },
   "dependencies": {

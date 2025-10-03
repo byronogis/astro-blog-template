@@ -17,3 +17,11 @@ export interface NavItem {
   order?: number
   hidden?: boolean
 }
+
+export interface ArtConfig {
+  /**
+   * Weight for selection probability;
+   * higher values increase the likelihood of being chosen.
+   */
+  weight?: number
+}
