@@ -73,6 +73,7 @@ More settings can be found in [here](./configuration).
 - [ ] robots.txt
 - [ ] search
 - [ ] toc
+- [ ] keywords frontmatter field and seo binding
 - etc.
 
 ## Credits
