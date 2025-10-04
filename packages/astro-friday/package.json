@@ -3,12 +3,33 @@
   "type": "module",
   "version": "1.0.0-alpha.0",
   "description": "A content-focused Astro integration with tag and series support.",
+  "author": "Byron <byronogis@outlook.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/byronogis",
+  "homepage": "https://github.com/byronogis/astro-friday#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byronogis/astro-friday.git"
+  },
+  "bugs": "https://github.com/byronogis/astro-friday/issues",
+  "keywords": [
+    "astro",
+    "withastro",
+    "ui"
+  ],
+  "sideEffects": false,
   "exports": {
     ".": "./src/index.ts",
     "./routes/*": "./src/routes/*",
     "./layouts/*": "./src/layouts/*",
     "./components/*": "./src/components/*",
     "./integrations/unocss": "./src/integrations/unocss/index.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "prepare": "astro sync",
