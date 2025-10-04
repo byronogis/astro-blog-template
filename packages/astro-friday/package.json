@@ -6,6 +6,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./routes/*": "./src/routes/*",
+    "./layouts/*": "./src/layouts/*",
+    "./components/*": "./src/components/*",
     "./integrations/unocss": "./src/integrations/unocss/index.ts"
   },
   "scripts": {
