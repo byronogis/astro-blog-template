@@ -3,6 +3,7 @@ import type { Props as SEOProps } from 'astro-seo'
 import { SEO } from 'astro-seo'
 import { defu } from 'defu'
 import config from 'virtual:astro-friday-config'
+import Logo from '../assets/favicon.svg'
 
 interface Props {
   seo?: SEOProps
@@ -20,6 +21,9 @@ const mergedSEO = defu<SEOProps, SEOProps[]>(
     extend: {
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      ],
+      link: [
+        { rel: 'icon', href: config?.logo?.url || Logo.src, type: 'image/svg+xml' },
       ],
     },
   },
