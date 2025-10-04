@@ -45,7 +45,7 @@ export function getDefaultConfig(config: Config & {
       },
       home: {
         pattern: path.join(base, ``),
-        entrypoint: `astro-friday/routes/post/index.astro`,
+        entrypoint: `astro-friday/routes/collection/index.astro`,
       },
     },
     art: {
