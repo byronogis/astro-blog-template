@@ -1,7 +1,7 @@
 {
   "name": "astro-friday",
   "type": "module",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "A content-focused Astro integration with tag and series support.",
   "author": "Byron <byronogis@outlook.com>",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "access": "public"
   },
   "scripts": {
+    "release": "pnpm publish",
     "prepare": "astro sync",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

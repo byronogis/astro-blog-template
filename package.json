@@ -1,7 +1,7 @@
 {
   "name": "astro-blog-template",
   "type": "module",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "private": true,
   "packageManager": "pnpm@10.17.1",
   "engines": {
@@ -13,7 +13,7 @@
     "preview": "pnpm -F docs preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "bumpp -r",
+    "release": "bumpp -r && pnpm run -r release",
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
