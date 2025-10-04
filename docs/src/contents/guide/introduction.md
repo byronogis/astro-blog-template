@@ -9,6 +9,13 @@ series:
 
 # Astro Friday
 
+[![npm version](https://img.shields.io/npm/v/astro-friday)](https://npmjs.com/package/astro-friday)
+[![npm downloads](https://img.shields.io/npm/dm/astro-friday)](https://npm.chart.dev/astro-friday)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/astro-friday)](https://bundlephobia.com/package/astro-friday)
+[![codecov](https://img.shields.io/codecov/c/gh/byronogis/astro-friday)](https://codecov.io/gh/byronogis/astro-friday)
+[![license](https://img.shields.io/github/license/byronogis/astro-friday)](https://github.com/byronogis/astro-friday/blob/main/LICENSE)
+[![JSDocs][jsdocs-src]][jsdocs-href]
+
 A content-focused [Astro](https://astro.build) integration with tag and series support.
 
 You can find source code in [here](https://github.com/byronogis/astro-friday).
@@ -79,3 +86,8 @@ More settings can be found in [here](./configuration).
 ## Credits
 
 - Page Style is inspired by [antfu.me](https://antfu.me).
+
+---
+
+[jsdocs-src]: https://img.shields.io/badge/jsdocs-reference-1fa669
+[jsdocs-href]: https://www.jsdocs.io/package/astro-friday
