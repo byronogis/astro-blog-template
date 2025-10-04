@@ -70,6 +70,7 @@ export function getPostList(
           year: () => String(dayjs(cur.data.created).year()),
           tag: () => cur.data.tags,
           series: () => cur.data.series,
+          collection: () => cur.collection,
         }[groupBy]()
 
         ;[key].flat().forEach((k) => {
@@ -85,7 +86,7 @@ export function getPostList(
 }
 
 interface GetPostListOptions {
-  groupBy?: 'year' | 'tag' | 'series'
+  groupBy?: 'year' | 'tag' | 'series' | 'collection'
   filters?: {
     tags?: string | string[]
     series?: string | string[]

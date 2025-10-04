@@ -28,6 +28,9 @@ export function getDefaultConfig(config: Config & {
         url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
       },
     },
+    post: {
+      pathStyle: 'collection/id',
+    },
     collections: {},
     navigations: {
       'post': { label: 'Post', link: path.join(baseFull, 'post'), icon: 'i-lucide:scroll-text', order: 100 },
@@ -89,7 +92,19 @@ export interface Config {
       url: string
     }
   }
+  post?: {
+    /**
+     * Path style for post routes
+     *
+     * - `collection/id`: `/post/collection/id`, e.g. `/post/blog/my-first-post`
+     * - `id`: `/post/id`, e.g. `/post/my-first-post`
+     *
+     * @default 'collection/id'
+     */
+    pathStyle?: 'collection/id' | 'id'
+  }
   collections?: Record<string, {
+    label?: string
     glob: GlobOptions
   }>
   navigations?: Partial<Record<'post' | 'tag' | 'series' | 'theme-toggle', Partial<NavItem>>> | {
@@ -117,6 +132,8 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'copyright'
   | 'copyright.copyrightYears'
   | 'copyright.license'
+  | 'post'
+  | 'post.pathStyle'
   | 'collections'
   | 'navigations'
   | `navigations.${string}`

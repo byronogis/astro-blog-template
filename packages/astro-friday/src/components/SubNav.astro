@@ -1,0 +1,32 @@
+---
+import type { NavItem } from '../types/index'
+
+interface Props {
+  current?: string
+  navigations: Record<string, Pick<NavItem, 'label' | 'link' | 'order'>>
+}
+
+const { current, navigations } = Astro.props
+---
+
+<nav class="live-area mb-8">
+  <slot />
+  <ul class="text-3xl mb-0 flex flex-col flex-wrap gap-1 sm:flex-row sm:gap-3">
+    {Object.entries(navigations).map(([key, item]) => {
+      return (
+        <li
+          style={{
+            order: item.order ?? 0,
+          }}
+        >
+          <a
+            href={item.link}
+            class={key === current ? 'op-100' : 'op-20 hover:op-50'}
+          >
+            <span>{item.label}</span>
+          </a>
+        </li>
+      )
+    })}
+  </ul>
+</nav>

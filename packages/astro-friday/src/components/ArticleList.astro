@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from '../types/content'
 import dayjs from 'dayjs'
+import config from 'virtual:astro-friday-config'
 import { formatDate } from '../utils/date'
 import { getPath } from '../utils/path'
 
@@ -50,7 +51,12 @@ const groupedByYear = entryList.reduce((acc, entry) => {
               <li class="mb-6 mt-2">
                 <a
                   class="text-lg leading-1.2em hoverable-text flex flex-col gap-2 md:(flex-row flex-items-center)"
-                  href={getPath('post', [entry.collection, entry.id])}
+                  href={getPath(
+                    'post',
+                    config.post.pathStyle === 'collection/id'
+                      ? [entry.collection, entry.id]
+                      : [entry.id],
+                  )}
                 >
                   <span class="text-#000 dark:text-#fff">{entry.data.title}</span>
 

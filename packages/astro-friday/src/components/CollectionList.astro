@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from '../types/content'
+import type { NavItem } from '../types/index'
+import config from 'virtual:astro-friday-config'
+import ArticleList from '../components/ArticleList.astro'
+import SubNav from '../components/SubNav.astro'
+import { getPath } from '../utils/path'
+
+interface Props {
+  current?: string
+  entryList: CollectionEntry[]
+}
+
+const { current, entryList } = Astro.props
+
+const navigations = Object.entries(config.collections).reduce((acc, [key, collection]) => {
+  acc[key] = {
+    label: collection.label || key,
+    link: getPath('collection', [key]),
+  }
+
+  return acc
+}, {} as Record<string, NavItem>)
+---
+
+<SubNav {current} {navigations}>
+  <a href={getPath('collection', current ? [] : [Object.entries(navigations)[0][0]])}>
+    <button
+      class="text-sm mb-2 op-30 flex gap-1 cursor-pointer items-center"
+      data-check-status="unchecked"
+    >
+      <div class={!current ? 'i-lucide:square-check-big' : 'i-lucide:square'} />
+      All Collections
+    </button>
+  </a>
+</SubNav>
+
+<ArticleList {entryList} />

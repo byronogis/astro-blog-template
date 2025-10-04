@@ -46,13 +46,18 @@ export function integration(userConfig: Config = {}): AstroIntegration {
           },
         })
 
+        const postPath = {
+          'collection/id': '[collection]/[...slug]',
+          'id': '[...slug]',
+        }[resolvedConfig.post.pathStyle]
+
         const routes: InjectedRoute[] = [
           {
             pattern: path.join(resolvedConfig.base, `post`),
-            entrypoint: `astro-friday/routes/post/index.astro`,
+            entrypoint: `astro-friday/routes/collection/index.astro`,
           },
           {
-            pattern: path.join(resolvedConfig.base, `post/[collection]/[...slug]`),
+            pattern: path.join(resolvedConfig.base, `post`, postPath),
             entrypoint: `astro-friday/routes/post/[...slug].astro`,
           },
           {
@@ -72,8 +77,16 @@ export function integration(userConfig: Config = {}): AstroIntegration {
             entrypoint: `astro-friday/routes/series/[...slug].astro`,
           },
           {
-            pattern: path.join(resolvedConfig.base, `og/[collection]/[...slug]`),
+            pattern: path.join(resolvedConfig.base, `og`, postPath),
             entrypoint: `astro-friday/routes/og/[...slug].ts`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `collection`),
+            entrypoint: `astro-friday/routes/collection/index.astro`,
+          },
+          {
+            pattern: path.join(resolvedConfig.base, `collection/[...slug]`),
+            entrypoint: `astro-friday/routes/collection/[...slug].astro`,
           },
         ]
 

@@ -1,7 +1,7 @@
 import path from 'node:path'
 import config from 'virtual:astro-friday-config'
 
-type PathType = 'home' | 'post' | 'tag' | 'series' | 'og'
+type PathType = 'home' | 'collection' | 'post' | 'tag' | 'series' | 'og'
 
 export function getPath<T extends PathType>(
   type: T,
@@ -22,13 +22,14 @@ export function getPath<T extends PathType>(
   const _host = host === true ? window.location.origin : host
 
   const base = config.baseFull
-  const prefix = {
+  const prefix = ({
     home: '',
+    collection: 'collection',
     post: 'post',
     tag: 'tag',
     series: 'series',
     og: 'og',
-  }[type]
+  } satisfies Record<PathType, string>)[type]
 
   const _path = path.join('/', base, prefix, ...params)
   return _host ? new URL(_path, _host).href : _path

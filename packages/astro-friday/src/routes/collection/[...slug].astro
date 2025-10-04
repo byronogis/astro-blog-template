@@ -1,0 +1,36 @@
+---
+import CollectionList from '../../components/CollectionList.astro'
+import DefaultLayout from '../../layouts/Default.astro'
+import { getPostList } from '../../utils/content/post'
+
+
+export async function getStaticPaths() {
+  const collectionInfos = await getPostList({
+    groupBy: 'collection',
+  })
+
+  return Array.from(collectionInfos.entries()).map(([collection, entryList]) => ({
+    params: {
+      slug: collection,
+    },
+    props: {
+      entryList,
+    },
+  }))
+}
+
+const { slug: current } = Astro.params
+
+const { entryList } = Astro.props
+---
+
+<DefaultLayout
+  seo={{
+    noindex: true,
+    nofollow: true,
+  }}
+>
+  <CollectionList {current} {entryList} />
+</DefaultLayout>
+
+
