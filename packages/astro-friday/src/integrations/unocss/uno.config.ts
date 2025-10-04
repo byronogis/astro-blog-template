@@ -14,7 +14,7 @@ import {
 export default defineConfig({
   shortcuts: {
     'hoverable-text': 'opacity-60 hover:opacity-100 transition-(opacity 200 ease)',
-    'live-area': 'max-w-65rch mx-auto',
+    'live-area': 'max-w-65ch max-w-65rch mx-auto',
   },
   presets: [
     presetWind4(),
