@@ -1,20 +1,35 @@
 import Friday from 'astro-friday'
 import { defineConfig } from 'astro/config'
-import UnoCSS from 'unocss/astro'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://byronogis.github.io/',
+  base: '/astro-friday',
   integrations: [
-    UnoCSS(),
     Friday({
-      base: '.',
+      title: 'Astro Friday',
+      author: {
+        name: 'Byron',
+        email: 'byronogis@outlook.com',
+      },
       collections: {
-        blog: {
+        guide: {
           glob: {
             pattern: '**/*.md',
-            base: './src/contents/blog',
+            base: './src/contents/guide',
           },
         },
+      },
+      navigations: {
+        post: { label: 'Guide' },
+        github: { label: 'Github', icon: 'i-lucide:github', external: true, link: 'https://github.com/byronogis', type: 'icon', order: 900 },
+      },
+      pages: {
+        home: false,
+      },
+      art: {
+        dots: { weight: 2 },
+        plum: { weight: 1 },
       },
     }),
   ],

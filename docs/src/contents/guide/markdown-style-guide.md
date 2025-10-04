@@ -1,17 +1,16 @@
 ---
 title: Markdown Style Guide
-date: 2024-10-04
 duration: 5min
 tags:
   - astro
   - markdown
   - guide
   - astro-friday
-series:
-  - astro friday
-  - astro 星期五
-modifiedTime: 2025-10-01
-
+created: 2025-10-01
+modified: 2025-10-04
+subtitle: A guide to writing Markdown content in Astro
+description: A sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+draft: true
 ---
 
 [[toc]]
@@ -50,7 +49,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ### Output
 
-![blog placeholder](/placeholder-cover.jpg)
+![blog placeholder](/astro-friday/placeholder-cover.jpg)
 
 ## Blockquotes
 

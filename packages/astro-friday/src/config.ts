@@ -77,7 +77,7 @@ export interface Config {
   description?: string
   base?: string
   author?: {
-    name: string
+    name?: string
     email?: string
     url?: string
     avatar?: string

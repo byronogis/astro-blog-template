@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "pnpm -F docs dev",
+    "build": "pnpm -F docs build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp -r",
