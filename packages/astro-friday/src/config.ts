@@ -1,4 +1,4 @@
-import type { AstroConfig } from 'astro'
+import type { AstroConfig, InjectedRoute } from 'astro'
 import type { Props as SEO } from 'astro-seo'
 import type { glob } from 'astro/loaders'
 import type { SetRequiredDeep } from 'type-fest'
@@ -8,8 +8,11 @@ import { defu } from 'defu'
 
 type GlobOptions = Parameters<typeof glob>[0]
 
-export function getDefaultConfig(config: Config = {}): Config {
+export function getDefaultConfig(config: Config & {
+  baseFull?: string
+} = {}): Config {
   const base = config.base ?? '/'
+  const baseFull = config.baseFull ?? base
 
   return {
     title: 'Friday',
@@ -27,12 +30,21 @@ export function getDefaultConfig(config: Config = {}): Config {
     },
     collections: {},
     navigations: {
-      'post': { label: 'Post', link: path.join(base, 'post'), icon: 'i-lucide:scroll-text', order: 100 },
-      'tag': { label: 'Tag', link: path.join(base, 'tag'), icon: 'i-lucide:tag', order: 200 },
-      'series': { label: 'Series', link: path.join(base, 'series'), icon: 'i-lucide:square-library', order: 300 },
+      'post': { label: 'Post', link: path.join(baseFull, 'post'), icon: 'i-lucide:scroll-text', order: 100 },
+      'tag': { label: 'Tag', link: path.join(baseFull, 'tag'), icon: 'i-lucide:tag', order: 200 },
+      'series': { label: 'Series', link: path.join(baseFull, 'series'), icon: 'i-lucide:square-library', order: 300 },
       'theme-toggle': { label: 'Theme', link: 'javascript:;', order: 1000 },
     },
-    inject404: true,
+    pages: {
+      404: {
+        pattern: path.join(base, `404`),
+        entrypoint: 'astro-friday/routes/404.astro',
+      },
+      home: {
+        pattern: path.join(base, ``),
+        entrypoint: `astro-friday/routes/post/index.astro`,
+      },
+    },
     art: {
       dots: { weight: 1 },
       plum: { weight: 1 },
@@ -52,7 +64,8 @@ export function resolveConfig(userConfig: Config, astroConfig: AstroConfig): Res
     userConfig,
     getDefaultConfig({
       ...userConfig,
-      base: baseFull,
+      base,
+      baseFull,
     }),
   ) as ResolvedConfig
 
@@ -82,18 +95,13 @@ export interface Config {
   navigations?: Partial<Record<'post' | 'tag' | 'series' | 'theme-toggle', Partial<NavItem>>> | {
     [key: string]: NavItem
   }
+  pages?: Partial<Record<'home' | '404', InjectedRoute | false>>
   /**
    * SEO configuration for `astro-seo` integration
    *
    * @see https://github.com/jonasmerlin/astro-seo?tab=readme-ov-file#supported-props
    */
   seo?: SEO
-  /**
-   * Inject a 404 page when one page is not found.
-   *
-   * @default true
-   */
-  inject404?: boolean
   logo?: {
     url?: string
   }
@@ -112,6 +120,9 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'collections'
   | 'navigations'
   | `navigations.${string}`
+  | 'pages'
+  | 'pages.404'
+  | 'pages.home'
   | 'art'
   | 'art.dots'
   | 'art.plum'

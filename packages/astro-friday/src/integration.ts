@@ -1,7 +1,7 @@
 /// <reference path="./types/shim.d.ts" />
 /// <reference path="./types/virtual.d.ts" />
 
-import type { AstroIntegration } from 'astro'
+import type { AstroIntegration, InjectedRoute } from 'astro'
 import type { Config } from './config'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -46,14 +46,7 @@ export function integration(userConfig: Config = {}): AstroIntegration {
           },
         })
 
-        const routes: {
-          pattern: string
-          entrypoint: string
-        }[] = [
-          {
-            pattern: path.join(resolvedConfig.base, `.`),
-            entrypoint: `astro-friday/routes/index.astro`,
-          },
+        const routes: InjectedRoute[] = [
           {
             pattern: path.join(resolvedConfig.base, `post`),
             entrypoint: `astro-friday/routes/post/index.astro`,
@@ -84,10 +77,8 @@ export function integration(userConfig: Config = {}): AstroIntegration {
           },
         ]
 
-        resolvedConfig.inject404 && routes.push({
-          pattern: path.join(resolvedConfig.base, `404`),
-          entrypoint: `astro-friday/routes/404.astro`,
-        })
+        resolvedConfig.pages[404] && routes.push(resolvedConfig.pages[404])
+        resolvedConfig.pages.home && routes.push(resolvedConfig.pages.home)
 
         routes.forEach((route) => {
           injectRoute({
