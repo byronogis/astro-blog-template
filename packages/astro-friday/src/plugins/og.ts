@@ -14,7 +14,7 @@ export function vitePluginAstroFridayOG(resolvedConfig: ResolvedConfig) {
     },
     load(id) {
       if (id === resolvedVirtualModuleId) {
-        return /* js */`export { ImageResponse } from ${JSON.stringify(resolvedConfig.packages['@vercel/og'])}
+        return /* js */`export { ImageResponse } from ${JSON.stringify(resolvedConfig.imports['@vercel/og'])}
         `
       }
     },
