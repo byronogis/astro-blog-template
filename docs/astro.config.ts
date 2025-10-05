@@ -12,6 +12,9 @@ export default defineConfig({
         name: 'Byron',
         email: 'byronogis@outlook.com',
       },
+      post: {
+        pathStyle: 'id',
+      },
       collections: {
         guide: {
           label: 'Guide',
