@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content'
+import config from 'virtual:astro-friday-config'
 import ArticleDetail from '../../components/ArticleDetail.astro'
 import DefaultLayout from '../../layouts/Default.astro'
 import { getPostList } from '../../utils/content/post'
@@ -38,7 +39,13 @@ const {
       basic: {
         title: entry.data.title,
         type: 'article',
-        image: getPath('og', [entry.collection, entry.id], { host: Astro.url.origin }),
+        image: getPath(
+          'og',
+          config.post.pathStyle === 'collection/id'
+            ? [entry.collection, entry.id]
+            : [entry.id],
+          { host: Astro.url.origin },
+        ),
         url: Astro.url.href,
       },
       article: {
