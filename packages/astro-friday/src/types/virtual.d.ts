@@ -12,3 +12,7 @@ declare module 'virtual:astro-friday-unocss-extract' {
   const css: string[]
   export default css
 }
+
+declare module 'virtual:astro-friday-og' {
+  export const ImageResponse: typeof import('@vercel/og').ImageResponse
+}

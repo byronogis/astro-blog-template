@@ -10,6 +10,7 @@ import { unocss } from './integrations/unocss'
 import { vitePluginAstroFridayCollection } from './plugins/collection'
 import { vitePluginAstroFridayConfig } from './plugins/config'
 import { vitePluginAstroFridayUnoCSSExtract } from './plugins/css'
+import { vitePluginAstroFridayOG } from './plugins/og'
 
 const _dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -24,7 +25,8 @@ export function integration(userConfig: Config = {}): AstroIntegration {
         injectRoute,
         addWatchFile,
       }) => {
-        const resolvedConfig = resolveConfig(userConfig, config)
+        const isDev = command !== 'build'
+        const resolvedConfig = resolveConfig(userConfig, config, isDev)
 
         if (command === 'dev') {
           addWatchFile(path.resolve(_dirname, './collection.ts'))
@@ -42,6 +44,7 @@ export function integration(userConfig: Config = {}): AstroIntegration {
               vitePluginAstroFridayConfig(resolvedConfig),
               vitePluginAstroFridayCollection(resolvedConfig),
               vitePluginAstroFridayUnoCSSExtract(resolvedConfig),
+              vitePluginAstroFridayOG(resolvedConfig),
             ],
           },
         })

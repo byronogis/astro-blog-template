@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import type { CollectionEntry } from '../../types/content'
-import { ImageResponse } from '@vercel/og'
+import { ImageResponse } from 'virtual:astro-friday-og'
 import { getPostList } from '../../utils/content/post'
 
 interface Props {

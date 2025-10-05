@@ -52,12 +52,24 @@ export function getDefaultConfig(config: Config & {
       dots: { weight: 1 },
       plum: { weight: 1 },
     },
+    packages: {
+      '@vercel/og': '@vercel/og',
+    },
   }
 }
 
-export function resolveConfig(userConfig: Config, astroConfig: AstroConfig): ResolvedConfig {
+export function resolveConfig(userConfig: Config, astroConfig: AstroConfig, isDev: boolean): ResolvedConfig {
   const base = userConfig.base ?? '/'
   const baseFull = path.join('/', astroConfig.base, base)
+
+  const defaultConfig = getDefaultConfig({
+    ...userConfig,
+    base,
+    baseFull,
+  })
+
+  // use default config for development to avoid issues with Vercel OG package
+  isDev && delete userConfig.packages?.['@vercel/og']
 
   const mergedConfig = defu(
     {
@@ -65,11 +77,7 @@ export function resolveConfig(userConfig: Config, astroConfig: AstroConfig): Res
       baseFull,
     },
     userConfig,
-    getDefaultConfig({
-      ...userConfig,
-      base,
-      baseFull,
-    }),
+    defaultConfig,
   ) as ResolvedConfig
 
   return mergedConfig
@@ -121,6 +129,12 @@ export interface Config {
     url?: string
   }
   art?: Partial<Record<'dots' | 'plum', Partial<ArtConfig>>>
+  packages?: {
+    /**
+     * @default '@vercel/og'
+     */
+    '@vercel/og'?: string
+  }
 }
 
 export type ResolvedConfig = SetRequiredDeep<
@@ -145,6 +159,8 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'art.plum'
   | 'art.dots.weight'
   | 'art.plum.weight'
+  | 'packages'
+  | 'packages.@vercel/og'
 > & {
   /**
    * The full base path, including Astro's base.
