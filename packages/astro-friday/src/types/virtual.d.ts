@@ -13,6 +13,10 @@ declare module 'virtual:astro-friday-unocss-extract' {
   export default css
 }
 
-declare module 'virtual:astro-friday-og' {
-  export const ImageResponse: typeof import('@vercel/og').ImageResponse
+declare module 'virtual:astro-friday-imports' {
+  const imports: {
+    ['@vercel/og']: { ImageResponse: typeof import('@vercel/og').ImageResponse }
+  }
+
+  export default imports
 }

@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import type { CollectionEntry } from '../../types/content'
-import { ImageResponse } from 'virtual:astro-friday-og'
+import imports from 'virtual:astro-friday-imports'
 import { getPostList } from '../../utils/content/post'
 
 interface Props {
@@ -47,7 +47,7 @@ export const GET: APIRoute<Props> = async function GET({ props }) {
     },
   }
 
-  return new ImageResponse(html, {
+  return new imports['@vercel/og'].ImageResponse(html, {
     width: 1200,
     height: 630,
   })

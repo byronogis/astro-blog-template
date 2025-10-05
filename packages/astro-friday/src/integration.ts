@@ -10,7 +10,7 @@ import { unocss } from './integrations/unocss'
 import { vitePluginAstroFridayCollection } from './plugins/collection'
 import { vitePluginAstroFridayConfig } from './plugins/config'
 import { vitePluginAstroFridayUnoCSSExtract } from './plugins/css'
-import { vitePluginAstroFridayOG } from './plugins/og'
+import { vitePluginAstroFridayImports } from './plugins/imports'
 
 const _dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -44,7 +44,7 @@ export function integration(userConfig: Config = {}): AstroIntegration {
               vitePluginAstroFridayConfig(resolvedConfig),
               vitePluginAstroFridayCollection(resolvedConfig),
               vitePluginAstroFridayUnoCSSExtract(resolvedConfig),
-              vitePluginAstroFridayOG(resolvedConfig),
+              vitePluginAstroFridayImports(resolvedConfig),
             ],
           },
         })
