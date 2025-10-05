@@ -1,7 +1,7 @@
 {
   "name": "astro-blog-template",
   "type": "module",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.8",
   "private": true,
   "packageManager": "pnpm@10.17.1",
   "engines": {
@@ -20,7 +20,8 @@
     "@antfu/eslint-config": "catalog:lint",
     "@unocss/eslint-plugin": "catalog:lint",
     "astro": "catalog:build",
-    "bumpp": "catalog:lint",
+    "bumpp": "catalog:release",
+    "changelogen": "catalog:release",
     "eslint": "catalog:lint",
     "eslint-plugin-astro": "catalog:lint",
     "husky": "catalog:lint",
