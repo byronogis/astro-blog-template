@@ -5,7 +5,9 @@ import ThemeToggle from './ThemeToggle.astro'
 ---
 
 <header class="p-2rem flex gap-1.2rem items-center relative">
-  <components.NavbarBrand />
+  <div class="lg:fixed">
+    <components.NavbarBrand />
+  </div>
 
   <i class="flex-1"></i>
 
