@@ -63,6 +63,11 @@ const {
         alt: entry.data.title,
       },
     },
+    extend: {
+      meta: [
+        { name: 'keywords', content: entry.data.keywords.join(', ') || '' },
+      ],
+    },
   }}
 >
   <ArticleDetail {entry}>

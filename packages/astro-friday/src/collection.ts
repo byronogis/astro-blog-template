@@ -12,6 +12,7 @@ export function getSchema(config: ResolvedConfig) {
     author: z.string().default(config.author.name), // .transform(val => `${val}${config.author.email ? ` <${config.author.email}>` : ''}`),
     series: z.union([z.string(), z.array(z.string())]).optional().default([]).transform(val => Array.isArray(val) ? val : [val]),
     tags: z.union([z.string(), z.array(z.string())]).optional().default([]).transform(val => Array.isArray(val) ? val : [val]),
+    keywords: z.union([z.string(), z.array(z.string())]).optional().default([]).transform(val => Array.isArray(val) ? val : [val]),
     draft: z.boolean().default(false),
     lang: z.string().optional().default('en'),
   })
