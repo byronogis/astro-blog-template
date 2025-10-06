@@ -55,16 +55,6 @@ export function getDefaultConfig(config: Config & {
     imports: {
       '@vercel/og': '@vercel/og',
     },
-    /**
-     * Default components mapping, can be overridden by user config
-     *
-     * @example
-     * ```ts
-     * components: {
-     *   NavbarBrand: 'src/components/YourBrand.astro',
-     * }
-     * ```
-     */
     components: {
       NavbarBrand: 'astro-friday/components/Opt/NavbarBrand.astro',
     },
@@ -148,6 +138,16 @@ export interface Config {
      */
     '@vercel/og'?: string
   }
+  /**
+   * Default components mapping, can be overridden by user config
+   *
+   * @example
+   * ```ts
+   * components: {
+   *   NavbarBrand: 'src/components/YourBrand.astro',
+   * }
+   * ```
+   */
   components?: {
     NavbarBrand?: string
   }
