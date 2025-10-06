@@ -9,7 +9,7 @@ import ThemeToggle from './ThemeToggle.astro'
     <components.NavbarBrand />
   </div>
 
-  <i class="flex-1"></i>
+  <i class="flex-1" id="#"></i>
 
   <nav>
     <ul class="gap-1.2rem grid grid-flow-col">
@@ -48,4 +48,34 @@ import ThemeToggle from './ThemeToggle.astro'
     </ul>
   </nav>
 
+  <a
+    title="Scroll to top"
+    class:list={[
+      'scroll-to-top rounded-full grid size-10 transition duration-300 bottom-3 right-3 place-content-center fixed z-100 hover-bg-hex-8883 print:hidden',
+      // due to the animation property has higher priority than the class property
+      // so we change the color between non-hover and hover state to achieve the hover effect
+      'color-gray-700/30 dark:color-gray-200/30 hover:color-gray-700 dark:hover:color-gray-200',
+    ]}
+    href="#"
+  >
+    <div class="i-lucide:arrow-up" />
+  </a>
 </header>
+
+<style>
+  @keyframes fade-in-out {
+    from {
+      opacity: 0 ;
+      cursor: default;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .scroll-to-top {
+      animation: fade-in-out linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0vh 30vh;
+  }
+</style>
