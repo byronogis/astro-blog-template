@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.0-beta.4
+
+[compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.3...v1.0.0-beta.4)
+
+### 🩹 Fixes
+
+- Logo path ([af63942](https://github.com/byronogis/astro-friday/commit/af63942))
+
+### ❤️ Contributors
+
+- Byronogis ([@byronogis](https://github.com/byronogis))
+
 ## v1.0.0-beta.3
 
 [compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.2...v1.0.0-beta.3)
