@@ -20,3 +20,10 @@ declare module 'virtual:astro-friday-imports' {
 
   export default imports
 }
+
+declare module 'virtual:astro-friday-components' {
+  const components: {
+    NavbarBrand?: any
+  }
+  export default components
+}

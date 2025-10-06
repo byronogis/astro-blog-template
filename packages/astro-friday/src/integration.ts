@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { resolveConfig } from './config'
 import { unocss } from './integrations/unocss'
 import { vitePluginAstroFridayCollection } from './plugins/collection'
+import { vitePluginAstroFridayComponents } from './plugins/components'
 import { vitePluginAstroFridayConfig } from './plugins/config'
 import { vitePluginAstroFridayUnoCSSExtract } from './plugins/css'
 import { vitePluginAstroFridayImports } from './plugins/imports'
@@ -45,6 +46,7 @@ export function integration(userConfig: Config = {}): AstroIntegration {
               vitePluginAstroFridayCollection(resolvedConfig),
               vitePluginAstroFridayUnoCSSExtract(resolvedConfig),
               vitePluginAstroFridayImports(resolvedConfig),
+              vitePluginAstroFridayComponents(resolvedConfig),
             ],
           },
         })

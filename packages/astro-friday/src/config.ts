@@ -55,6 +55,19 @@ export function getDefaultConfig(config: Config & {
     imports: {
       '@vercel/og': '@vercel/og',
     },
+    /**
+     * Default components mapping, can be overridden by user config
+     *
+     * @example
+     * ```ts
+     * components: {
+     *   NavbarBrand: 'src/components/YourBrand.astro',
+     * }
+     * ```
+     */
+    components: {
+      NavbarBrand: 'astro-friday/components/Opt/NavbarBrand.astro',
+    },
   }
 }
 
@@ -135,6 +148,9 @@ export interface Config {
      */
     '@vercel/og'?: string
   }
+  components?: {
+    NavbarBrand?: string
+  }
 }
 
 export type ResolvedConfig = SetRequiredDeep<
@@ -161,6 +177,8 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'art.plum.weight'
   | 'imports'
   | 'imports.@vercel/og'
+  | 'components'
+  | 'components.NavbarBrand'
 > & {
   /**
    * The full base path, including Astro's base.

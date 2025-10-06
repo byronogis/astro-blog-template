@@ -1,0 +1,16 @@
+---
+import config from 'virtual:astro-friday-config'
+import { getPath } from '../../utils/path'
+import Logo from '../assets/favicon.svg'
+
+---
+
+<a
+  href={getPath('home')}
+  class="hoverable-text size-2.5rem absolute"
+  style={{
+    'background-color': 'currentColor',
+    '-webkit-mask': `url(${config?.logo?.url || Logo.src}) center / 100% no-repeat`,
+    'mask': `url(${config?.logo?.url || Logo.src}) center / 100% no-repeat`,
+  }}
+/>

@@ -1,21 +1,11 @@
 ---
+import components from 'virtual:astro-friday-components'
 import config from 'virtual:astro-friday-config'
-import Logo from '../assets/favicon.svg'
-import { getPath } from '../utils/path'
 import ThemeToggle from './ThemeToggle.astro'
-
 ---
 
 <header class="p-2rem flex gap-1.2rem items-center relative">
-  <a
-    href={getPath('home')}
-    class="hoverable-text size-2.5rem absolute"
-    style={{
-      'background-color': 'currentColor',
-      '-webkit-mask': `url(${config?.logo?.url || Logo.src}) center / 100% no-repeat`,
-      'mask': `url(${config?.logo?.url || Logo.src}) center / 100% no-repeat`,
-    }}
-  />
+  <components.NavbarBrand />
 
   <i class="flex-1"></i>
 
