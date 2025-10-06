@@ -1,0 +1,77 @@
+---
+import type { MarkdownHeading } from 'astro'
+import config from 'virtual:astro-friday-config'
+
+interface Props {
+  headings: MarkdownHeading[]
+  isResolved?: boolean
+  class?: string
+}
+
+interface MarkdownHeadingNested extends MarkdownHeading {
+  children?: MarkdownHeadingNested[]
+}
+
+const {
+  headings,
+  isResolved,
+  class: className,
+} = Astro.props
+
+const includeHeadings = headings.filter(i => i.depth >= config.post.toc.range[0] && i.depth <= config.post.toc.range[1])
+
+const resolvedHeadings = isResolved
+  ? (includeHeadings as MarkdownHeadingNested[])
+  : resolveHeadings(JSON.parse(JSON.stringify(includeHeadings)) as MarkdownHeading[])
+
+function resolveHeadings(headings_: MarkdownHeading[]): MarkdownHeadingNested[] {
+  if (headings_.length <= 1) {
+    return headings_
+  }
+
+  // avoid the first heading is not the lowest level
+  ;(() => {
+    const minDepth = Math.min(...headings_.map(i => i.depth))
+    const index = headings_.findIndex(i => i.depth === minDepth)
+    headings_.slice(0, index).forEach(i => i.depth = minDepth)
+  })()
+
+  const indexList = headings_.reduce((acc, val, idx) => {
+    if (val.depth === headings_[0].depth) {
+      acc.push(idx)
+    }
+    return acc
+  }, [] as number[])
+
+  return headings_
+    .map((val, idx) => ({
+      ...val,
+      children: resolveHeadings(headings_.slice(
+        idx + 1,
+        indexList.includes(idx)
+          ? indexList[indexList.indexOf(idx) + 1]
+          : idx + 1,
+      )),
+    }))
+    .filter((_, idx) => indexList.includes(idx))
+}
+
+// console.dir({ headings, resolvedHeadings }, { depth: 4 })
+
+
+---
+
+<ul class:list={[className]}>
+  {resolvedHeadings.map(heading => (
+    <li>
+      <a href={`#${heading.slug}`}>{heading.text}</a>
+
+      {heading.children && heading.children.length > 0 && (
+        <Astro.self
+          headings={heading.children}
+          isResolved={true}
+        />
+      )}
+    </li>
+  ))}
+</ul>

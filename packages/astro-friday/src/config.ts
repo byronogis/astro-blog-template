@@ -30,6 +30,10 @@ export function getDefaultConfig(config: Config & {
     },
     post: {
       pathStyle: 'collection/id',
+      toc: {
+        enable: true,
+        range: [2, 4],
+      },
     },
     collections: {},
     navigations: {
@@ -174,6 +178,25 @@ export interface Config {
      * @default 'collection/id'
      */
     pathStyle?: 'collection/id' | 'id'
+    /**
+     * Table of contents (TOC) generation for posts
+     */
+    toc?: {
+      /**
+       * Enable or disable the table of contents (TOC) generation for posts.
+       *
+       * @default true
+       */
+      enable?: boolean
+      /**
+       * The heading levels to include in the TOC.
+       *
+       * @example [2, 4] will include headings from h2 to h4.
+       *
+       * @default [2, 4]
+       */
+      range?: [number, number]
+    }
   }
   /**
    * Define content collections
@@ -289,6 +312,9 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'copyright.license'
   | 'post'
   | 'post.pathStyle'
+  | 'post.toc'
+  | 'post.toc.enable'
+  | 'post.toc.range'
   | 'collections'
   | 'navigations'
   | `navigations.${string}`

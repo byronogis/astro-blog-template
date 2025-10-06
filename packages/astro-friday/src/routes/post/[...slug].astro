@@ -2,6 +2,7 @@
 import { render } from 'astro:content'
 import config from 'virtual:astro-friday-config'
 import ArticleDetail from '../../components/ArticleDetail.astro'
+import ArticleTOC from '../../components/ArticleTOC.astro'
 import DefaultLayout from '../../layouts/Default.astro'
 import { getPostList } from '../../utils/content/post'
 import { getPath } from '../../utils/path'
@@ -26,7 +27,7 @@ const { entry } = Astro.props
 
 const {
   Content,
-  // headings,
+  headings,
   // @ts-expect-error never
 } = await render(entry)
 ---
@@ -65,6 +66,8 @@ const {
   }}
 >
   <ArticleDetail {entry}>
+    { config.post.toc.enable && (<ArticleTOC {headings} />) }
+
     <Content />
   </ArticleDetail>
 </DefaultLayout>

@@ -1,0 +1,42 @@
+---
+import type { MarkdownHeading } from 'astro'
+import ArticleTOCPlain from './ArticleTOCPlain.astro'
+
+interface Props {
+  headings: MarkdownHeading[]
+}
+
+const {
+  headings,
+} = Astro.props
+
+---
+
+<details
+  open
+  class:list={[
+    'table-of-contents prose',
+    'text-sm',
+    '[&_li,&_ul]:(mt-2.5px! mb-2.5px!) [&_ul_ul]:(ps-2)',
+    '[&_a]:(no-underline op-60 transition-(opacity 200 ease) line-clamp-1)',
+    '[&_a:hover]:(op-100)',
+    'lg:(w-200px fixed left-8 top-25 bottom-0 of-y-auto overscroll-contain)',
+    'xl:w-260px',
+  ]}
+  style="scrollbar-width: none;"
+>
+  <summary class:list={[
+    'mb-2 top-0 sticky list-none',
+    'lg:(op-30 [*:hover>.table-of-contents>&]:(op-100) transition duration-700)',
+  ]}
+  >
+    <i class="i-lucide:list-tree hoverable-text size-6"></i>
+  </summary>
+
+  <ArticleTOCPlain
+    {headings}
+    class:list={[
+      'lg:(op-0 [*:hover>.table-of-contents>&]:(op-100) transition duration-700)',
+    ]}
+  />
+</details>

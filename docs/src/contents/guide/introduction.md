@@ -81,7 +81,7 @@ More settings can be found in [here](./configuration).
 - [ ] sitemap
 - [ ] robots.txt
 - [ ] search
-- [ ] toc
+- [x] toc
 - [ ] keywords frontmatter field and seo binding
 - etc.
 
