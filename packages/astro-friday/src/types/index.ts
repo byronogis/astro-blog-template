@@ -1,7 +1,19 @@
 export interface NavItem {
+  /**
+   * The display label for the navigation item.
+   */
   label: string
+  /**
+   * The URL or path the navigation item links to.
+   */
   link: string
+  /**
+   * The icon for the navigation item, using [Icônes](https://icones.js.org/) syntax.
+   */
   icon?: string
+  /**
+   * The type of the navigation item, can be 'icon' or omitted for default text link.
+   */
   type?: 'icon'
   /**
    * Whether the link is external (opens in a new tab)
@@ -15,6 +27,11 @@ export interface NavItem {
    * @default 0
    */
   order?: number
+  /**
+   * Whether to hide this navigation item
+   *
+   * Useful for disabling built-in navs like `post`, `tag`, `series`, `theme-toggle`
+   */
   hidden?: boolean
 }
 
