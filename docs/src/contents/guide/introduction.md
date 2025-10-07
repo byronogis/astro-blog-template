@@ -29,6 +29,7 @@ You can find source code in [here](https://github.com/byronogis/astro-friday).
 - light & dark mode by [astro-color-scheme](https://github.com/surjithctly/astro-color-scheme)
 - responsive design, mobile and desktop friendly
 - [unocss](https://github.com/unocss/unocss) for css, also [icon](https://unocss.dev/presets/icons) convenient
+- [viewTransition](https://docs.astro.build/en/guides/view-transitions/) enabled default for post title, tag and series link navigation
 
 ## Usage
 
