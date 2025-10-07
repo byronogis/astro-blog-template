@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v1.0.0-beta.9
+
+[compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.8...v1.0.0-beta.9)
+
+### 🔥 Performance
+
+- Just adding progress bar while view transition is enabled ([0fb30a9](https://github.com/byronogis/astro-friday/commit/0fb30a9))
+
+### 💅 Refactors
+
+- Extract astro-nprogress integration ([7fce77b](https://github.com/byronogis/astro-friday/commit/7fce77b))
+
+### 🏡 Chore
+
+- Avoid using important flag ([7daa059](https://github.com/byronogis/astro-friday/commit/7daa059))
+- Optimize accessibility ([0944b1d](https://github.com/byronogis/astro-friday/commit/0944b1d))
+
+### ❤️ Contributors
+
+- Byronogis ([@byronogis](https://github.com/byronogis))
+
 ## v1.0.0-beta.8
 
 [compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.7...v1.0.0-beta.8)
