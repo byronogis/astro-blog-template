@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions'
 import config from 'virtual:astro-friday-config'
 import Art from '../components/Art/Art.astro'
 import HeadContent from '../components/HeadContent.astro'
+import LoadingIndicator from '../components/LoadingIndicator.astro'
 import 'virtual:astro-friday-unocss-extract'
 import '../styles/main.css'
 
@@ -30,6 +31,7 @@ const { seo } = Astro.props
   <body class="text-gray-700 font-sans relative dark:text-gray-200">
     <slot />
     <Art />
+    <LoadingIndicator />
   </body>
 </html>
 

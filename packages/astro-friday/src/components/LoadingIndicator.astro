@@ -1,0 +1,45 @@
+---
+import 'nprogress/nprogress.css'
+
+const id = 'loading-indicator'
+---
+
+<div
+  {id}
+  transition:persist={id}
+  class="[&_.bar]:bg-gray-500!"
+/>
+
+<style>
+  #loading-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+import NProgress from 'nprogress'
+import { withViewTransition } from '../utils/view-transition'
+
+const id = 'loading-indicator'
+
+withViewTransition({
+  initial() {
+    NProgress.configure({
+      showSpinner: false,
+      parent: `#${id}`,
+    })
+  },
+  beforePreparation() {
+    NProgress.start()
+  },
+  afterPreparation() {
+    NProgress.done()
+  },
+})
+</script>

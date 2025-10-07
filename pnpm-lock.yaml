@@ -32,6 +32,9 @@ catalogs:
       specifier: ^8.8.4
       version: 8.8.4
   frontend:
+    nprogress:
+      specifier: ^0.2.0
+      version: 0.2.0
     pixi.js:
       specifier: ^8.14.0
       version: 8.14.0
@@ -81,6 +84,10 @@ catalogs:
     astro-seo:
       specifier: ^0.8.4
       version: 0.8.4
+  types:
+    '@types/nprogress':
+      specifier: ^0.2.3
+      version: 0.2.3
 
 importers:
 
@@ -158,6 +165,9 @@ importers:
       defu:
         specifier: catalog:deps
         version: 6.1.4
+      nprogress:
+        specifier: catalog:frontend
+        version: 0.2.0
       pixi.js:
         specifier: catalog:frontend
         version: 8.14.0
@@ -171,6 +181,9 @@ importers:
         specifier: catalog:deps
         version: 66.5.2(postcss@8.5.6)(vite@6.3.6(@types/node@20.8.0)(jiti@2.6.1)(yaml@2.8.1))
     devDependencies:
+      '@types/nprogress':
+        specifier: catalog:types
+        version: 0.2.3
       typescript:
         specifier: catalog:deps
         version: 5.9.3
@@ -1110,6 +1123,9 @@ packages:
 
   '@types/node@20.8.0':
     resolution: {integrity: sha512-LzcWltT83s1bthcvjBmiBvGJiiUe84NWRHkw+ZV6Fr41z2FbIzvc815dk2nQ3RAKMuN2fkenM/z3Xv2QzEpYxQ==}
+
+  '@types/nprogress@0.2.3':
+    resolution: {integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==}
 
   '@types/unist@3.0.0':
     resolution: {integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==}
@@ -2680,6 +2696,9 @@ packages:
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+
+  nprogress@0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -4589,6 +4608,8 @@ snapshots:
       '@types/unist': 3.0.0
 
   '@types/node@20.8.0': {}
+
+  '@types/nprogress@0.2.3': {}
 
   '@types/unist@3.0.0': {}
 
@@ -6717,6 +6738,8 @@ snapshots:
   node-releases@2.0.21: {}
 
   normalize-path@3.0.0: {}
+
+  nprogress@0.2.0: {}
 
   nth-check@2.1.1:
     dependencies:

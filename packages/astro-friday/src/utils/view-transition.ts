@@ -1,4 +1,4 @@
-import type { TransitionBeforeSwapEvent } from 'astro:transitions/client'
+import type { TransitionBeforePreparationEvent, TransitionBeforeSwapEvent } from 'astro:transitions/client'
 
 /**
  * A utility function to execute a callback that compatibly with Astro's view transitions.
@@ -9,11 +9,15 @@ import type { TransitionBeforeSwapEvent } from 'astro:transitions/client'
  */
 export function withViewTransition(callbacks: {
   initial?: (state: WithViewTransitionState) => void
+  beforePreparation?: (state: WithViewTransitionState, event: TransitionBeforePreparationEvent) => void
+  afterPreparation?: (state: WithViewTransitionState, event: Event) => void
   beforeSwap?: (state: WithViewTransitionState, event: TransitionBeforeSwapEvent) => void
   done?: (state: WithViewTransitionState) => void
 } = {}) {
   const {
     initial,
+    beforePreparation,
+    afterPreparation,
     beforeSwap,
     done,
   } = callbacks
@@ -32,6 +36,14 @@ export function withViewTransition(callbacks: {
       state.document = document
       done?.(state)
     })
+  })
+
+  state.document.addEventListener('astro:before-preparation', (event) => {
+    beforePreparation?.(state, event)
+  })
+
+  state.document.addEventListener('astro:after-preparation', (event) => {
+    afterPreparation?.(state, event)
   })
 }
 

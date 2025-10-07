@@ -42,6 +42,7 @@
     "astro": "catalog:build",
     "astro-seo": "catalog:seo",
     "dayjs": "catalog:deps",
+    "nprogress": "catalog:frontend",
     "pixi.js": "catalog:frontend",
     "simplex-noise": "catalog:frontend",
     "unocss": "catalog:deps"
@@ -52,6 +53,7 @@
     "type-fest": "catalog:deps"
   },
   "devDependencies": {
+    "@types/nprogress": "catalog:types",
     "typescript": "catalog:deps"
   }
 }

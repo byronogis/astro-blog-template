@@ -17,6 +17,7 @@ catalogs:
     unocss: ^66.5.2
     zx: ^8.8.4
   frontend:
+    nprogress: ^0.2.0
     pixi.js: ^8.14.0
     simplex-noise: ^4.0.3
   icons:
@@ -38,6 +39,8 @@ catalogs:
   seo:
     '@vercel/og': ^0.8.5
     astro-seo: ^0.8.4
+  types:
+    '@types/nprogress': ^0.2.3
 
 enablePrePostScripts: true
 
