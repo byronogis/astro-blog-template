@@ -1,5 +1,6 @@
 ---
 import config from 'virtual:astro-friday-config'
+import pkg from '../../package.json' assert { type: 'json' }
 ---
 
 <footer class="copyright live-area mb-6 mt-10 flex flex-col sm:flex-row">
@@ -12,11 +13,19 @@ import config from 'virtual:astro-friday-config'
     {config.copyright.copyrightYears} © {config.author.name}
   </span>
   <div class="flex-auto"></div>
-  <span class="text-sm op-50">
+  <span class="text-sm op-50 [&>a>i]:lg:hover:text-1em">
     Powered by
-    <a href="https://astro.build" target="_blank" style="color:inherit">Astro</a>
+    <a
+      href="https://astro.build"
+      target="_blank"
+      style="color:inherit"
+    >Astro<i class="text-0 transition-font-size duration-400"> {Astro.generator.slice(6)}</i></a>
     &
-    <a href="https://github.com/byronogis/astro-friday" target="_blank" style="color:inherit">Friday</a>
+    <a
+      href="https://github.com/byronogis/astro-friday"
+      target="_blank"
+      style="color:inherit"
+    >Friday<i class="text-0 transition-font-size duration-400"> {`v${pkg.version}`}</i></a>
   </span>
 </footer>
 
