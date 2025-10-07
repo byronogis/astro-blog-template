@@ -28,6 +28,8 @@ import ThemeToggle from './ThemeToggle.astro'
               href={item.link}
               target={item.external ? '_blank' : '_self'}
               class="hoverable-text"
+              aria-label={item.label}
+              title={item.label}
             >
               {
                 item.type === 'icon' && item.icon
