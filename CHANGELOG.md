@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v1.0.0-beta.6
+
+[compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.5...v1.0.0-beta.6)
+
+### 🚀 Enhancements
+
+- View transition for title, tag, series ([3d65350](https://github.com/byronogis/astro-friday/commit/3d65350))
+
+### 🩹 Fixes
+
+- Toc text color while dark theme ([b5d9341](https://github.com/byronogis/astro-friday/commit/b5d9341))
+
+### 🏡 Chore
+
+- Add force flag to astro dev command ([994968e](https://github.com/byronogis/astro-friday/commit/994968e))
+
+### ❤️ Contributors
+
+- Byronogis ([@byronogis](https://github.com/byronogis))
+
 ## v1.0.0-beta.5
 
 [compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.4...v1.0.0-beta.5)
