@@ -5,6 +5,10 @@
 
 [compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.5...v1.0.0-beta.6)
 
+### 🔥 Performance
+
+- Noneed TOC while headings length is zero ([3ea9624](https://github.com/byronogis/astro-friday/commit/3ea9624))
+
 ### 🚀 Enhancements
 
 - View transition for title, tag, series ([3d65350](https://github.com/byronogis/astro-friday/commit/3d65350))
