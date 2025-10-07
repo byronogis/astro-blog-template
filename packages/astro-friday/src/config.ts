@@ -3,7 +3,7 @@ import type nprogress from 'astro-nprogress'
 import type { Props as SEO } from 'astro-seo'
 import type { glob } from 'astro/loaders'
 import type { SetRequiredDeep } from 'type-fest'
-import type { ArtConfig, NavItem } from './types'
+import type { ArtConfig, NavItem, ProjectItem } from './types'
 import path from 'node:path'
 import { defu } from 'defu'
 
@@ -41,6 +41,7 @@ export function getDefaultConfig(config: Config & {
       'post': { label: 'Post', link: path.join(baseFull, 'post'), icon: 'i-lucide:scroll-text', order: 100 },
       'tag': { label: 'Tag', link: path.join(baseFull, 'tag'), icon: 'i-lucide:tag', order: 200 },
       'series': { label: 'Series', link: path.join(baseFull, 'series'), icon: 'i-lucide:square-library', order: 300 },
+      'project': { label: 'Project', link: path.join(baseFull, 'project'), icon: 'i-lucide:lightbulb', order: 400, hidden: !config.projects?.length },
       'theme-toggle': { label: 'Theme', link: 'javascript:;', order: 1000 },
     },
     pages: {
@@ -71,6 +72,7 @@ export function getDefaultConfig(config: Config & {
         showSpinner: false,
       },
     },
+    projects: [],
   }
 }
 
@@ -331,6 +333,14 @@ export interface Config {
      */
     nprogress?: Parameters<typeof nprogress>[0] | false
   }
+  /**
+   * Project showcase items, used in the `/projects` page.
+   *
+   * A page route for `/projects` will be automatically created if there are more than 0 projects defined.
+   *
+   * @default []
+   */
+  projects?: ProjectItem[]
 }
 
 export type ResolvedConfig = SetRequiredDeep<
@@ -366,6 +376,7 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'viewTransition.enable'
   | 'integrations'
   | 'integrations.nprogress'
+  | 'projects'
 > & {
   /**
    * The full base path, including Astro's base.

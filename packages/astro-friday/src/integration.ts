@@ -97,6 +97,11 @@ export function integration(userConfig: Config = {}): AstroIntegration {
           },
         ]
 
+        resolvedConfig.projects?.length && routes.push({
+          pattern: path.join(resolvedConfig.base, `project`),
+          entrypoint: `astro-friday/routes/project/index.astro`,
+        })
+
         resolvedConfig.pages[404] && routes.push(resolvedConfig.pages[404])
         resolvedConfig.pages.home && routes.push(resolvedConfig.pages.home)
 

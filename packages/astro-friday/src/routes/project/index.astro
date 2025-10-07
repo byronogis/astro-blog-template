@@ -1,0 +1,48 @@
+---
+import type { ProjectItem as ProjectItemType } from '../../types/index'
+import config from 'virtual:astro-friday-config'
+import ProjectItem from '../../components/ProjectItem.astro'
+import DefaultLayout from '../../layouts/Default.astro'
+
+const projects = config.projects
+
+const categorizedProjects = projects?.reduce((acc, project) => {
+  const category = project.category || 'Uncategorized'
+  if (!acc[category]) {
+    acc[category] = []
+  }
+  acc[category].push(project)
+  return acc
+}, {} as Record<string, ProjectItemType[]>)
+---
+
+<DefaultLayout>
+  <div class="mx-auto max-w-300">
+  {
+    Object.entries(categorizedProjects || {}).map(([category, projects], _cidx) => (
+      <div
+        class=""
+      >
+        <div
+          id={category.toLowerCase().replace(/\s+/g, '-')}
+          class="mt5 h18 pointer-events-none select-none relative"
+        >
+          <span
+            class="text-5em color-transparent leading-1em font-bold text-stroke-1.5 text-stroke-hex-aaa op35 left--1rem top-0rem absolute dark:op20"
+          >{category}</span>
+        </div>
+        <div
+          class="mx-auto py-2 gap-4 grid grid-cols-1 max-w-500 w-max lg:grid-cols-3 md:grid-cols-2"
+        >
+          {projects.map(project => (
+            <ProjectItem {project} />
+          ))}
+        </div>
+      </div>
+    ))
+  }
+  </div>
+</DefaultLayout>
+
+
+

@@ -23,6 +23,7 @@ export function vitePluginAstroFridayUnoCSSExtract(resolvedConfig: ResolvedConfi
           export default [
             // icons from navigations
             \`${Object.values(resolvedConfig.navigations).map(i => i.icon).filter(Boolean).join(' ')}\`,
+            \`${Object.values(resolvedConfig.projects).map(i => i.icon).filter(Boolean).join(' ')}\`,
           ]
         `
       }

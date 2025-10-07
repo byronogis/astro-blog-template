@@ -42,3 +42,14 @@ export interface ArtConfig {
    */
   weight?: number
 }
+
+export interface ProjectItem extends Pick<NavItem, 'label' | 'link' | 'icon'> {
+  /**
+   * A brief description of the project.
+   */
+  desc?: string
+  /**
+   * The category the project belongs to.
+   */
+  category?: string
+}

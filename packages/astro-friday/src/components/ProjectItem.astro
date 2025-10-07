@@ -1,0 +1,39 @@
+---
+import type { ProjectItem } from '../types/index'
+
+interface Props {
+  project: ProjectItem
+}
+
+const { project } = Astro.props;
+---
+
+<a
+  class="hoverable-text flex items-center relative"
+  href={project.link}
+  target="_blank"
+  :title={project.label}
+>
+  <div class="pr-5 pt-2">
+    <div class="text-3xl opacity-50" class:list={[project.icon]} />
+  </div>
+  <div class="flex-auto">
+    <div class="text-normal">{project.label}</div>
+    <div class="desc text-sm font-normal opacity-50" set:html={project.desc} />
+  </div>
+</a>
+
+<style>
+  a {
+    background: transparent;
+    font-size: 1.1rem;
+    width: 350px;
+    max-width: 100%;
+    padding: 0.5rem 0.875rem 0.875rem;
+    border-radius: 6px;
+  }
+
+  a:hover {
+    background: #88888811;
+  }
+</style>
