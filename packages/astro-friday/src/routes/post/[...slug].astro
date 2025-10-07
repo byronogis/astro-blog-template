@@ -71,7 +71,7 @@ const {
   }}
 >
   <ArticleDetail {entry}>
-    { config.post.toc.enable && (<ArticleTOC {headings} />) }
+    { config.post.toc.enable && headings.length ? (<ArticleTOC {headings} />) : null }
 
     <Content />
   </ArticleDetail>
