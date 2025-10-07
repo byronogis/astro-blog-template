@@ -85,6 +85,11 @@ catalogs:
       specifier: ^0.8.4
       version: 0.8.4
 
+patchedDependencies:
+  astro-color-scheme:
+    hash: 1823873e88a720f301bced08dceb9ee6aa422e8c1ee9d3c4fb7ace054a8c8938
+    path: patches/astro-color-scheme.patch
+
 importers:
 
   .:
@@ -151,7 +156,7 @@ importers:
         version: 5.14.1(@types/node@20.8.0)(jiti@2.6.0)(rollup@4.52.2)(typescript@5.9.2)(yaml@2.8.1)
       astro-color-scheme:
         specifier: catalog:deps
-        version: 1.1.5
+        version: 1.1.5(patch_hash=1823873e88a720f301bced08dceb9ee6aa422e8c1ee9d3c4fb7ace054a8c8938)
       astro-seo:
         specifier: catalog:seo
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
@@ -5035,7 +5040,7 @@ snapshots:
   assertion-error@1.1.0:
     optional: true
 
-  astro-color-scheme@1.1.5: {}
+  astro-color-scheme@1.1.5(patch_hash=1823873e88a720f301bced08dceb9ee6aa422e8c1ee9d3c4fb7ace054a8c8938): {}
 
   astro-eslint-parser@1.2.2:
     dependencies:

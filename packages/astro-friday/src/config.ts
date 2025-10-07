@@ -62,6 +62,9 @@ export function getDefaultConfig(config: Config & {
     components: {
       NavbarBrand: 'astro-friday/components/Opt/NavbarBrand.astro',
     },
+    viewTransition: {
+      enable: true,
+    },
   }
 }
 
@@ -299,6 +302,18 @@ export interface Config {
      */
     NavbarBrand?: string
   }
+  /**
+   * View transition functionality configuration
+   *
+   * @see https://docs.astro.build/en/guides/view-transitions/
+   */
+  viewTransition?: {
+    /**
+     * Enable or disable view transitions for page navigation.
+     * @default true
+     */
+    enable?: boolean
+  }
 }
 
 export type ResolvedConfig = SetRequiredDeep<
@@ -330,6 +345,8 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'imports.@vercel/og'
   | 'components'
   | 'components.NavbarBrand'
+  | 'viewTransition'
+  | 'viewTransition.enable'
 > & {
   /**
    * The full base path, including Astro's base.

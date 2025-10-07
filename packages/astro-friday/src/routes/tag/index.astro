@@ -22,7 +22,7 @@ const tagInfos = await getPostList({
           href={getPath('tag', [tag])}
           class="text-xl py-2 pr-4 hoverable-text relative"
         >
-          {tag}
+          <span transition:name={`tag:${tag}`}>{tag}</span>
           <span class="text-sm font-italic right-0 top-0 absolute z-1">{entryList.length}</span>
         </a>
       </li>

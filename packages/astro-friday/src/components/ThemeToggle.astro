@@ -10,12 +10,21 @@ import { ThemeSwitch } from 'astro-color-scheme'
 </ThemeSwitch>
 
 <script>
+import type { WithViewTransitionState } from '../utils/view-transition'
 import { toggleDark } from '../utils/theme'
+import { withViewTransition } from '../utils/view-transition'
 
-const callback = document.getElementById('header-theme-toggle-btn--callback')
-const trigger = document.getElementById('header-theme-toggle-btn--trigger')
-trigger?.addEventListener('click', (e) => {
-  const isDark = document.documentElement.classList.contains('dark')
-  toggleDark(e, { isDark: !isDark, toggle: () => callback?.click() })
+function task(state: WithViewTransitionState) {
+  const callback = state.document.getElementById('header-theme-toggle-btn--callback')
+  const trigger = state.document.getElementById('header-theme-toggle-btn--trigger')
+  trigger?.addEventListener('click', (e) => {
+    const isDark = state.document.documentElement.classList.contains('dark')
+    toggleDark(e, { isDark: !isDark, toggle: () => callback?.click() })
+  })
+}
+
+withViewTransition({
+  initial: task,
+  beforeSwap: task,
 })
 </script>

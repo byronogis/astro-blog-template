@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions'
+import config from 'virtual:astro-friday-config'
 import Art from '../components/Art/Art.astro'
 import HeadContent from '../components/HeadContent.astro'
 import 'virtual:astro-friday-unocss-extract'
@@ -17,6 +19,8 @@ const { seo } = Astro.props
   <head>
     <HeadContent {seo} />
 
+    {config.viewTransition.enable && <ClientRouter />}
+
     <style is:global>
       :root.dark img {
         filter: brightness(0.8) saturate(1.25);
@@ -28,3 +32,20 @@ const { seo } = Astro.props
     <Art />
   </body>
 </html>
+
+<script>
+import { withViewTransition } from '../utils/view-transition'
+
+/**
+ * @see https://github.com/withastro/astro/issues/10615#issuecomment-3289385496
+ */
+withViewTransition({
+  beforeSwap(state, e) {
+    state.document.documentElement.style.scrollBehavior
+      = e.navigationType === 'traverse' ? 'auto' : 'smooth'
+  },
+  done(state) {
+    state.document.documentElement.style.scrollBehavior = 'smooth'
+  },
+})
+</script>
