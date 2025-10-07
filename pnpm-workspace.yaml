@@ -2,9 +2,6 @@ packages:
   - packages/*
   - docs
 
-patchedDependencies:
-  astro-color-scheme: patches/astro-color-scheme.patch
-
 catalogs:
   build:
     astro: ^5.14.1
