@@ -13,5 +13,7 @@ const selectedArt = selectByWeight(artWeights)
 
 ---
 
-{selectedArt === 'dots' && <ArtDots />}
-{selectedArt === 'plum' && <ArtPlum />}
+<div transition:persist="art">
+  {selectedArt === 'dots' && <ArtDots />}
+  {selectedArt === 'plum' && <ArtPlum />}
+</div>
