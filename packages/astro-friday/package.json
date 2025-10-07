@@ -42,18 +42,17 @@
     "astro": "catalog:build",
     "astro-seo": "catalog:seo",
     "dayjs": "catalog:deps",
-    "nprogress": "catalog:frontend",
     "pixi.js": "catalog:frontend",
     "simplex-noise": "catalog:frontend",
     "unocss": "catalog:deps"
   },
   "dependencies": {
     "astro-color-scheme": "git+https://github.com/byronogis/astro-color-scheme.git#feat-support-astro-view-transition",
+    "astro-nprogress": "^0.0.2",
     "defu": "catalog:deps",
     "type-fest": "catalog:deps"
   },
   "devDependencies": {
-    "@types/nprogress": "catalog:types",
     "typescript": "catalog:deps"
   }
 }

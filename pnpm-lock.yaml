@@ -32,9 +32,6 @@ catalogs:
       specifier: ^8.8.4
       version: 8.8.4
   frontend:
-    nprogress:
-      specifier: ^0.2.0
-      version: 0.2.0
     pixi.js:
       specifier: ^8.14.0
       version: 8.14.0
@@ -84,10 +81,6 @@ catalogs:
     astro-seo:
       specifier: ^0.8.4
       version: 0.8.4
-  types:
-    '@types/nprogress':
-      specifier: ^0.2.3
-      version: 0.2.3
 
 importers:
 
@@ -156,6 +149,9 @@ importers:
       astro-color-scheme:
         specifier: git+https://github.com/byronogis/astro-color-scheme.git#feat-support-astro-view-transition
         version: https://codeload.github.com/byronogis/astro-color-scheme/tar.gz/4ab96d0de144e83837057b508dd0db26a5d9a6d3
+      astro-nprogress:
+        specifier: ^0.0.2
+        version: 0.0.2(astro@5.14.1(@types/node@20.8.0)(jiti@2.6.1)(rollup@4.52.2)(typescript@5.9.3)(yaml@2.8.1))
       astro-seo:
         specifier: catalog:seo
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
@@ -165,9 +161,6 @@ importers:
       defu:
         specifier: catalog:deps
         version: 6.1.4
-      nprogress:
-        specifier: catalog:frontend
-        version: 0.2.0
       pixi.js:
         specifier: catalog:frontend
         version: 8.14.0
@@ -181,9 +174,6 @@ importers:
         specifier: catalog:deps
         version: 66.5.2(postcss@8.5.6)(vite@6.3.6(@types/node@20.8.0)(jiti@2.6.1)(yaml@2.8.1))
     devDependencies:
-      '@types/nprogress':
-        specifier: catalog:types
-        version: 0.2.3
       typescript:
         specifier: catalog:deps
         version: 5.9.3
@@ -1448,8 +1438,18 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  astro-nprogress@0.0.2:
+    resolution: {integrity: sha512-IH3NXbyZvOeQziFr5QtS2mAjW/EKvXtoGFVWMKtJ1tcH9SN5kV5ZtCXSI/byX7j9ogHor7onCeF4c2HecRgZZQ==}
+    peerDependencies:
+      astro: ^5.0.0
+
   astro-seo@0.8.4:
     resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
+
+  astro-view-transition-script@0.0.1:
+    resolution: {integrity: sha512-VWU1uue11vPM4OKpZV9tXl8DgnVTUeSxpHHdA9WVtpqcEkRfzzxFnfDYGkh85lVMhcWVsd2obn+C0I1lv/5NwQ==}
+    peerDependencies:
+      astro: ^5.0.0
 
   astro@5.14.1:
     resolution: {integrity: sha512-gPa8NY7/lP8j8g81iy8UwANF3+aukKRWS68IlthZQNgykpg80ne6lbHOp6FErYycxQ1TUhgEfkXVDQZAoJx8Bg==}
@@ -5090,6 +5090,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  astro-nprogress@0.0.2(astro@5.14.1(@types/node@20.8.0)(jiti@2.6.1)(rollup@4.52.2)(typescript@5.9.3)(yaml@2.8.1)):
+    dependencies:
+      '@types/nprogress': 0.2.3
+      astro: 5.14.1(@types/node@20.8.0)(jiti@2.6.1)(rollup@4.52.2)(typescript@5.9.3)(yaml@2.8.1)
+      astro-view-transition-script: 0.0.1(astro@5.14.1(@types/node@20.8.0)(jiti@2.6.1)(rollup@4.52.2)(typescript@5.9.3)(yaml@2.8.1))
+      nprogress: 0.2.0
+
   astro-seo@0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3):
     dependencies:
       '@astrojs/check': 0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
@@ -5097,6 +5104,10 @@ snapshots:
       - prettier
       - prettier-plugin-astro
       - typescript
+
+  astro-view-transition-script@0.0.1(astro@5.14.1(@types/node@20.8.0)(jiti@2.6.1)(rollup@4.52.2)(typescript@5.9.3)(yaml@2.8.1)):
+    dependencies:
+      astro: 5.14.1(@types/node@20.8.0)(jiti@2.6.1)(rollup@4.52.2)(typescript@5.9.3)(yaml@2.8.1)
 
   astro@5.14.1(@types/node@20.8.0)(jiti@2.6.1)(rollup@4.52.2)(typescript@5.9.3)(yaml@2.8.1):
     dependencies:

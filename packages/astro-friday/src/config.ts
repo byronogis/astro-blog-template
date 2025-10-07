@@ -1,4 +1,5 @@
 import type { AstroConfig, InjectedRoute } from 'astro'
+import type nprogress from 'astro-nprogress'
 import type { Props as SEO } from 'astro-seo'
 import type { glob } from 'astro/loaders'
 import type { SetRequiredDeep } from 'type-fest'
@@ -64,6 +65,11 @@ export function getDefaultConfig(config: Config & {
     },
     viewTransition: {
       enable: true,
+    },
+    integrations: {
+      nprogress: {
+        showSpinner: false,
+      },
     },
   }
 }
@@ -314,6 +320,17 @@ export interface Config {
      */
     enable?: boolean
   }
+  /**
+   * Integrations configuration, you can configure or disable built-in integrations here.
+   */
+  integrations?: {
+    /**
+     * Nprogress using in astro while the astro view transition is enabled.
+     *
+     * @see https://github.com/byronogis/astro-nprogress
+     */
+    nprogress?: Parameters<typeof nprogress>[0] | false
+  }
 }
 
 export type ResolvedConfig = SetRequiredDeep<
@@ -347,6 +364,8 @@ export type ResolvedConfig = SetRequiredDeep<
   | 'components.NavbarBrand'
   | 'viewTransition'
   | 'viewTransition.enable'
+  | 'integrations'
+  | 'integrations.nprogress'
 > & {
   /**
    * The full base path, including Astro's base.

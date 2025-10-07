@@ -6,6 +6,7 @@ import type { Config } from './config'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { resolveConfig } from './config'
+import { nprogress } from './integrations/nprogress'
 import { unocss } from './integrations/unocss'
 import { vitePluginAstroFridayCollection } from './plugins/collection'
 import { vitePluginAstroFridayComponents } from './plugins/components'
@@ -39,6 +40,7 @@ export function integration(userConfig: Config = {}): AstroIntegration {
         updateConfig({
           integrations: [
             ...unocss(config),
+            ...nprogress(config, resolvedConfig),
           ],
           vite: {
             plugins: [
