@@ -15,8 +15,8 @@ import { ThemeSwitch } from 'astro-color-scheme'
 
 <script>
 import type { WithViewTransitionState } from '../utils/view-transition'
+import { withViewTransition } from 'astro-view-transition-script'
 import { toggleDark } from '../utils/theme'
-import { withViewTransition } from '../utils/view-transition'
 
 function task(state: WithViewTransitionState) {
   const callback = state.document.getElementById('header-theme-toggle-btn--callback')

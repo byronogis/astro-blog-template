@@ -49,6 +49,7 @@
   "dependencies": {
     "astro-color-scheme": "git+https://github.com/byronogis/astro-color-scheme.git#feat-support-astro-view-transition",
     "astro-nprogress": "^0.0.2",
+    "astro-view-transition-script": "^0.0.3",
     "defu": "catalog:deps",
     "type-fest": "catalog:deps"
   },
