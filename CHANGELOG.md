@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v1.0.0-beta.10
+
+[compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.9...v1.0.0-beta.10)
+
+### 🚀 Enhancements
+
+- Project route while pass projects config ([9b8e04e](https://github.com/byronogis/astro-friday/commit/9b8e04e))
+
+### 💅 Refactors
+
+- Using extracted pkg astro-view-transition-script ([b0c0524](https://github.com/byronogis/astro-friday/commit/b0c0524))
+
+### 📖 Documentation
+
+- Projects example ([53c7ee5](https://github.com/byronogis/astro-friday/commit/53c7ee5))
+
+### ❤️ Contributors
+
+- Byronogis ([@byronogis](https://github.com/byronogis))
+
 ## v1.0.0-beta.9
 
 [compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.8...v1.0.0-beta.9)
