@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v1.0.0-beta.7
+
+[compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.6...v1.0.0-beta.7)
+
+### 🚀 Enhancements
+
+- Making art state persist between pages when using view transition ([891dc46](https://github.com/byronogis/astro-friday/commit/891dc46))
+
+### 📖 Documentation
+
+- Update changelog ([7b93e96](https://github.com/byronogis/astro-friday/commit/7b93e96))
+- Update highlights ([e5b5339](https://github.com/byronogis/astro-friday/commit/e5b5339))
+
+### 📦 Build
+
+- Use fork insteadof patch to modify deps to support customer ([4369305](https://github.com/byronogis/astro-friday/commit/4369305))
+
+### 🏡 Chore
+
+- Update deps ([3695177](https://github.com/byronogis/astro-friday/commit/3695177))
+
+### ❤️ Contributors
+
+- Byronogis ([@byronogis](https://github.com/byronogis))
+
 ## v1.0.0-beta.6
 
 [compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.5...v1.0.0-beta.6)
