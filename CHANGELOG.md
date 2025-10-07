@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.0.0-beta.8
+
+[compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.7...v1.0.0-beta.8)
+
+### 🚀 Enhancements
+
+- Integrate nprogress bar ([50972d1](https://github.com/byronogis/astro-friday/commit/50972d1))
+
+### 🏡 Chore
+
+- Display generator version while there are be hovered ([a8f7798](https://github.com/byronogis/astro-friday/commit/a8f7798))
+
+### ❤️ Contributors
+
+- Byronogis ([@byronogis](https://github.com/byronogis))
+
 ## v1.0.0-beta.7
 
 [compare changes](https://github.com/byronogis/astro-friday/compare/v1.0.0-beta.6...v1.0.0-beta.7)
