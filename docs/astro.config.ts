@@ -33,7 +33,7 @@ export default defineConfig({
       },
       navigations: {
         post: { label: 'Guide' },
-        changelog: { label: 'Changelog', icon: 'i-lucide:history', link: '/changelog', order: 800 },
+        changelog: { label: 'Changelog', icon: 'i-lucide:history', link: '/astro-friday/changelog', order: 800 },
         github: { label: 'Github', icon: 'i-lucide:github', external: true, link: 'https://github.com/byronogis', type: 'icon', order: 900 },
       },
       pages: {
